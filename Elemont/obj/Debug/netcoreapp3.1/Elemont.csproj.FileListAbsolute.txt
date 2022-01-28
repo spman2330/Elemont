@@ -1,0 +1,16 @@
+D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.exe
+D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.deps.json
+D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.runtimeconfig.json
+D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.runtimeconfig.dev.json
+D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.dll
+D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.pdb
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.csproj.AssemblyReference.cache
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.FormBegin.resources
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.csproj.GenerateResource.cache
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.AssemblyInfoInputs.cache
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.AssemblyInfo.cs
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.csproj.CoreCompileInputs.cache
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.dll
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.pdb
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.genruntimeconfig.cache
