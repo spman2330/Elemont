@@ -110,6 +110,7 @@ namespace Elemont.Gui
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BeginForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.BeginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

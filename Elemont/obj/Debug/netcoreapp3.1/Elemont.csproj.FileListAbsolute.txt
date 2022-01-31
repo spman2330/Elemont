@@ -33,3 +33,7 @@ C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.dll
 C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.pdb
 C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Map.resources
+C:\Users\Admin\Desktop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Control.Draggable.dll
+C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.csproj.CopyComplete
+C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Map1.resources
+C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Storage.resources
