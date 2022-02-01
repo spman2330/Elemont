@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Elemont.Gui;
+using Elemont.Gui.Game;
 
 namespace Elemont
 {
@@ -18,7 +18,7 @@ namespace Elemont
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BeginForm());
+            Application.Run(new Map1());
         }
     }
 }

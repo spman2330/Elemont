@@ -14,5 +14,10 @@ namespace Elemont.Gui
         {
             InitializeComponent();
         }
+
+        private void BeginForm_Load(object sender, EventArgs e)
+        {
+            ControlExtension.Draggable(button1, true);
+        }
     }
 }
