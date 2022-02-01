@@ -5,7 +5,6 @@ D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.runtimeconfig.dev
 D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.dll
 D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Elemont.pdb
 D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.csproj.AssemblyReference.cache
-D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.FormBegin.resources
 D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.csproj.GenerateResource.cache
 D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.GeneratedMSBuildEditorConfig.editorconfig
 D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.AssemblyInfoInputs.cache
@@ -37,3 +36,12 @@ C:\Users\Admin\Desktop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Control.Draggable
 C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.csproj.CopyComplete
 C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Map1.resources
 C:\Users\Admin\Desktop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Storage.resources
+D:\Project\Oop\Elemont\Elemont\bin\Debug\netcoreapp3.1\Control.Draggable.dll
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.AccountManager.AccountManagerForm.resources
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.BeginForm.resources
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Battle.resources
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Map.resources
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Map1.resources
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Gui.Game.Storage.resources
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.Properties.Resources.resources
+D:\Project\Oop\Elemont\Elemont\obj\Debug\netcoreapp3.1\Elemont.csproj.CopyComplete
