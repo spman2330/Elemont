@@ -8,6 +8,7 @@
 
 	<ItemGroup>
 		<Folder Include="Dao\" />
+		<Folder Include="Gui\GameManager\" />
 		<Folder Include="Gui\GameStatistic\" />
 		<Folder Include="Static\Image\" />
 		<Folder Include="Static\Sql\" />
@@ -15,6 +16,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Control.Draggable" Version="1.0.5049.269" />
+	  <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
 	</ItemGroup>
 
 	<ItemGroup>
