@@ -6,18 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Elemont.Gui
+namespace Elemont.Gui.AccountManager
 {
-    public partial class BeginForm : Form
+    public partial class AdminManager : Form
     {
-        public BeginForm()
+        public AdminManager()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

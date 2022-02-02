@@ -10,7 +10,6 @@
 		<Folder Include="Dao\" />
 		<Folder Include="Gui\GameManager\" />
 		<Folder Include="Gui\GameStatistic\" />
-		<Folder Include="Resource\" />
 		<Folder Include="Static\Image\" />
 		<Folder Include="Static\Sql\" />
 	</ItemGroup>

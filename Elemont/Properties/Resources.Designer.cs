@@ -73,6 +73,26 @@ namespace Elemont.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _113_1137213_sea_monster_clipart_sea_serpent_transparent_png_download {
+            get {
+                object obj = ResourceManager.GetObject("113-1137213_sea-monster-clipart-sea-serpent-transparent-png-download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _340 {
+            get {
+                object obj = ResourceManager.GetObject("340", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap balo {
             get {
                 object obj = ResourceManager.GetObject("balo", resourceCulture);
@@ -96,6 +116,26 @@ namespace Elemont.Properties {
         internal static System.Drawing.Bitmap CoolMap {
             get {
                 object obj = ResourceManager.GetObject("CoolMap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cooltext403383919982633 {
+            get {
+                object obj = ResourceManager.GetObject("cooltext403383919982633", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wa {
+            get {
+                object obj = ResourceManager.GetObject("wa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

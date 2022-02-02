@@ -8,16 +8,11 @@ using System.Windows.Forms;
 
 namespace Elemont.Gui
 {
-    public partial class BeginForm : Form
+    public partial class FormDangKy : Form
     {
-        public BeginForm()
+        public FormDangKy()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

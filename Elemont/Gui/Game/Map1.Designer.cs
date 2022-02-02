@@ -32,80 +32,37 @@ namespace Elemont.Gui.Game
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Map1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.vision = new System.Windows.Forms.PictureBox();
+            this.shadow = new System.Windows.Forms.PictureBox();
+            this.trainer = new System.Windows.Forms.PictureBox();
+            this.background = new System.Windows.Forms.PictureBox();
+            this.back = new System.Windows.Forms.PictureBox();
+            this.bag = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vision)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trainer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bag)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
             // 
-            this.timer1.Interval = 30;
+            this.timer1.Interval = 40;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(102, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 130);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(431, 413);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(34, 45);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(257, 402);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(67, 41);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(412, 173);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(179, 176);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(716, 494);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(141, 101);
-            this.pictureBox5.TabIndex = 4;
-            this.pictureBox5.TabStop = false;
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox6.Location = new System.Drawing.Point(6, 6);
+            this.pictureBox6.Location = new System.Drawing.Point(39, -2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(1321, 15);
             this.pictureBox6.TabIndex = 5;
@@ -115,7 +72,7 @@ namespace Elemont.Gui.Game
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox7.Location = new System.Drawing.Point(6, 36);
+            this.pictureBox7.Location = new System.Drawing.Point(15, 36);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(15, 661);
             this.pictureBox7.TabIndex = 6;
@@ -125,7 +82,7 @@ namespace Elemont.Gui.Game
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox8.Location = new System.Drawing.Point(26, 706);
+            this.pictureBox8.Location = new System.Drawing.Point(15, 706);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(1231, 15);
             this.pictureBox8.TabIndex = 7;
@@ -135,50 +92,108 @@ namespace Elemont.Gui.Game
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox9.Location = new System.Drawing.Point(1300, 45);
+            this.pictureBox9.Location = new System.Drawing.Point(1312, 44);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(15, 597);
             this.pictureBox9.TabIndex = 8;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.Tag = "frame";
             // 
-            // pictureBox10
+            // vision
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(1318, 725);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 9;
-            this.pictureBox10.TabStop = false;
+            this.vision.Location = new System.Drawing.Point(46, 270);
+            this.vision.Name = "vision";
+            this.vision.Size = new System.Drawing.Size(111, 101);
+            this.vision.TabIndex = 4;
+            this.vision.TabStop = false;
+            this.vision.Tag = "Wall";
+            // 
+            // shadow
+            // 
+            this.shadow.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.shadow.Location = new System.Drawing.Point(69, 377);
+            this.shadow.Name = "shadow";
+            this.shadow.Size = new System.Drawing.Size(53, 45);
+            this.shadow.TabIndex = 1;
+            this.shadow.TabStop = false;
+            // 
+            // trainer
+            // 
+            this.trainer.BackColor = System.Drawing.Color.Transparent;
+            this.trainer.Image = ((System.Drawing.Image)(resources.GetObject("trainer.Image")));
+            this.trainer.Location = new System.Drawing.Point(546, 406);
+            this.trainer.Name = "trainer";
+            this.trainer.Size = new System.Drawing.Size(53, 45);
+            this.trainer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.trainer.TabIndex = 2;
+            this.trainer.TabStop = false;
+            // 
+            // background
+            // 
+            this.background.Image = ((System.Drawing.Image)(resources.GetObject("background.Image")));
+            this.background.Location = new System.Drawing.Point(69, 67);
+            this.background.Name = "background";
+            this.background.Size = new System.Drawing.Size(1291, 702);
+            this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.background.TabIndex = 9;
+            this.background.TabStop = false;
+            // 
+            // back
+            // 
+            this.back.BackColor = System.Drawing.Color.White;
+            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+            this.back.Location = new System.Drawing.Point(46, 19);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(63, 42);
+            this.back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.back.TabIndex = 10;
+            this.back.TabStop = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            this.back.MouseEnter += new System.EventHandler(this.back_MouseEnter);
+            this.back.MouseLeave += new System.EventHandler(this.back_MouseLeave);
+            // 
+            // bag
+            // 
+            this.bag.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bag.Image = ((System.Drawing.Image)(resources.GetObject("bag.Image")));
+            this.bag.Location = new System.Drawing.Point(46, 79);
+            this.bag.Name = "bag";
+            this.bag.Size = new System.Drawing.Size(70, 62);
+            this.bag.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bag.TabIndex = 11;
+            this.bag.TabStop = false;
+            this.bag.Click += new System.EventHandler(this.bag_Click);
+            this.bag.MouseEnter += new System.EventHandler(this.bag_MouseEnter);
+            this.bag.MouseLeave += new System.EventHandler(this.bag_MouseLeave);
             // 
             // Map1
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1346, 733);
+            this.ClientSize = new System.Drawing.Size(1344, 749);
+            this.Controls.Add(this.bag);
+            this.Controls.Add(this.back);
+            this.Controls.Add(this.shadow);
+            this.Controls.Add(this.trainer);
             this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.vision);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.background);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Map1";
             this.SizeChanged += new System.EventHandler(this.Map1_SizeChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Map1_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vision)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shadow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trainer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bag)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -187,15 +202,16 @@ namespace Elemont.Gui.Game
         #endregion
 
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox vision;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox trainer;
+        private System.Windows.Forms.PictureBox background;
+        private System.Windows.Forms.PictureBox back;
+        private System.Windows.Forms.PictureBox bag;
+        private System.Windows.Forms.PictureBox shadow;
     }
 }

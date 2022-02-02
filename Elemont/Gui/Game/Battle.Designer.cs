@@ -59,7 +59,7 @@ namespace Elemont.Gui.Game
             this.progressBar1.Size = new System.Drawing.Size(315, 35);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 0;
-            this.progressBar1.Value = 80;
+            this.progressBar1.Value = 100;
             // 
             // progressBar2
             // 
@@ -67,6 +67,7 @@ namespace Elemont.Gui.Game
             this.progressBar2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(239, 38);
+            this.progressBar2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar2.TabIndex = 1;
             this.progressBar2.Value = 100;
             // 
@@ -98,7 +99,7 @@ namespace Elemont.Gui.Game
             this.pictureBox3.Location = new System.Drawing.Point(148, 466);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(198, 141);
+            this.pictureBox3.Size = new System.Drawing.Size(185, 141);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
@@ -128,11 +129,11 @@ namespace Elemont.Gui.Game
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(121, 26);
+            this.dataGridView1.Location = new System.Drawing.Point(54, 108);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(282, 213);
+            this.dataGridView1.Size = new System.Drawing.Size(239, 184);
             this.dataGridView1.TabIndex = 9;
             // 
             // button4
@@ -144,6 +145,7 @@ namespace Elemont.Gui.Game
             this.button4.TabIndex = 10;
             this.button4.Text = "Exit";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label1
             // 
@@ -197,8 +199,9 @@ namespace Elemont.Gui.Game
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(121, 247);
+            this.richTextBox1.Location = new System.Drawing.Point(312, 115);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(282, 125);
             this.richTextBox1.TabIndex = 15;
             this.richTextBox1.Text = "";
@@ -226,6 +229,7 @@ namespace Elemont.Gui.Game
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.progressBar1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Battle";
             this.Text = "Battle";
