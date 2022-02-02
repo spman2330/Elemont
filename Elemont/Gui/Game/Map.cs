@@ -13,8 +13,13 @@ namespace Elemont.Gui.Game
         public Map()
         {
             InitializeComponent();
+            this.map = new Map1();
+            map.TopLevel = false;
+            panel1.Controls.Add(map);
             
-        }
+            map.Size = map.Parent.Size;
+            map.Show();
+                }
 
 
 
@@ -24,10 +29,10 @@ namespace Elemont.Gui.Game
             this.Close();
             
         }
-
+        Map1 map;
         private void Map_KeyDown(object sender, KeyEventArgs e)
         {
-
+            map.Map1_KeyDown(sender,  e);
         }
     }
     

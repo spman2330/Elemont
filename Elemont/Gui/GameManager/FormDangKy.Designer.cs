@@ -46,9 +46,10 @@ namespace Elemont.Gui
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(776, 421);
+            this.button2.Location = new System.Drawing.Point(621, 337);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 34);
+            this.button2.Size = new System.Drawing.Size(103, 27);
             this.button2.TabIndex = 21;
             this.button2.Text = "Đăng Nhập";
             this.button2.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@ namespace Elemont.Gui
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(621, 365);
+            this.button1.Location = new System.Drawing.Point(497, 292);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 34);
+            this.button1.Size = new System.Drawing.Size(90, 27);
             this.button1.TabIndex = 20;
             this.button1.Text = "Đăng ký";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,17 +71,19 @@ namespace Elemont.Gui
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(460, 421);
+            this.label7.Location = new System.Drawing.Point(343, 341);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(310, 28);
+            this.label7.Size = new System.Drawing.Size(274, 23);
             this.label7.TabIndex = 19;
             this.label7.Text = "Nếu bạn đã có tài khoản, vui lòng ";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(653, 315);
+            this.textBox4.Location = new System.Drawing.Point(522, 252);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(273, 31);
+            this.textBox4.Size = new System.Drawing.Size(219, 27);
             this.textBox4.TabIndex = 18;
             // 
             // label6
@@ -88,17 +92,19 @@ namespace Elemont.Gui
             this.label6.BackColor = System.Drawing.Color.Gray;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(460, 315);
+            this.label6.Location = new System.Drawing.Point(368, 252);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 28);
+            this.label6.Size = new System.Drawing.Size(116, 23);
             this.label6.TabIndex = 17;
             this.label6.Text = "Số điện thoại";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(653, 278);
+            this.textBox3.Location = new System.Drawing.Point(522, 222);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(273, 31);
+            this.textBox3.Size = new System.Drawing.Size(219, 27);
             this.textBox3.TabIndex = 16;
             // 
             // label5
@@ -107,17 +113,19 @@ namespace Elemont.Gui
             this.label5.BackColor = System.Drawing.Color.Gray;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(460, 278);
+            this.label5.Location = new System.Drawing.Point(368, 222);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 28);
+            this.label5.Size = new System.Drawing.Size(158, 23);
             this.label5.TabIndex = 15;
             this.label5.Text = "Nhập lại mật khẩu";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(653, 241);
+            this.textBox2.Location = new System.Drawing.Point(522, 193);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(273, 31);
+            this.textBox2.Size = new System.Drawing.Size(219, 27);
             this.textBox2.TabIndex = 14;
             // 
             // label2
@@ -126,17 +134,19 @@ namespace Elemont.Gui
             this.label2.BackColor = System.Drawing.Color.Gray;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(460, 241);
+            this.label2.Location = new System.Drawing.Point(368, 193);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 28);
+            this.label2.Size = new System.Drawing.Size(86, 23);
             this.label2.TabIndex = 13;
             this.label2.Text = "Mật khẩu";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(653, 204);
+            this.textBox1.Location = new System.Drawing.Point(522, 163);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(273, 31);
+            this.textBox1.Size = new System.Drawing.Size(219, 27);
             this.textBox1.TabIndex = 12;
             // 
             // label1
@@ -145,19 +155,20 @@ namespace Elemont.Gui
             this.label1.BackColor = System.Drawing.Color.Gray;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(460, 204);
+            this.label1.Location = new System.Drawing.Point(368, 163);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 28);
+            this.label1.Size = new System.Drawing.Size(117, 23);
             this.label1.TabIndex = 11;
             this.label1.Text = "Tên tài khoản";
             // 
             // FormDangKy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(958, 484);
+            this.ClientSize = new System.Drawing.Size(766, 387);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
@@ -170,8 +181,10 @@ namespace Elemont.Gui
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormDangKy";
             this.Text = "FormDangKy";
+            this.Load += new System.EventHandler(this.FormDangKy_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

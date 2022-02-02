@@ -14,5 +14,10 @@ namespace Elemont.Gui
         {
             InitializeComponent();
         }
+
+        private void FormDangKy_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

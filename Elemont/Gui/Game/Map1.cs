@@ -16,37 +16,8 @@ namespace Elemont.Gui.Game
         public Map1()
         {
             InitializeComponent();
-            ControlExtension.Draggable(trainer, true);
-            vision.Size = new Size(2 * vi + trainer.Width, 2 * vi + trainer.Height);
-            vision.Top = trainer.Top - vi;
-            vision.Left = trainer.Left - vi;
-            shadow.Location = trainer.Location;
-            shadow.Size = trainer.Size;
-            foreach (Control c1 in this.Controls)
-            {
-                
-                    if (!trainer.Equals(c1) && !((string)c1.Tag == "frame")&& !c1.Equals(back) && !c1.Equals(bag))
-                    {
-                        c1.Visible = false;
-
-                    }
-                
-            }
-           
-            visible();
-            //this.ClientSize = new Size(600, 600);            
-            // this.Bounds = Screen.PrimaryScreen.Bounds;
+            //ControlExtension.Draggable(trainer, true);
             
-            pictureBox6.Width = background.Width;
-            pictureBox8.Width = background.Width;
-            pictureBox7.Height = background.Height;
-            pictureBox9.Height = background.Height;
-            pictureBox6.Location = background.Location;
-            pictureBox7.Location = background.Location;
-            pictureBox9.Top = pictureBox6.Top;
-            pictureBox9.Left = background.Left + background.Width - pictureBox9.Width;
-            pictureBox8.Left = pictureBox6.Left;
-            pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;
         }
 
         public bool touch()
@@ -72,7 +43,7 @@ namespace Elemont.Gui.Game
         }
         int sp = 4;
         int vi = 30;
-        private void Map1_KeyDown(object sender, KeyEventArgs e)
+        public void Map1_KeyDown(object sender, KeyEventArgs e)
         {
             
             if (!move)
@@ -204,6 +175,40 @@ namespace Elemont.Gui.Game
         private void bag_MouseLeave(object sender, EventArgs e)
         {
             bag.BackColor = Color.White;
+        }
+
+        private void Map1_Load(object sender, EventArgs e)
+        {
+            vision.Size = new Size(2 * vi + trainer.Width, 2 * vi + trainer.Height);
+            vision.Top = trainer.Top - vi;
+            vision.Left = trainer.Left - vi;
+            shadow.Location = trainer.Location;
+            shadow.Size = trainer.Size;
+            foreach (Control c1 in this.Controls)
+            {
+
+                if (!trainer.Equals(c1) && !((string)c1.Tag == "frame") && !c1.Equals(back) && !c1.Equals(bag))
+                {
+                    c1.Visible = false;
+
+                }
+
+            }
+
+            visible();
+
+            // this.Bounds = Screen.PrimaryScreen.Bounds;
+
+            pictureBox6.Width = background.Width;
+            pictureBox8.Width = background.Width;
+            pictureBox7.Height = background.Height;
+            pictureBox9.Height = background.Height;
+            pictureBox6.Location = background.Location;
+            pictureBox7.Location = background.Location;
+            pictureBox9.Top = pictureBox6.Top;
+            pictureBox9.Left = background.Left + background.Width - pictureBox9.Width;
+            pictureBox8.Left = pictureBox6.Left;
+            pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;
         }
     }
 
