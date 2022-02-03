@@ -19,7 +19,7 @@ namespace Elemont
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fMap1());
+            Application.Run(new fMap());
         }
     }
 }

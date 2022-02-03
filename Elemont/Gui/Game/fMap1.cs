@@ -11,15 +11,17 @@ using Elemont.Gui.Game;
 
 namespace Elemont.Gui.Game
 {
+    
     public partial class fMap1 : Form
     {
         public static fMap1 instance;
-        public string str1;
+        public string str1;        
         public fMap1()
         {
             InitializeComponent();
             //ControlExtension.Draggable(trainer, true);
             instance = this;
+            
         }
 
         public bool touch()
@@ -28,6 +30,7 @@ namespace Elemont.Gui.Game
             {                               
                     if ((trainer.Bounds.IntersectsWith(c1.Bounds) || shadow.Bounds.IntersectsWith(c1.Bounds)) && !trainer.Equals(c1) && !vision.Equals(c1) && !background.Equals(c1) && !shadow.Equals(c1))
                     {
+                    
                         return true;
                     }           
             }
