@@ -44,7 +44,7 @@ namespace Elemont.Gui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Map1 map1 = new Map1();
+            fMap1 map1 = new fMap1();
             this.Hide();
             map1.ShowDialog();
             this.Show();

@@ -11,12 +11,16 @@ using Elemont.Gui.Game;
 
 namespace Elemont.Gui.Game
 {
-    public partial class Map1 : Form
+    
+    public partial class fMap1 : Form
     {
-        public Map1()
+        public static fMap1 instance;
+        public string str1;        
+        public fMap1()
         {
             InitializeComponent();
             //ControlExtension.Draggable(trainer, true);
+            instance = this;
             
         }
 
@@ -26,6 +30,7 @@ namespace Elemont.Gui.Game
             {                               
                     if ((trainer.Bounds.IntersectsWith(c1.Bounds) || shadow.Bounds.IntersectsWith(c1.Bounds)) && !trainer.Equals(c1) && !vision.Equals(c1) && !background.Equals(c1) && !shadow.Equals(c1))
                     {
+                    
                         return true;
                     }           
             }
@@ -45,10 +50,11 @@ namespace Elemont.Gui.Game
         int vi = 30;
         public void Map1_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            SoundPlayer audio = new SoundPlayer(Properties.Resources.step); 
+            audio.Play();
             if (!move)
             {
-                timer1.Start();
+                
                 int x = trainer.Location.X;
                 int y = trainer.Location.Y;
                 int x1 = x, y1 = y, x2 = x, y2 = y;
@@ -112,6 +118,7 @@ namespace Elemont.Gui.Game
                         }
                     }
                     
+
                 }               
                 visible();
                 shadow.Location = trainer.Location;
@@ -163,10 +170,12 @@ namespace Elemont.Gui.Game
 
         private void bag_Click(object sender, EventArgs e)
         {
-            Storage storage = new Storage();
+            Storage storage = new Storage();           
             storage.Show();
-        }
+            storage.hideandseek();
 
+        }
+       
         private void bag_MouseEnter(object sender, EventArgs e)
         {
             bag.BackColor = Color.Blue;
@@ -209,6 +218,12 @@ namespace Elemont.Gui.Game
             pictureBox9.Left = background.Left + background.Width - pictureBox9.Width;
             pictureBox8.Left = pictureBox6.Left;
             pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;
+            this.ClientSize = new Size(1000, 800);
+        }
+
+        private void trainer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
