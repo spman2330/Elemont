@@ -93,6 +93,16 @@ namespace Elemont.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3401 {
+            get {
+                object obj = ResourceManager.GetObject("3401", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap balo {
             get {
                 object obj = ResourceManager.GetObject("balo", resourceCulture);
@@ -127,6 +137,15 @@ namespace Elemont.Properties {
             get {
                 object obj = ResourceManager.GetObject("cooltext403383919982633", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream step {
+            get {
+                return ResourceManager.GetStream("step", resourceCulture);
             }
         }
         

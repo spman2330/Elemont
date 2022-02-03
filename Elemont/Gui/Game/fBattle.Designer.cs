@@ -2,8 +2,8 @@
 
 namespace Elemont.Gui.Game
 {
-    
-    partial class Battle
+
+    partial class fBattle
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace Elemont.Gui.Game
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Battle));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBattle));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();

@@ -8,13 +8,11 @@ using System.Windows.Forms;
 using Elemont.Dto;
 namespace Elemont.Gui.Game
 {
-    public partial class Battle : Form
+    public partial class fBattle : Form
     {
-        public Battle()
+        public fBattle()
         {
-            InitializeComponent();
-            
-
+            InitializeComponent();          
         }
         Pokemon poke1;
         Pokemon poke2;
@@ -30,9 +28,9 @@ namespace Elemont.Gui.Game
             pk1.Maxhp +=skill.num;
             break;
 
+            }
 
-
-            }*/
+            */
 
 
 
