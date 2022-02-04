@@ -45,6 +45,7 @@ namespace Elemont.Gui.Game
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -61,7 +62,6 @@ namespace Elemont.Gui.Game
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -135,7 +135,7 @@ namespace Elemont.Gui.Game
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(432, 26);
+            this.label6.Location = new System.Drawing.Point(442, 27);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 20);
             this.label6.TabIndex = 9;
@@ -177,7 +177,7 @@ namespace Elemont.Gui.Game
             // 
             // bimg
             // 
-            this.bimg.Location = new System.Drawing.Point(554, 22);
+            this.bimg.Location = new System.Drawing.Point(554, 23);
             this.bimg.Name = "bimg";
             this.bimg.Size = new System.Drawing.Size(138, 29);
             this.bimg.TabIndex = 3;
@@ -187,7 +187,7 @@ namespace Elemont.Gui.Game
             // 
             // bSave
             // 
-            this.bSave.Location = new System.Drawing.Point(554, 67);
+            this.bSave.Location = new System.Drawing.Point(554, 66);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(138, 29);
             this.bSave.TabIndex = 2;
@@ -257,6 +257,15 @@ namespace Elemont.Gui.Game
             this.label3.Size = new System.Drawing.Size(106, 35);
             this.label3.TabIndex = 14;
             this.label3.Text = "Elemont";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(178, 10);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(150, 28);
+            this.comboBox2.TabIndex = 8;
             // 
             // panel3
             // 
@@ -424,15 +433,6 @@ namespace Elemont.Gui.Game
             this.button2.Text = "Create";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(178, 10);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 28);
-            this.comboBox2.TabIndex = 8;
             // 
             // fMap
             // 

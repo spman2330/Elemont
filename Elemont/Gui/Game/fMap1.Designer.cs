@@ -42,10 +42,9 @@ namespace Elemont.Gui.Game
             this.background = new System.Windows.Forms.PictureBox();
             this.back = new System.Windows.Forms.PictureBox();
             this.bag = new System.Windows.Forms.PictureBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -58,8 +57,6 @@ namespace Elemont.Gui.Game
             ((System.ComponentModel.ISupportInitialize)(this.bag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -111,7 +108,7 @@ namespace Elemont.Gui.Game
             // vision
             // 
             this.vision.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.vision.Location = new System.Drawing.Point(46, 270);
+            this.vision.Location = new System.Drawing.Point(39, 177);
             this.vision.Name = "vision";
             this.vision.Size = new System.Drawing.Size(111, 101);
             this.vision.TabIndex = 4;
@@ -121,7 +118,7 @@ namespace Elemont.Gui.Game
             // shadow
             // 
             this.shadow.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.shadow.Location = new System.Drawing.Point(69, 377);
+            this.shadow.Location = new System.Drawing.Point(46, 302);
             this.shadow.Name = "shadow";
             this.shadow.Size = new System.Drawing.Size(53, 45);
             this.shadow.TabIndex = 1;
@@ -176,47 +173,37 @@ namespace Elemont.Gui.Game
             this.bag.MouseEnter += new System.EventHandler(this.bag_MouseEnter);
             this.bag.MouseLeave += new System.EventHandler(this.bag_MouseLeave);
             // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 10000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(475, 285);
+            this.pictureBox1.Location = new System.Drawing.Point(597, 436);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 177);
+            this.pictureBox1.Size = new System.Drawing.Size(125, 62);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "pokemon";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(762, 377);
+            this.pictureBox2.Location = new System.Drawing.Point(370, 526);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(125, 62);
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(753, 485);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(125, 62);
-            this.pictureBox3.TabIndex = 14;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(565, 519);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(98, 88);
-            this.pictureBox4.TabIndex = 15;
-            this.pictureBox4.TabStop = false;
+            this.pictureBox2.Tag = "pokemon";
             // 
             // fMap1
             // 
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1344, 749);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.trainer);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.trainer);
             this.Controls.Add(this.bag);
             this.Controls.Add(this.back);
             this.Controls.Add(this.shadow);
@@ -244,8 +231,6 @@ namespace Elemont.Gui.Game
             ((System.ComponentModel.ISupportInitialize)(this.bag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,9 +250,8 @@ namespace Elemont.Gui.Game
         private System.Windows.Forms.PictureBox back;
         private System.Windows.Forms.PictureBox bag;
         private System.Windows.Forms.PictureBox shadow;
+        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

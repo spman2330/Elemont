@@ -22,6 +22,10 @@ namespace Elemont.Gui.Game
             this.Bounds = Screen.PrimaryScreen.Bounds;
             numericUpDown3.Value = pictureBox1.Width;
             numericUpDown4.Value = pictureBox1.Height;
+            this.WindowState = FormWindowState.Maximized;
+
+
+            this.Bounds = Screen.PrimaryScreen.Bounds;
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
@@ -39,6 +43,7 @@ namespace Elemont.Gui.Game
             {
                 pictureBox1.Controls.Add(c1);
                 c1.Location = new Point(x,y);
+                ControlExtension.Draggable(c1, true);
             }
         }
 
@@ -63,7 +68,8 @@ namespace Elemont.Gui.Game
                 pb.Size = new Size((int)numericUpDown5.Value, (int)numericUpDown6.Value);
                 pb.Image = pictureBox2.Image;
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                ControlExtension.Draggable(pb, true);
+                pb.BackColor = Color.Transparent;
+               
             }
             else
             {
@@ -134,7 +140,7 @@ namespace Elemont.Gui.Game
             try
             {
                 OpenFileDialog open = new OpenFileDialog();
-                open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp";
+                open.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
                 if (open.ShowDialog() == DialogResult.OK)
                 {
                     pictureBox3.Image = new Bitmap(open.FileName);
@@ -152,7 +158,7 @@ namespace Elemont.Gui.Game
             try
             {
                 OpenFileDialog open = new OpenFileDialog();             
-                open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp";
+                open.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
                 if (open.ShowDialog() == DialogResult.OK)
                 {                   
                     pictureBox2.Image = new Bitmap(open.FileName);
