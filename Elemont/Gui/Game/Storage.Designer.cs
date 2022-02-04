@@ -42,11 +42,9 @@ namespace Elemont.Gui.Game
             this.store = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,7 +61,6 @@ namespace Elemont.Gui.Game
             this.bttnpnl.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -165,11 +162,9 @@ namespace Elemont.Gui.Game
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.button7);
-            this.tabPage4.Controls.Add(this.button5);
             this.tabPage4.Controls.Add(this.label2);
             this.tabPage4.Controls.Add(this.label1);
             this.tabPage4.Controls.Add(this.numericUpDown2);
-            this.tabPage4.Controls.Add(this.numericUpDown1);
             this.tabPage4.Controls.Add(this.pictureBox2);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
@@ -180,60 +175,44 @@ namespace Elemont.Gui.Game
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(101, 191);
+            this.button7.Location = new System.Drawing.Point(102, 138);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 29);
             this.button7.TabIndex = 6;
             this.button7.Text = "Mua";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(101, 110);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 29);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Xoá";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 342);
+            this.label2.Location = new System.Drawing.Point(53, 263);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 20);
+            this.label2.Size = new System.Drawing.Size(39, 20);
             this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.label2.Text = "Coin";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(477, 284);
+            this.label1.Location = new System.Drawing.Point(484, 263);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.Size = new System.Drawing.Size(34, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.label1.Text = "Ball";
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(78, 158);
+            this.numericUpDown2.Location = new System.Drawing.Point(84, 67);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(150, 27);
             this.numericUpDown2.TabIndex = 2;
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(78, 68);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(150, 27);
-            this.numericUpDown1.TabIndex = 1;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(383, 30);
+            this.pictureBox2.Location = new System.Drawing.Point(398, 48);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(261, 213);
+            this.pictureBox2.Size = new System.Drawing.Size(220, 195);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -268,6 +247,7 @@ namespace Elemont.Gui.Game
             this.button8.TabIndex = 2;
             this.button8.Text = "Đổi tên";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // textBox1
             // 
@@ -314,7 +294,7 @@ namespace Elemont.Gui.Game
             this.exitbttn.Name = "exitbttn";
             this.exitbttn.Size = new System.Drawing.Size(94, 29);
             this.exitbttn.TabIndex = 4;
-            this.exitbttn.Text = "Exit";
+            this.exitbttn.Text = "Close";
             this.exitbttn.UseVisualStyleBackColor = true;
             this.exitbttn.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -353,7 +333,6 @@ namespace Elemont.Gui.Game
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -379,11 +358,9 @@ namespace Elemont.Gui.Game
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.FlowLayoutPanel store;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button8;

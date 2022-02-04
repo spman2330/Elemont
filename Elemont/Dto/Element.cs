@@ -10,7 +10,7 @@ namespace Elemont.Dto
         public string icon;
         public List<Element> effective;
         public List<Element> noteffective;
-        public int id;
+        public string envionment;
 
     }
 }

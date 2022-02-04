@@ -44,7 +44,7 @@ namespace Elemont.Gui.Game
         private void pictureBox_Click(object sender, EventArgs e)
         {
             PictureBox pb = sender as PictureBox;
-            string s = (string)pb.Tag;
+            
             if (pb.Parent.BackColor == Color.White)
             {
                 pb.Parent.BackColor = Color.Blue;                                
@@ -58,9 +58,8 @@ namespace Elemont.Gui.Game
         }
         private void pictureBox_DoubleClick(object sender, EventArgs e)
         {
-            PictureBox pb = sender as PictureBox;
-            //string s = (string)pb.Tag;
-            if (pb.Parent.BackColor == Color.White)
+            PictureBox pb = sender as PictureBox;           
+            
             {
                 pb.Parent.BackColor = Color.Blue;
                 richTextBox1.Text = (string)pb.Tag;
@@ -163,11 +162,16 @@ namespace Elemont.Gui.Game
                 {
                     if (c1.BackColor == Color.Blue)
                     {
-                        fMap1.instance.str1 = (string)c1.Tag;
+                        fBattle.instance.pokeselect = (string)c1.Tag;
                     }
                 }
 
             }    
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

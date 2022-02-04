@@ -18,10 +18,8 @@ namespace Elemont.Gui.Game
         public string str1;        
         public fMap1()
         {
-            InitializeComponent();
-            //ControlExtension.Draggable(trainer, true);
+            InitializeComponent();           
             instance = this;
-            
         }
 
         public bool touch()
@@ -29,8 +27,7 @@ namespace Elemont.Gui.Game
             foreach (Control c1 in this.Controls)
             {                               
                     if ((trainer.Bounds.IntersectsWith(c1.Bounds) || shadow.Bounds.IntersectsWith(c1.Bounds)) && !trainer.Equals(c1) && !vision.Equals(c1) && !background.Equals(c1) && !shadow.Equals(c1))
-                    {
-                    
+                    {                   
                         return true;
                     }           
             }
@@ -44,8 +41,33 @@ namespace Elemont.Gui.Game
                 {
                     c1.Visible = true;
                 }
+                if (vision.Bounds.IntersectsWith(c1.Bounds)&& (string)c1.Tag =="pokemon"&& meet)
+                {
+                    DialogResult result = MessageBox.Show("Do you want battle?", "", MessageBoxButtons.YesNo);
+                    switch (result)
+                    {
+                        case DialogResult.No:
+                            
+                            timer2.Start();
+                            meet = false;
+                            break;
+                        case DialogResult.Yes:
+                            {
+                                fBattle fbattle = new fBattle();
+                                this.Hide();
+                                fbattle.ShowDialog();
+                                this.Show();
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                }    
             }
         }
+        bool meet;
         int sp = 4;
         int vi = 30;
         public void Map1_KeyDown(object sender, KeyEventArgs e)
@@ -53,15 +75,13 @@ namespace Elemont.Gui.Game
             SoundPlayer audio = new SoundPlayer(Properties.Resources.step); 
             audio.Play();
             if (!move)
-            {
-                
+            {                
                 int x = trainer.Location.X;
                 int y = trainer.Location.Y;
                 int x1 = x, y1 = y, x2 = x, y2 = y;
                 if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
                 {
-                    move = true;
-                    
+                    move = true;                    
                     x2 += sp;
                     if (!(trainer.Right >= this.Width * 3 / 4 && !touch()))
                     {
@@ -71,8 +91,7 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
                 {
-                    move = true;
-                   
+                    move = true;               
                     x2 -= sp;
                     if (!(trainer.Left <= this.Width * 1 / 4 && !touch()))
                     {
@@ -82,8 +101,7 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W)
                 {
-                    move = true;
-                   
+                    move = true;                
                     y2 -= sp;
                     if (!(trainer.Top <= this.Height * 1 / 4 && !touch()))
                     {
@@ -203,7 +221,7 @@ namespace Elemont.Gui.Game
                 }
 
             }
-
+            meet = true;
             visible();
 
             // this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -224,6 +242,11 @@ namespace Elemont.Gui.Game
         private void trainer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            meet = true;
         }
     }
 
