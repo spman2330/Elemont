@@ -21,7 +21,7 @@ namespace Elemont
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fMap1());
+            Application.Run(new fBattle(b.Trainers[0].Pokemons[0], a[0].Cells[0].Pokemons[0]));
         }
     }
 }

@@ -53,9 +53,9 @@ namespace Elemont.Gui.Game
                             break;
                         case DialogResult.Yes:
                             {
-                                fBattle fbattle = new fBattle();
+                                //fBattle fbattle = new fBattle();
                                 this.Hide();
-                                fbattle.ShowDialog();
+                               //fbattle.ShowDialog();
                                 this.Show();
                             }
                             break;
@@ -259,9 +259,9 @@ namespace Elemont.Gui.Game
                             break;
                         case DialogResult.Yes:
                             {                               
-                                fBattle fbattle = new fBattle();
+                               // fBattle fbattle = new fBattle();
                                 this.Hide();
-                                fbattle.ShowDialog();
+                               // fbattle.ShowDialog();
                                 this.Show();
                                 timer2.Start();
                             }

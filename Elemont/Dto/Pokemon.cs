@@ -16,7 +16,10 @@ namespace Elemont.Dto
         private Skill skill1;
         private Skill skill2;
         private int pokemonId;
-
+        public int Level { get => exp/10; }
+        public int Attack { get => Level+species.BaseAttack; }
+        public int Defense { get => Level + species.BaseDefense; }
+        public int HP { get => Level + species.BaseHp; }
         public string Name { get => name; set => name = value; }
         public Species Species { get => species; set => species = value; }
         public int Exp { get => exp; set => exp = value; }

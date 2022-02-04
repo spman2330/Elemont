@@ -53,6 +53,7 @@ namespace Elemont.Gui.Game
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -94,6 +95,7 @@ namespace Elemont.Gui.Game
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Location = new System.Drawing.Point(854, 193);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
@@ -123,7 +125,7 @@ namespace Elemont.Gui.Game
             this.button2.TabIndex = 6;
             this.button2.Text = "Skill1";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_Click);
+            this.button2.Click += new System.EventHandler(this.Skill1_Click);
             // 
             // button3
             // 
@@ -134,7 +136,7 @@ namespace Elemont.Gui.Game
             this.button3.TabIndex = 7;
             this.button3.Text = "Skill2";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button_Click);
+            this.button3.Click += new System.EventHandler(this.Skill2_Click);
             // 
             // dataGridView1
             // 
@@ -170,22 +172,22 @@ namespace Elemont.Gui.Game
             this.label1.Location = new System.Drawing.Point(244, 599);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 28);
+            this.label1.Size = new System.Drawing.Size(28, 28);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Bulbarsaur";
+            this.label1.Text = "\"\"";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BackColor = System.Drawing.Color.Red;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(148, 454);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 28);
+            this.label2.Size = new System.Drawing.Size(28, 28);
             this.label2.TabIndex = 12;
-            this.label2.Text = "100";
+            this.label2.Text = "\"\"";
             // 
             // label3
             // 
@@ -196,29 +198,29 @@ namespace Elemont.Gui.Game
             this.label3.Location = new System.Drawing.Point(854, 333);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 28);
+            this.label3.Size = new System.Drawing.Size(28, 28);
             this.label3.TabIndex = 13;
-            this.label3.Text = "label3";
+            this.label3.Text = "\"\"";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.BackColor = System.Drawing.Color.Red;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(754, 193);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 28);
+            this.label4.Size = new System.Drawing.Size(28, 28);
             this.label4.TabIndex = 14;
-            this.label4.Text = "100";
+            this.label4.Text = "\"\"";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(186, 147);
+            this.richTextBox1.Location = new System.Drawing.Point(123, 147);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(414, 129);
+            this.richTextBox1.Size = new System.Drawing.Size(477, 129);
             this.richTextBox1.TabIndex = 15;
             this.richTextBox1.Text = "";
             // 
@@ -226,7 +228,7 @@ namespace Elemont.Gui.Game
             // 
             this.button5.Location = new System.Drawing.Point(9, 230);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(160, 46);
+            this.button5.Size = new System.Drawing.Size(108, 46);
             this.button5.TabIndex = 16;
             this.button5.Text = "Select";
             this.button5.UseVisualStyleBackColor = true;
@@ -260,7 +262,7 @@ namespace Elemont.Gui.Game
             // 
             this.button7.Location = new System.Drawing.Point(9, 160);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(160, 48);
+            this.button7.Size = new System.Drawing.Size(108, 48);
             this.button7.TabIndex = 17;
             this.button7.Text = "View";
             this.button7.UseVisualStyleBackColor = true;
@@ -303,6 +305,19 @@ namespace Elemont.Gui.Game
             this.panel2.Size = new System.Drawing.Size(407, 194);
             this.panel2.TabIndex = 22;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Blue;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(148, 488);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 28);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "\"\"";
+            // 
             // fBattle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -311,6 +326,7 @@ namespace Elemont.Gui.Game
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 692);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button6);
@@ -326,8 +342,12 @@ namespace Elemont.Gui.Game
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fBattle";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Battle";
             this.Load += new System.EventHandler(this.Battle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -364,5 +384,6 @@ namespace Elemont.Gui.Game
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -159,13 +159,13 @@ namespace Elemont.Gui.Game
                 {
                     if (c1.BackColor == Color.Blue)
                     {
-                        fBattle.instance.pokeselect = (string)c1.Tag;
+                      //  fBattle.instance.pokeselect = (string)c1.Tag;
                     }
                 }
 
             }    
         }
-
+        Pokemon pokebattle;
         private void button8_Click(object sender, EventArgs e)
         {
 
