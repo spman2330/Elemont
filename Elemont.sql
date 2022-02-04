@@ -88,7 +88,7 @@ CREATE TABLE [Trainer] (
 GO
 CREATE TABLE [Pokemon] (
 	[name] [nvarchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS ,
-	[species] [nvarchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[speciesId] INT ,
 	[exp] [smallint] NOT NULL ,
 	[cellId] INT ,
 	[trainerId] INT ,
