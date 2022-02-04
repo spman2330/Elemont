@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Elemont.Dto
 {
-    class Game
+    public class Gameplay
     {
         Map map;
         Trainer trainer;

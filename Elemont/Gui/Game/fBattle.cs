@@ -12,16 +12,17 @@ namespace Elemont.Gui.Game
     public partial class fBattle : Form
     {
         public static fBattle instance;
-        public fBattle(Pokemon pk1,Pokemon pk2)
+        public fBattle(Pokemon pk2)
         {
-            InitializeComponent();
-            this.poke1 = pk1;
+            InitializeComponent(); 
             this.poke2 = pk2;
+            poke2.Name = "Wild " + poke2.Species.Name;
             instance = this;
             
         }
-        Pokemon poke1;
-        Pokemon poke2;
+        public Trainer train;
+        public Pokemon poke1;
+        public Pokemon poke2;
         int hp1;
         int hp2;
         int turn;
@@ -98,7 +99,8 @@ namespace Elemont.Gui.Game
                     pk2atk = "; " + poke2.Name + " Attack";
                 }
             }
-            else if (mana2 >= poke2.Skill1.ManaCost && mana2 < poke2.Skill2.ManaCost)
+            else 
+            if (mana2 >= poke2.Skill1.ManaCost && mana2 < poke2.Skill2.ManaCost)
 
             {
                 Random r = new Random();
@@ -113,7 +115,8 @@ namespace Elemont.Gui.Game
                  Useskill2(poke2.Skill1);
                 pk2atk = "; " + poke2.Name + " uses " + poke2.Skill1.Name; }
             }    
-              else  if (mana2 < poke2.Skill1.ManaCost && mana2 >= poke2.Skill2.ManaCost)
+              else
+              if (mana2 < poke2.Skill1.ManaCost && mana2 >= poke2.Skill2.ManaCost)
             {
                 Random r = new Random();
                 int t = r.Next(0, 100) % 2;
@@ -221,6 +224,8 @@ namespace Elemont.Gui.Game
         {
             label1.Text = poke1.Name;
             label3.Text = poke2.Name;
+            button2.Text = poke1.Skill1.Name;
+            button3.Text = poke1.Skill2.Name;
             progressBar1.Value = hp2;
             progressBar2.Value = hp1;
             label2.Text = hp1.ToString();
@@ -277,7 +282,7 @@ namespace Elemont.Gui.Game
         }
         private void bag_Click(object sender, EventArgs e)
         {
-            Storage storage = new Storage();
+            Storage storage = new Storage(this.train);
             storage.Show();
             storage.hideandseek();
         }
@@ -287,7 +292,10 @@ namespace Elemont.Gui.Game
             {                
                 progressBar2.Value = (int)dataGridView1.CurrentRow.Cells[2].Value;
                 progressBar1.Value = (int)dataGridView1.CurrentRow.Cells[5].Value;
-                label5.Text = (dataGridView1.CurrentRow.Cells[3].Value.ToString());                             
+                label5.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();  
+                label2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                label4.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+
             }
         }
         private void button5_Click(object sender, EventArgs e) // Select
@@ -321,9 +329,11 @@ namespace Elemont.Gui.Game
             }
             if (hp2 == 0)
             {
-                // thêm 10 coins vào túi
-                // pokemon tham chiến tăng xx exp;
-                //trainer tăng xx exp;
+
+                poke1.Exp += 5;
+                this.train.Gold += 10;
+                this.train.Exp += poke2.Exp;
+                //thay đổi dữ liệu trong database
                 DialogResult dr = MessageBox.Show("You win, wanna catch this Elemont?", "", MessageBoxButtons.YesNo);
                 switch (dr)
                 {
@@ -331,6 +341,12 @@ namespace Elemont.Gui.Game
                         this.Close();
                         break;
                     case DialogResult.Yes:
+                        if(this.train.Ball1Num>1)
+                        {
+                            this.train.Ball1Num -= 1;
+                           // this.train.Pokemons.Add(poke2);
+
+                        }    
                         //Check túi có >1 bóng thì bắt
                         break;
                     default:
@@ -348,15 +364,18 @@ namespace Elemont.Gui.Game
 
         private void button8_Click(object sender, EventArgs e)
         {
-            button8.Visible = false;
-            bag.Visible = false;
-            panel2.Enabled = true;
-            turn = 0;
-            mana1 = mana2 = 0;
-            hp1 = progressBar2.Maximum = poke1.HP;
-            hp2 = progressBar1.Maximum = poke2.HP;
-            Loadstt();
-            newturn();
+            if (poke1 != null)
+            {
+                button8.Visible = false;
+                bag.Visible = false;
+                panel2.Enabled = true;
+                turn = 0;
+                mana1 = mana2 = 0;
+                hp1 = progressBar2.Maximum = poke1.HP;
+                hp2 = progressBar1.Maximum = poke2.HP;
+                Loadstt();
+                newturn();
+            }
         }
 
         private void button8_MouseEnter(object sender, EventArgs e)
