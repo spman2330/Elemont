@@ -1,10 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-using Elemont.Gui.Game;
+using Elemont.Dao;
+using Elemont.Dto;
 using Elemont.Gui;
+using Elemont.Gui.Game;
 
 namespace Elemont
 {
@@ -16,6 +16,8 @@ namespace Elemont
         [STAThread]
         static void Main()
         {
+            Map[] a = MapDao.Instance.GetMaps();
+            Account b = AccountDao.Instance.GetAccount("tk1", "tk1");
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

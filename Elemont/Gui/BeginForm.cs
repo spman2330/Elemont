@@ -5,15 +5,18 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Elemont.Dto;
 using Elemont.Gui.Game;
 
 namespace Elemont.Gui
 {
     public partial class BeginForm : Form
     {
-        public BeginForm()
+        Account _account;
+        public BeginForm(Account account)
         {
             InitializeComponent();
+            _account = account;
         }
 
         private void BeginForm_Load(object sender, EventArgs e)
