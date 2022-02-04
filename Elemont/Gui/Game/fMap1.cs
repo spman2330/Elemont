@@ -190,7 +190,7 @@ namespace Elemont.Gui.Game
         {
             Storage storage = new Storage();           
             storage.Show();
-            storage.hideandseek();
+            
 
         }
        
@@ -221,7 +221,7 @@ namespace Elemont.Gui.Game
                 }
 
             }
-            meet = true;
+            
             visible();
 
             // this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -246,8 +246,35 @@ namespace Elemont.Gui.Game
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            meet = true;
-        }
+            foreach (Control c1 in this.Controls)
+            {
+                if (vision.Bounds.IntersectsWith(c1.Bounds) && (string)c1.Tag == "pokemon")
+                {
+                    timer2.Stop();
+                    DialogResult result = MessageBox.Show("Do you want battle?", "", MessageBoxButtons.YesNo);
+                    switch (result)
+                    {
+                        case DialogResult.No:
+                            timer2.Start();
+                            break;
+                        case DialogResult.Yes:
+                            {                               
+                                fBattle fbattle = new fBattle();
+                                this.Hide();
+                                fbattle.ShowDialog();
+                                this.Show();
+                                timer2.Start();
+                            }
+                            break;
+                        default:
+                            timer2.Start();
+                            break;
+                    }
+
+                }
+            }
+                
+         }
     }
 
 }

@@ -29,7 +29,6 @@ namespace Elemont.Gui.Game
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Storage));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -54,7 +53,6 @@ namespace Elemont.Gui.Game
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.exitbttn = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pkname = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -185,7 +183,7 @@ namespace Elemont.Gui.Game
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 263);
+            this.label2.Location = new System.Drawing.Point(56, 263);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 20);
             this.label2.TabIndex = 4;
@@ -202,7 +200,7 @@ namespace Elemont.Gui.Game
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(84, 67);
+            this.numericUpDown2.Location = new System.Drawing.Point(80, 105);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(150, 27);
             this.numericUpDown2.TabIndex = 2;
@@ -298,12 +296,6 @@ namespace Elemont.Gui.Game
             this.exitbttn.UseVisualStyleBackColor = true;
             this.exitbttn.Click += new System.EventHandler(this.button6_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // pkname
             // 
             this.pkname.Location = new System.Drawing.Point(3, 127);
@@ -366,7 +358,6 @@ namespace Elemont.Gui.Game
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button selectpkm;
         private System.Windows.Forms.FlowLayoutPanel bttnpnl;
         private System.Windows.Forms.TextBox pkname;

@@ -18,15 +18,17 @@ namespace Elemont.Gui
 
         private void BeginForm_Load(object sender, EventArgs e)
         {
-            //ControlExtension.Draggable(button1, true);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            fMap1 map1 = new fMap1();
+            this.Hide();
+            map1.ShowDialog();
+            this.Show();
         }
 
-        
+
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
@@ -44,10 +46,7 @@ namespace Elemont.Gui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fMap1 map1 = new fMap1();
-            this.Hide();
-            map1.ShowDialog();
-            this.Show();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -137,10 +137,7 @@ namespace Elemont.Gui.Game
             selectpkm.Visible = true;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-           
-        }
+ 
 
         private void selectpkm_Click(object sender, EventArgs e)
         {
