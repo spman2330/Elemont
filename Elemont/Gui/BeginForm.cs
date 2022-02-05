@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Elemont.Gui.Game;
+using Elemont.Gui.GameManager;
 
 namespace Elemont.Gui
 {
@@ -53,6 +54,19 @@ namespace Elemont.Gui
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fGameEdit fGE = new fGameEdit();
+            fGE.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Hide();
+            (new fManagerAccount()).Show();
         }
     }
 }

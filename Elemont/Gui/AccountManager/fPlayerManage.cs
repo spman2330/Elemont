@@ -6,18 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Elemont.Gui
+namespace Elemont.Gui.AccountManager
 {
-    public partial class FormDangKy : Form
+    public partial class fPlayerManage : Form
     {
-        public FormDangKy()
+        public fPlayerManage()
         {
             InitializeComponent();
-        }
-
-        private void FormDangKy_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -8,11 +8,16 @@ using System.Windows.Forms;
 
 namespace Elemont.Gui.AccountManager
 {
-    public partial class fAccountAdmin : Form
+    public partial class fChangePassword : Form
     {
-        public fAccountAdmin()
+        public fChangePassword()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

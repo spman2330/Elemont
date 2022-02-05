@@ -1,7 +1,7 @@
 ﻿
 namespace Elemont.Gui
 {
-    partial class FormDangKy
+    partial class fSignup
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,7 @@ namespace Elemont.Gui
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangKy));
-            this.button2 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSignup));
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -41,29 +40,20 @@ namespace Elemont.Gui
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(621, 337);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 27);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Đăng Nhập";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(497, 292);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(621, 365);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 27);
+            this.button1.Size = new System.Drawing.Size(112, 34);
             this.button1.TabIndex = 20;
-            this.button1.Text = "Đăng ký";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Sign up";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -71,19 +61,19 @@ namespace Elemont.Gui
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(343, 341);
+            this.label7.Location = new System.Drawing.Point(499, 423);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(274, 23);
+            this.label7.Size = new System.Drawing.Size(234, 28);
             this.label7.TabIndex = 19;
-            this.label7.Text = "Nếu bạn đã có tài khoản, vui lòng ";
+            this.label7.Text = "Already have an account?";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(522, 252);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Location = new System.Drawing.Point(652, 315);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(219, 27);
+            this.textBox4.Size = new System.Drawing.Size(273, 31);
             this.textBox4.TabIndex = 18;
             // 
             // label6
@@ -92,19 +82,19 @@ namespace Elemont.Gui
             this.label6.BackColor = System.Drawing.Color.Gray;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(368, 252);
+            this.label6.Location = new System.Drawing.Point(460, 315);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 23);
+            this.label6.Size = new System.Drawing.Size(71, 28);
             this.label6.TabIndex = 17;
-            this.label6.Text = "Số điện thoại";
+            this.label6.Text = "Phone";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(522, 222);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Location = new System.Drawing.Point(652, 278);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(219, 27);
+            this.textBox3.Size = new System.Drawing.Size(273, 31);
             this.textBox3.TabIndex = 16;
             // 
             // label5
@@ -113,19 +103,19 @@ namespace Elemont.Gui
             this.label5.BackColor = System.Drawing.Color.Gray;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(368, 222);
+            this.label5.Location = new System.Drawing.Point(460, 278);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 23);
+            this.label5.Size = new System.Drawing.Size(183, 28);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Nhập lại mật khẩu";
+            this.label5.Text = "Confirm Password";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(522, 193);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Location = new System.Drawing.Point(652, 241);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(219, 27);
+            this.textBox2.Size = new System.Drawing.Size(273, 31);
             this.textBox2.TabIndex = 14;
             // 
             // label2
@@ -134,19 +124,19 @@ namespace Elemont.Gui
             this.label2.BackColor = System.Drawing.Color.Gray;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(368, 193);
+            this.label2.Location = new System.Drawing.Point(460, 241);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 23);
+            this.label2.Size = new System.Drawing.Size(101, 28);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Mật khẩu";
+            this.label2.Text = "Password";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(522, 163);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Location = new System.Drawing.Point(652, 204);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 27);
+            this.textBox1.Size = new System.Drawing.Size(273, 31);
             this.textBox1.TabIndex = 12;
             // 
             // label1
@@ -155,21 +145,35 @@ namespace Elemont.Gui
             this.label1.BackColor = System.Drawing.Color.Gray;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(368, 163);
+            this.label1.Location = new System.Drawing.Point(460, 204);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 23);
+            this.label1.Size = new System.Drawing.Size(106, 28);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Tên tài khoản";
+            this.label1.Text = "Username";
             // 
-            // FormDangKy
+            // linkLabel1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Transparent;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.Location = new System.Drawing.Point(738, 426);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(102, 25);
+            this.linkLabel1.TabIndex = 21;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Login here";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // fSignup
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(766, 387);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(958, 484);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox4);
@@ -181,8 +185,8 @@ namespace Elemont.Gui
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "FormDangKy";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "fSignup";
             this.Text = "FormDangKy";
             this.Load += new System.EventHandler(this.FormDangKy_Load);
             this.ResumeLayout(false);
@@ -191,8 +195,6 @@ namespace Elemont.Gui
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
@@ -203,5 +205,6 @@ namespace Elemont.Gui
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

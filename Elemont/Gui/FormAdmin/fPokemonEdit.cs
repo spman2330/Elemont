@@ -6,18 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Elemont.Gui.AccountManager
+namespace Elemont.Gui.GameManager
 {
-    public partial class AdminInfo : Form
+    public partial class fPokemonEdit : Form
     {
-        public AdminInfo()
+        public fPokemonEdit()
         {
             InitializeComponent();
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

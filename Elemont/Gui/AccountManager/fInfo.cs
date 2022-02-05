@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Elemont.Gui.AccountManager
 {
-    public partial class fAccountUser : Form
+    public partial class fInfo : Form
     {
-        public fAccountUser()
+        public fInfo()
         {
             InitializeComponent();
         }
