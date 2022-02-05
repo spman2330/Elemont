@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Elemont.Dto;
+using Elemont.Dao;
+
 using Elemont.Gui.Game;
 
 namespace Elemont.Gui
@@ -25,9 +27,9 @@ namespace Elemont.Gui
 
         private void button2_Click(object sender, EventArgs e)
         {
-            fMap1 map1 = new fMap1();
+            fSelect fselect = new fSelect(AccountDao.Instance.GetAccount("tk1", "tk1"),MapDao.Instance.GetMaps());
             this.Hide();
-            map1.ShowDialog();
+            fselect.ShowDialog();
             this.Show();
         }
 

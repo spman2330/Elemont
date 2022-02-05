@@ -132,8 +132,7 @@ namespace Elemont.Gui.Game
             this.trainer.Size = new System.Drawing.Size(53, 45);
             this.trainer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.trainer.TabIndex = 2;
-            this.trainer.TabStop = false;
-            this.trainer.Click += new System.EventHandler(this.trainer_Click);
+            this.trainer.TabStop = false;           
             // 
             // background
             // 

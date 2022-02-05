@@ -13,12 +13,14 @@ namespace Elemont.Gui.Game
     public partial class Storage : Form
     {
         public Storage instance;
-        public Storage( )
+        public Storage( Trainer trainer)
         {
             InitializeComponent();
+            this.train = trainer;
             instance = this;
         }
-
+        Trainer train;
+        
         private void button1_Click(object sender, EventArgs e)
         {
             foreach (Control c1 in store.Controls)
@@ -106,21 +108,22 @@ namespace Elemont.Gui.Game
 
         private void Storage_Load(object sender, EventArgs e)
         {
-            for (int i = 1; i <= 50; i++)
+            this.train = fMap1.instance.game.Trainers;
+            foreach(Pokemon pkm in this.train.Pokemons)
             {
                 GroupBox gb = new GroupBox();
                 gb.Size = new Size(140, 115);
                 PictureBox pb = new PictureBox();
                 pb.Size = new Size(125, 90);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.Tag = i.ToString();
-                pb.BackColor = Color.Green;
+                pb.Tag = pkm.PokemonId;
+               // pb.Image = pkm.Species.Image; đổi sang ảnh
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
                 pb.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
                 pb.Location = new Point(5, 20);
                 gb.Controls.Add(pb);
-                gb.Text = i.ToString();
-                gb.Tag = "test";
+                gb.Text = pkm.Name;
+                gb.Tag = pkm.PokemonId;
                 gb.BackColor = Color.White;
                 store.Controls.Add(gb);
             }
@@ -159,13 +162,12 @@ namespace Elemont.Gui.Game
                 {
                     if (c1.BackColor == Color.Blue)
                     {
-                        fBattle.instance.pokeselect = (string)c1.Tag;
+                      //  fBattle.instance.poke1 = Pokemon.Get by ID of c1.Tag;
                     }
                 }
 
             }    
         }
-
         private void button8_Click(object sender, EventArgs e)
         {
 
