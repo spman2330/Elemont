@@ -24,5 +24,11 @@ namespace Elemont.Dao
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
             return table.AsEnumerable().Select(item => new Map(item)).ToArray();
         }
+        public Map GetMapById(int mapId)
+        {
+            string query = String.Format("SELECT * From dbo.Map WHERE Dbo.Map.mapId =" +
+                "N'{0}'", mapId);
+            return new Map(DataProvider.Instance.ExecuteQuery(query).Rows[0]);
+        }
     }
 }

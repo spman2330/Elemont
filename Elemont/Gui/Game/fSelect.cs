@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Elemont.Dao;
 using Elemont.Dto;
 
 
@@ -15,7 +16,7 @@ namespace Elemont.Gui.Game
     {
         public static fSelect instance;
 
-        public fSelect(Account acc,Map[] map)
+        public fSelect(Account acc, Map[] map)
         {
             InitializeComponent();
             instance = this;
@@ -27,7 +28,7 @@ namespace Elemont.Gui.Game
         private void fSelect_Load(object sender, EventArgs e)
         {
             Loadtr();
-            foreach(Map m in this.map)
+            foreach (Map m in this.map)
             {
                 GroupBox gb = new GroupBox();
                 gb.Size = new Size(700, 500);
@@ -45,11 +46,12 @@ namespace Elemont.Gui.Game
                 gb.BackColor = Color.White;
                 Map1.Controls.Add(gb);
 
-            }    
+            }
         }
         private void Loadtr()
         {
             Trainer1.Controls.Clear();
+            this.account = AccountDao.Instance.GetAccount(this.account.UserName, this.account.Password);
             foreach (Trainer tr in this.account.Trainers)
             {
                 GroupBox gb = new GroupBox();
@@ -66,7 +68,7 @@ namespace Elemont.Gui.Game
                 gb.Text = tr.Name;
                 gb.Tag = tr.TrainerId;
                 gb.BackColor = Color.White;
-                Trainer1.Controls.Add(gb);             
+                Trainer1.Controls.Add(gb);
             }
 
         }
@@ -114,24 +116,32 @@ namespace Elemont.Gui.Game
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //Mở form tạo trainer
+            Trainer test = new Trainer(this.account.AccountId, "Híubeo", "sừng");
+            if (!TrainerDao.Instance.AddTrainer(test))
+            {
+
+            }
             Loadtr();
-        }       
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             foreach (Control c1 in Trainer1.Controls)
-            {if(c1.BackColor == Color.Blue)
+            {
+                if (c1.BackColor == Color.Blue)
                 {
-                    //xoá trainer khỏi database
+                    if (!TrainerDao.Instance.RemoveTrainerById((int)c1.Tag))
+                    {
+
+                    }
                     Trainer1.Controls.Remove(c1);
-                }    
-            }          
+                }
+            }
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int k=0;
+            int k = 0;
             foreach (Trainer tr in this.account.Trainers)
-            { k++; }                
+            { k++; }
             if (k == 3)
             {
                 button3.Visible = false;
@@ -151,7 +161,7 @@ namespace Elemont.Gui.Game
             {
                 if (c1.BackColor == Color.Blue)
                 {
-                    //  game.Maps = Map có ID trùng với c1.Tag
+                    game.Maps = MapDao.Instance.GetMapById((int)c1.Tag);
                     x++;
                 }
             }
@@ -159,7 +169,7 @@ namespace Elemont.Gui.Game
             {
                 if (c1.BackColor == Color.Blue)
                 {
-                    //  game.Trainers = Trainer có ID trùng với c1.Tag
+                    game.Trainers = TrainerDao.Instance.GetTrainerById((int)c1.Tag);
                     y++;
                 }
             }

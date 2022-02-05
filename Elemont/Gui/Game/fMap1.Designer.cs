@@ -132,7 +132,7 @@ namespace Elemont.Gui.Game
             this.trainer.Size = new System.Drawing.Size(53, 45);
             this.trainer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.trainer.TabIndex = 2;
-            this.trainer.TabStop = false;           
+            this.trainer.TabStop = false;
             // 
             // background
             // 
@@ -143,6 +143,7 @@ namespace Elemont.Gui.Game
             this.background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.background.TabIndex = 9;
             this.background.TabStop = false;
+            this.background.Click += new System.EventHandler(this.background_Click);
             // 
             // back
             // 
@@ -185,7 +186,8 @@ namespace Elemont.Gui.Game
             this.pictureBox1.Size = new System.Drawing.Size(125, 62);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "pokemon";
+            this.pictureBox1.Tag = "2";
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 

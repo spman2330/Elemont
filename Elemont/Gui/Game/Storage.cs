@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Elemont.Dao;
 using Elemont.Dto;
 
 
@@ -13,60 +14,60 @@ namespace Elemont.Gui.Game
     public partial class Storage : Form
     {
         public Storage instance;
-        public Storage( Trainer trainer)
+        public Storage(Trainer trainer)
         {
             InitializeComponent();
             this.train = trainer;
             instance = this;
         }
         Trainer train;
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
             foreach (Control c1 in store.Controls)
             {
-                if (c1.BackColor==Color.Blue)
-                { 
-                    richTextBox1.Text = (string)c1.Tag;
+                if (c1.BackColor == Color.Blue)
+                {
+                    richTextBox1.Text = c1.Tag.ToString();
                     break;
                 }
-                
+
             }
         }
-  
+
 
         private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         private void button3_Click(object sender, EventArgs e)
-        {           
+        {
         }
-       
+
         private void pictureBox_Click(object sender, EventArgs e)
         {
             PictureBox pb = sender as PictureBox;
-            
+
             if (pb.Parent.BackColor == Color.White)
             {
-                pb.Parent.BackColor = Color.Blue;                                
+                pb.Parent.BackColor = Color.Blue;
             }
             else
-            {              
+            {
                 pb.Parent.BackColor = Color.White;
-                richTextBox1.Clear();              
+                richTextBox1.Clear();
             }
-            
+
         }
         private void pictureBox_DoubleClick(object sender, EventArgs e)
         {
-            PictureBox pb = sender as PictureBox;           
-            
+            PictureBox pb = sender as PictureBox;
+
             {
                 pb.Parent.BackColor = Color.Blue;
-                richTextBox1.Text = (string)pb.Tag;
+                richTextBox1.Text = pb.Tag.ToString();
             }
-            
+
 
         }
 
@@ -75,7 +76,7 @@ namespace Elemont.Gui.Game
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {           
+        {
             {
                 bool sl = true;
                 while (sl)
@@ -98,7 +99,7 @@ namespace Elemont.Gui.Game
                     }
                 }
 
-            }    
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -109,7 +110,7 @@ namespace Elemont.Gui.Game
         private void Storage_Load(object sender, EventArgs e)
         {
             this.train = fMap1.instance.game.Trainers;
-            foreach(Pokemon pkm in this.train.Pokemons)
+            foreach (Pokemon pkm in this.train.Pokemons)
             {
                 GroupBox gb = new GroupBox();
                 gb.Size = new Size(140, 115);
@@ -117,7 +118,7 @@ namespace Elemont.Gui.Game
                 pb.Size = new Size(125, 90);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Tag = pkm.PokemonId;
-               // pb.Image = pkm.Species.Image; đổi sang ảnh
+                // pb.Image = pkm.Species.Image; đổi sang ảnh
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
                 pb.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
                 pb.Location = new Point(5, 20);
@@ -134,39 +135,39 @@ namespace Elemont.Gui.Game
 
         public void hideandseek()
         {
-            namebttn.Visible = false;                     
+            namebttn.Visible = false;
             skillbttn.Visible = false;
             deletebttn.Visible = false;
             selectpkm.Visible = true;
         }
 
- 
+
 
         private void selectpkm_Click(object sender, EventArgs e)
         {
-            int t=0;
-            foreach(Control c1 in store.Controls)
+            int t = 0;
+            foreach (Control c1 in store.Controls)
             {
-                if(c1.BackColor == Color.Blue)
+                if (c1.BackColor == Color.Blue)
                 {
                     t++;
-                }    
+                }
             }
-            if(t==0||t>1)
-            {             
+            if (t == 0 || t > 1)
+            {
                 MessageBox.Show("Vui lòng chọn 1 Elemont", "", MessageBoxButtons.OK);
-            }    
-            if(t==1)
+            }
+            if (t == 1)
             {
                 foreach (Control c1 in store.Controls)
                 {
                     if (c1.BackColor == Color.Blue)
                     {
-                      //  fBattle.instance.poke1 = Pokemon.Get by ID of c1.Tag;
+                        fBattle.instance.poke1 = PokemonDao.Instance.GetPokemonById((int)c1.Tag);
                     }
                 }
 
-            }    
+            }
         }
         private void button8_Click(object sender, EventArgs e)
         {

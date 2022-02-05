@@ -26,5 +26,26 @@ namespace Elemont.Dao
             Trainer[] trainers = datatable.AsEnumerable().Select(item => new Trainer(item)).ToArray();
             return trainers;
         }
+        public Trainer GetTrainerById(int trainerId)
+        {
+            string query = String.Format("SELECT * From dbo.Trainer WHERE dbo.Trainer.trainerId =" +
+              "N'{0}'", trainerId);
+            return new Trainer(DataProvider.Instance.ExecuteQuery(query).Rows[0]);
+        }
+        public bool RemoveTrainerById(int trainerId)
+        {
+            string query = String.Format("DELETE FROM dbo.Trainer WHERE dbo.Trainer.trainerId =" +
+              "N'{0}'", trainerId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public bool AddTrainer(Trainer trainer)
+        {
+            string query = String.Format("insert into Trainer (name, skin, exp, gold, ball1Num, " +
+                "ball2Num, ball3Num ,accountId)" +
+                "values(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}')",
+                trainer.Name, trainer.Skin, trainer.Exp, trainer.Gold, trainer.Ball1Num, trainer.Ball2Num,
+                trainer.Ball3Num, trainer.AccountId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
     }
 }

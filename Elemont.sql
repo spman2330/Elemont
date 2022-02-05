@@ -64,6 +64,9 @@ GO
 if exists (select * from dbo.sysobjects where id = object_id(N'[SkillConnection]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
 drop table [SkillConnection]
 GO
+if exists (select * from dbo.sysobjects where id = object_id(N'[Skin]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [Skin]
+GO
 ------------------------------------------------------------
 --CREATE TABLE
 CREATE TABLE [Account] (
@@ -71,7 +74,7 @@ CREATE TABLE [Account] (
 	[password] [nvarchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[type] [smallint] NOT NULL ,
 	[name] [nvarchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	[accountId] INT  PRIMARY KEY
+	[accountId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY
 ) ON [PRIMARY] 
 GO
 CREATE TABLE [Trainer] (
@@ -82,7 +85,7 @@ CREATE TABLE [Trainer] (
 	[ball1Num] [smallint] NOT NULL ,
 	[ball2Num] [smallint] NOT NULL ,
 	[ball3Num] [smallint] NOT NULL ,
-	[trainerId] INT  PRIMARY KEY ,
+	[trainerId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY ,
 	[accountId] INT NOT NULL 
 ) ON [PRIMARY] 
 GO
@@ -94,13 +97,13 @@ CREATE TABLE [Pokemon] (
 	[trainerId] INT ,
 	[skill1Id] INT ,
 	[skill2Id] INT ,
-	[pokemonId] INT  PRIMARY KEY,
+	[pokemonId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 ) ON [PRIMARY] 
 GO
 CREATE TABLE [Element] (
 	[name] [nvarchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[icon] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL , 
-	[elementId] INT  PRIMARY KEY
+	[elementId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY
 ) ON [PRIMARY] 
 GO
 CREATE TABLE [Map] (
@@ -108,7 +111,7 @@ CREATE TABLE [Map] (
 	[background] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[height] [smallint] NOT NULL ,
 	[width] [smallint] NOT NULL ,
-	[mapId] INT  PRIMARY KEY 
+	[mapId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY 
 ) ON [PRIMARY]
 GO
 CREATE TABLE [Cell] (
@@ -119,7 +122,7 @@ CREATE TABLE [Cell] (
 	[type] [nvarchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[background] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[mapID] INT ,
-	[cellID] INT  PRIMARY KEY 
+	[cellID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY 
 ) ON [PRIMARY]
 GO
 CREATE TABLE [Skill] (
@@ -127,7 +130,7 @@ CREATE TABLE [Skill] (
 	[type] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[num] [smallint] NOT NULL ,
 	[manaCost] [smallint] NOT NULL ,
-	[skillId] INT  PRIMARY KEY 
+	[skillId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY 
 ) ON [PRIMARY]
 GO
 CREATE TABLE [Species] (
@@ -137,59 +140,83 @@ CREATE TABLE [Species] (
 	[baseDefense] [smallint] NOT NULL ,
 	[baseHp] [smallint] NOT NULL ,
 	[elementId] INT NOT NULL ,
-	[speciesId] INT  PRIMARY KEY 
+	[speciesId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY 
 ) ON [PRIMARY]
 GO
 CREATE TABLE [Weak] (
 	[element1Id] INT ,
 	[element2Id] INT ,
-	[weakId] INT  PRIMARY KEY 
+	[weakId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY 
 ) ON [PRIMARY]
 GO
 CREATE TABLE [Strong] (
 	[element1Id] INT ,
 	[element2Id] INT ,
-	[strongId] INT  PRIMARY KEY 
+	[strongId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY 
 ) ON [PRIMARY]
 GO
 CREATE TABLE [SkillConnection] (
 	[skillId] INT NOT NULL ,
 	[speciesID] INT NOT NULL ,
-	[skillConnectionId] INT  PRIMARY KEY 
+	[skillConnectionId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY 
 ) ON [PRIMARY]
 GO
-
+CREATE TABLE [Skin] (
+	[avatar] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[left] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[right] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[up] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[down] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[skinId] INT  PRIMARY KEY
+)
 ------------------------------------------------------------
 --FAKE DATA
+SET IDENTITY_INSERT [dbo].[Account] ON 
 insert into Account (userName, password, type , name, accountId)
 values ('tk1', 'tk1', 1, 'test', 1)
+SET IDENTITY_INSERT [dbo].[Account] OFF
 
+SET IDENTITY_INSERT [dbo].[Trainer] ON 
 insert into Trainer (name, skin, exp, gold, ball1Num, ball2Num, ball3Num ,accountId, trainerId)
 values ('trainer1', 'male', 0, 1000, 10, 10, 10, 1 , 1)
+insert into Trainer (name, skin, exp, gold, ball1Num, ball2Num, ball3Num ,accountId, trainerId)
+values ('trainer2', 'male', 0, 1000, 10, 10, 10, 1 , 2)
+SET IDENTITY_INSERT [dbo].[Trainer] OFF
 
+SET IDENTITY_INSERT [dbo].[Element] ON 
 insert into Element (name, icon, elementId)
 values ('fire', 'test', 1)
 insert into Element (name, icon, elementId)
 values ('water', 'test', 2)
 insert into Element (name, icon, elementId)
 values ('grass', 'test', 3)
+SET IDENTITY_INSERT [dbo].[Element] OFF
 
+SET IDENTITY_INSERT [dbo].[Species] ON 
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
 values ('Pikachu', 'test', 10, 5, 50, 1, 1)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
 values ('Charmander', 'test', 10, 5, 100, 2, 2)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
 values ('Mewtwo', 'test', 5, 5, 60, 3, 3)
+SET IDENTITY_INSERT [dbo].[Species] OFF
 
+SET IDENTITY_INSERT [dbo].[Pokemon] ON 
 insert into Pokemon (name, speciesId,	exp, cellId, trainerId, skill1Id , skill2Id, pokemonId)
 values ('gaBeo', 1, 15, null, 1,1,2,1 )
 insert into Pokemon (name, speciesId,	exp, cellId, trainerId, skill1Id , skill2Id, pokemonId)
 values ('gagay', 2, 30, 1, null,3,4,2 )
 insert into Pokemon (name, speciesId,	exp, cellId, trainerId, skill1Id , skill2Id, pokemonId)
 values ('gabt', 3, 0, 1, null,5,6,3 )
+SET IDENTITY_INSERT [dbo].[Pokemon] OFF
 
+SET IDENTITY_INSERT [dbo].[Map] ON 
 insert into Map (name, background,	height, width, mapId)
 values ('jungle','test',1000,1500,1)
+SET IDENTITY_INSERT [dbo].[Map] OFF
+
+SET IDENTITY_INSERT [dbo].[SkillConnection] ON
+
 
 insert into SkillConnection (skillId, speciesId,skillConnectionId)
 values(1,1,1)
@@ -203,23 +230,29 @@ insert into SkillConnection (skillId, speciesId,skillConnectionId)
 values(5,3,5)
 insert into SkillConnection (skillId, speciesId,skillConnectionId)
 values(6,3,6)
+SET IDENTITY_INSERT [dbo].[SkillConnection] OFF
 
+SET IDENTITY_INSERT [dbo].[Strong] ON
 insert into Strong (element1Id, element2Id, strongId)
 values (1, 2,1)
 insert into Strong (element1Id, element2Id, strongId)
 values (2,3 ,2)
 insert into Strong (element1Id, element2Id, strongId)
 values (3,1,3)
+SET IDENTITY_INSERT [dbo].[Strong] OFF
+
+SET IDENTITY_INSERT [dbo].[Weak] ON
 insert into Weak (element1Id, element2Id, weakId)
 values (1, 1,1)
 insert into Weak (element1Id, element2Id, weakId)
 values( 2, 2,2)
 insert into Weak (element1Id, element2Id, weakId)
 values (3, 3,3)
+SET IDENTITY_INSERT [dbo].[Weak] OFF
 
-
+SET IDENTITY_INSERT [dbo].[Skill] ON
 insert into Skill (name, type, num, manaCost, skillId)
-values ('Blast burn',  'attack', 8, 5, 1)
+values ('Blast burn', 'attack', 8, 5, 1)
 insert into Skill (name, type, num, manaCost, skillId)
 values ('Magmar ' , 'heal', 10, 3, 2)
 insert into Skill (name, type, num, manaCost, skillId)
@@ -230,6 +263,9 @@ insert into Skill (name, type, num, manaCost, skillId)
 values ('Grass knot ' , 'attack', 12, 6, 5)
 insert into Skill (name, type, num, manaCost, skillId)
 values (' Poison spikes' , 'attack', 2, 2, 6)
+SET IDENTITY_INSERT [dbo].[Skill] OFF
 
+SET IDENTITY_INSERT [dbo].[Cell] ON
 insert into Cell (height, width, locationX, locationY, type, background, mapID,cellId)
-values (50, 50, 200,200, 'nest', 'test',1,1) 
+values (50, 50, 200,200, 'nest', 'test',1,1)
+SET IDENTITY_INSERT [dbo].[Cell] OFF

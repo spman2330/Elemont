@@ -8,27 +8,27 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Media;
 using Elemont.Dto;
-
+using Elemont.Dao;
 
 namespace Elemont.Gui.Game
 {
-    
+
     public partial class fMap1 : Form
     {
         public static fMap1 instance;
         public fMap1()
         {
-            InitializeComponent();           
+            InitializeComponent();
             instance = this;
         }
         public bool touch()
         {
             foreach (Control c1 in this.Controls)
-            {                               
-                    if ((trainer.Bounds.IntersectsWith(c1.Bounds) || shadow.Bounds.IntersectsWith(c1.Bounds)) && !trainer.Equals(c1) && !vision.Equals(c1) && !background.Equals(c1) && !shadow.Equals(c1))
-                    {                   
-                        return true;
-                    }           
+            {
+                if ((trainer.Bounds.IntersectsWith(c1.Bounds) || shadow.Bounds.IntersectsWith(c1.Bounds)) && !trainer.Equals(c1) && !vision.Equals(c1) && !background.Equals(c1) && !shadow.Equals(c1))
+                {
+                    return true;
+                }
             }
             return false;
         }
@@ -40,30 +40,6 @@ namespace Elemont.Gui.Game
                 {
                     c1.Visible = true;
                 }
-                if (vision.Bounds.IntersectsWith(c1.Bounds)&& (string)c1.Tag =="pokemon"&& meet)
-                {
-                    DialogResult result = MessageBox.Show("Do you want battle?", "", MessageBoxButtons.YesNo);
-                    switch (result)
-                    {
-                        case DialogResult.No:
-                            
-                            timer2.Start();
-                            meet = false;
-                            break;
-                        case DialogResult.Yes:
-                            {
-                                //fBattle fbattle = new fBattle();
-                                this.Hide();
-                               //fbattle.ShowDialog();
-                                this.Show();
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-
-
-                }    
             }
         }
         public Gameplay game;
@@ -72,26 +48,26 @@ namespace Elemont.Gui.Game
         int vi;
         public void Map1_KeyDown(object sender, KeyEventArgs e)
         {
-            SoundPlayer audio = new SoundPlayer(Properties.Resources.step); 
+            SoundPlayer audio = new SoundPlayer(Properties.Resources.step);
             audio.Play();
             if (!move)
-            {                
+            {
                 int x = trainer.Location.X;
                 int y = trainer.Location.Y;
                 int x1 = x, y1 = y, x2 = x, y2 = y;
                 if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
                 {
-                    move = true;                    
+                    move = true;
                     x2 += sp;
                     if (!(trainer.Right >= this.Width * 3 / 4 && !touch()))
                     {
-                        x1 += sp; 
+                        x1 += sp;
                         x2 -= sp;
                     }
                 }
                 else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
                 {
-                    move = true;               
+                    move = true;
                     x2 -= sp;
                     if (!(trainer.Left <= this.Width * 1 / 4 && !touch()))
                     {
@@ -101,7 +77,7 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W)
                 {
-                    move = true;                
+                    move = true;
                     y2 -= sp;
                     if (!(trainer.Top <= this.Height * 1 / 4 && !touch()))
                     {
@@ -112,7 +88,7 @@ namespace Elemont.Gui.Game
                 else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S)
                 {
                     move = true;
-                    
+
                     y2 += sp;
                     if (!(this.Height * 3 / 4 <= trainer.Bottom && !touch()))
                     {
@@ -121,10 +97,10 @@ namespace Elemont.Gui.Game
                     }
                 }
 
-                shadow.Location = new Point(x1+x2-x, y1+y2-y);
-                
+                shadow.Location = new Point(x1 + x2 - x, y1 + y2 - y);
+
                 if (!touch())
-                {                 
+                {
                     trainer.Location = new Point(x1, y1);
                     vision.Location = new Point(x1 - vi, y1 - vi);
                     foreach (Control c1 in this.Controls)
@@ -135,28 +111,28 @@ namespace Elemont.Gui.Game
                             c1.Left += x - x2;
                         }
                     }
-                    
 
-                }               
+
+                }
                 visible();
                 shadow.Location = trainer.Location;
             }
         }
 
-        
+
         bool move;
         private void timer1_Tick(object sender, EventArgs e)
         {
             move = false;
         }
-        
+
         private void Map1_SizeChanged(object sender, EventArgs e)
         {
             int x = trainer.Top - this.ClientSize.Height / 2;
             int y = trainer.Left - this.ClientSize.Width / 2;
             foreach (Control c1 in this.Controls)
             {
-                if (!c1.Equals(back)&& !c1.Equals(bag))
+                if (!c1.Equals(back) && !c1.Equals(bag))
                 {
                     c1.Top -= x;
                     c1.Left -= y;
@@ -165,7 +141,7 @@ namespace Elemont.Gui.Game
 
         }
 
- 
+
 
         private void back_Click(object sender, EventArgs e)
         {
@@ -177,21 +153,21 @@ namespace Elemont.Gui.Game
             back.BackColor = Color.Blue;
         }
 
-        
+
 
         private void back_MouseLeave(object sender, EventArgs e)
         {
             back.BackColor = Color.White;
         }
 
-       
+
 
         private void bag_Click(object sender, EventArgs e)
         {
-            Storage storage = new Storage(this.game.Trainers);           
+            Storage storage = new Storage(this.game.Trainers);
             storage.Show();
         }
-       
+
         private void bag_MouseEnter(object sender, EventArgs e)
         {
             bag.BackColor = Color.Blue;
@@ -226,10 +202,10 @@ namespace Elemont.Gui.Game
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Tag = c.Type;
                 //pb.Image = c.Background; đổi sang ảnh
-                pb.BackColor = Color.Green;               
+                pb.BackColor = Color.Green;
                 this.Controls.Add(pb);
-                pb.Location = new Point(c.LocationX, c.LocationY);                
-                foreach(Pokemon pk in c.Pokemons)
+                pb.Location = new Point(c.LocationX, c.LocationY);
+                foreach (Pokemon pk in c.Pokemons)
                 {
                     PictureBox pkm = new PictureBox();
                     pkm.Size = new Size(20, 15);
@@ -237,9 +213,9 @@ namespace Elemont.Gui.Game
                     pkm.Tag = pk.PokemonId;
                     Random r = new Random();
                     this.Controls.Add(pkm);
-                    pkm.Location = new Point(r.Next(c.LocationX, c.LocationX+c.Width), r.Next(c.LocationY, c.LocationY+ c.Height));
-                }    
-            }    
+                    pkm.Location = new Point(r.Next(c.LocationX, c.LocationX + c.Width), r.Next(c.LocationY, c.LocationY + c.Height));
+                }
+            }
 
 
             vision.Size = new Size(2 * vi + trainer.Width, 2 * vi + trainer.Height);
@@ -249,12 +225,12 @@ namespace Elemont.Gui.Game
             shadow.Size = trainer.Size;
             foreach (Control c1 in this.Controls)
             {
-                if (!trainer.Equals(c1) && !((string)c1.Tag == "frame") && !c1.Equals(back) && !c1.Equals(bag))
+                if (!trainer.Equals(c1) && !(c1.ToString() == "frame") && !c1.Equals(back) && !c1.Equals(bag))
                 {
                     c1.Visible = false;
                 }
             }
-            
+
             visible();
 
             // this.Bounds = Screen.PrimaryScreen.Bounds;
@@ -272,37 +248,50 @@ namespace Elemont.Gui.Game
             foreach (Control c1 in this.Controls)
             {
                 int id;
-                bool ispoke = int.TryParse((string)c1.Tag, out id);
-                if (vision.Bounds.IntersectsWith(c1.Bounds) && ispoke)
-                {
-                    timer2.Stop();
-                    DialogResult result = MessageBox.Show("Do you want battle?", "", MessageBoxButtons.YesNo);
-                    switch (result)
-                    {
-                        case DialogResult.No:
-                            timer2.Start();
-                            break;
-                        case DialogResult.Yes:
-                            {
-                                //Pokemon pk2 = Pokemon by id bên trên
-                                //Pokemon pk2 = new Pokemon();
-                                //fBattle fbattle = new fBattle(pk2);
-                                fBattle.instance.train = this.game.Trainers;
-                                this.Hide();
-                               // fbattle.ShowDialog();
-                                this.Show();
-                                timer2.Start();
-                            }
-                            break;
-                        default:
-                            timer2.Start();
-                            break;
-                    }
 
+                if (vision.Bounds.IntersectsWith(c1.Bounds))
+                {
+                    bool ispoke = int.TryParse((string)c1.Tag, out id);
+                    if (ispoke)
+                    {
+                        timer2.Stop();
+                        DialogResult result = MessageBox.Show("Do you want battle?", "", MessageBoxButtons.YesNo);
+                        switch (result)
+                        {
+                            case DialogResult.No:
+                                timer2.Start();
+                                break;
+                            case DialogResult.Yes:
+                                {
+                                    Pokemon pk2 = PokemonDao.Instance.GetPokemonById(id);
+                                    //Pokemon pk2 = new Pokemon();
+                                    fBattle fbattle = new fBattle(pk2);
+                                    fBattle.instance.train = this.game.Trainers;
+                                    this.Hide();
+                                    fbattle.ShowDialog();
+                                    this.Show();
+                                    timer2.Start();
+                                }
+                                break;
+                            default:
+                                timer2.Start();
+                                break;
+                        }
+                    }
                 }
             }
-                
-         }
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void background_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

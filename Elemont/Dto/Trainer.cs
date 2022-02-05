@@ -80,5 +80,16 @@ namespace Elemont.Dto
             AccountId = Convert.ToInt32(row["accountId"].ToString());
             Pokemons = PokemonDao.Instance.GetPokemonsByTrainerId(TrainerId);
         }
+        public Trainer(int accountId, string name, string skin)
+        {
+            AccountId = accountId;
+            Name = name;
+            Skin = skin;
+            Exp = 0;
+            Gold = 0;
+            Ball1Num = 0;
+            ball2Num = 0;
+            ball3Num = 0;
+        }
     }
 }
