@@ -26,9 +26,11 @@ namespace Elemont.Dto
             Name = row["name"].ToString();
             Background = row["background"].ToString();
             Height = Convert.ToInt32(row["height"].ToString());
-            Width = Convert.ToInt32(row["height"].ToString());
+            Width = Convert.ToInt32(row["width"].ToString());
             MapId = Convert.ToInt32(row["mapId"].ToString());
             Cells = CellDao.Instance.GetCellsByMapId(MapId);
         }
+        public Map()
+        { }
     }
 }

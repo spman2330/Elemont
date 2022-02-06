@@ -123,6 +123,15 @@ namespace Elemont.Gui.Game
                     {
                         if (c1.BackColor == Color.Blue)
                         {
+                            
+                                                                        
+                            List< Pokemon > termsList = new List<Pokemon>();
+                        foreach (Pokemon pokemon in fMap1.instance.game.Trainers.Pokemons)
+                        {
+                            termsList.Add(pokemon);
+                        }
+                        termsList.Remove(PokemonDao.Instance.GetPokemonById((int)c1.Tag));
+                        fMap1.instance.game.Trainers.Pokemons = termsList.ToArray();
                             store.Controls.Remove(c1);
                             if (!PokemonDao.Instance.RemovePokemonbyId((int)c1.Tag))
                             { };
@@ -133,15 +142,15 @@ namespace Elemont.Gui.Game
                     {
                         if (c1.BackColor == Color.Blue)
                         {
-                            sl = true;                            
+                            sl = true;
+                            break;
                         }
                     }
                 }
             }
         }
         private void Storage_Load(object sender, EventArgs e)
-        {
-            //this.train = fMap1.instance.game.Trainers;
+        {            
             foreach (Pokemon pkm in this.train.Pokemons)
             {
                 GroupBox gb = new GroupBox();
@@ -149,11 +158,12 @@ namespace Elemont.Gui.Game
                 PictureBox pb = new PictureBox();
                 pb.Size = new Size(125, 90);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
+                pb.BackColor = Color.Transparent;
                 pb.Tag = pkm.PokemonId;
-                // pb.Image = pkm.Species.Image; đổi sang ảnh
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
                 pb.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
                 pb.Location = new Point(5, 20);
+                pb.Image = Image.FromFile("..\\..\\..\\" + pkm.Species.Image);
                 gb.Controls.Add(pb);
                 gb.Text = pkm.Name;
                 gb.Tag = pkm.PokemonId;
@@ -161,6 +171,7 @@ namespace Elemont.Gui.Game
                 store.Controls.Add(gb);
             }
             gettrainerinfo();
+            pictureBox3.Image = Image.FromFile("..\\..\\..\\" + this.train.Skin.Avatar);
         }
         public void unselect()
         {
@@ -211,7 +222,7 @@ namespace Elemont.Gui.Game
                 {
                     case DialogResult.Yes:
                         this.train.Name = textBox1.Text;
-                        if (!TrainerDao.Instance.Rename(this.train, textBox1.Text))
+                        if (!TrainerDao.Instance.Updatetrainer(this.train))
                         { };
                         break;
                     case DialogResult.No:
@@ -244,12 +255,8 @@ namespace Elemont.Gui.Game
                 train.Gold -= 5 * (int)numericUpDown2.Value;
                 train.Ball1Num += (int)numericUpDown2.Value;
                 gettrainerinfo();
-                if(!TrainerDao.Instance.buyball(this.train,train.Ball1Num))
-                {
-
-                }
-                if (!TrainerDao.Instance.updategold(this.train, train.Gold))
-                {
+                if (!TrainerDao.Instance.Updatetrainer(this.train))
+                {     
 
                 }
 

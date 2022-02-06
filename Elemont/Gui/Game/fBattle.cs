@@ -298,7 +298,9 @@ namespace Elemont.Gui.Game
             label4.Text = hp2.ToString();
             progressBar1.Maximum = hp2;
             progressBar1.Value = hp2;
-        }   
+            pictureBox2.Image = Image.FromFile("..\\..\\..\\" + poke2.Species.Image);
+
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to exit battle?", "", MessageBoxButtons.YesNo);
@@ -328,6 +330,7 @@ namespace Elemont.Gui.Game
             label2.Text = poke1.HP.ToString();
             label5.Text = "0";
             progressBar1.Value = progressBar1.Maximum;
+            pictureBox3.Image = Image.FromFile("..\\..\\..\\" + poke1.Species.Image);
 
         }        
         private void button5_Click(object sender, EventArgs e)
@@ -368,10 +371,9 @@ namespace Elemont.Gui.Game
                 { }    
                 this.train.Gold += 10;
                 this.train.Exp += poke2.Exp+5;     
-                if(!TrainerDao.Instance.updateexp(train,train.Exp))
+                if(!TrainerDao.Instance.Updatetrainer(train))
                 { }
-                if(!TrainerDao.Instance.updategold(train,train.Gold))
-                { }                   
+                
                 DialogResult dr = MessageBox.Show("You win, wanna catch this Elemont?", "", MessageBoxButtons.YesNo);
                 switch (dr)
                 {
@@ -384,14 +386,17 @@ namespace Elemont.Gui.Game
                             this.train.Ball1Num -= 1;
 
                             if (!PokemonDao.Instance.MovePokemon(poke2.PokemonId, this.train.TrainerId)) { };
-                            if (!TrainerDao.Instance.buyball(this.train, train.Ball1Num))
+                            if (!TrainerDao.Instance.Updatetrainer(this.train))
                             {
 
                             }
                             fMap1.instance.win = true;
                             this.Close();
-                        }    
-                        
+                        }
+                        else
+                        {
+                            MessageBox.Show("You do not have a pokeball", "", MessageBoxButtons.OK);
+                        }                       
                         break;
                     default:
                         break;

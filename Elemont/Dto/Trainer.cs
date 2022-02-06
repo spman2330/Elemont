@@ -86,10 +86,10 @@ namespace Elemont.Dto
             Name = name;
             Skin = SkinDao.Instance.GetSkinById(skinId);
             Exp = 0;
-            Gold = 0;
-            Ball1Num = 0;
-            ball2Num = 0;
-            ball3Num = 0;
+            Gold = 100;
+            Ball1Num = 10;
+            ball2Num = 5;
+            ball3Num = 5;
         }
     }
 }

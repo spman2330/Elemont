@@ -189,7 +189,7 @@ namespace Elemont.Gui.Game
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 29);
             this.button7.TabIndex = 6;
-            this.button7.Text = "Mua";
+            this.button7.Text = "Buy";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -285,6 +285,7 @@ namespace Elemont.Gui.Game
             this.pictureBox3.Location = new System.Drawing.Point(374, 33);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(329, 258);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 

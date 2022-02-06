@@ -38,5 +38,10 @@ namespace Elemont.Dto
             CellId = Convert.ToInt32(row["cellId"].ToString());
             Pokemons = PokemonDao.Instance.GetPokemonsByCellId(CellId);
         }
+        public Cell(int width, int height)
+        {
+            Width = width;
+            Height = height;
+        }
     }
 }

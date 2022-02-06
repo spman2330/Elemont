@@ -22,21 +22,20 @@ namespace Elemont.Gui.Game
             InitializeComponent();
             instance = this;
             this.account = acc;
-            this.map = map;
         }
         Map[] map = MapDao.Instance.GetMaps();
         Account account;
         private void fSelect_Load(object sender, EventArgs e)
         {
             Loadtr();
-            foreach (Map m in this.map)
+            foreach (Map m in map)
             {
                 GroupBox gb = new GroupBox();
                 gb.Size = new Size(700, 500);
                 PictureBox pb = new PictureBox();
                 pb.Size = new Size(650, 450);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.BackColor = Color.Red;
+                pb.BackColor = Color.White;
                 pb.Tag = m.MapId;
                 pb.Image = Image.FromFile("..\\..\\..\\" + m.Background);
                 pb.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -61,7 +60,6 @@ namespace Elemont.Gui.Game
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.BackColor = Color.Red;
                 pb.Tag = tr.TrainerId;
-                // pb.Image = tr.Skin.Avt;
                 pb.Image = Image.FromFile("..\\..\\..\\" + tr.Skin.Avatar);
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
                 pb.Location = new Point(10, 20);
@@ -117,8 +115,21 @@ namespace Elemont.Gui.Game
         {
             if (textBox1.Text != null && comboBox1.SelectedItem != null)
             {
-                Trainer test = new Trainer(this.account.AccountId, textBox1.Text, 1);
-                if (!TrainerDao.Instance.AddTrainer(test, comboBox1.SelectedItem.ToString()))
+                int i;
+                switch (comboBox1.Text)
+                {
+                    case "Male":
+                        i = 1;
+                        break;
+                    case "Female":
+                        i = 2;
+                        break;
+                    default:
+                        i = 1;
+                        break;
+                }    
+                Trainer test = new Trainer(this.account.AccountId, textBox1.Text, i);
+                if (!TrainerDao.Instance.AddTrainer(test))
                 {
 
                 }
