@@ -29,7 +29,7 @@ namespace Elemont.Dao
             string query = String.Format("SELECT * From dbo.Map WHERE Dbo.Map.mapId =" +
                 "N'{0}'", mapId);
             return new Map(DataProvider.Instance.ExecuteQuery(query).Rows[0]);
-        }        
+        }
         public bool AddMap(Map map)
         {
             string query = String.Format("insert into Map (name, background, height, width)" +

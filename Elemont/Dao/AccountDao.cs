@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Text;
 using Elemont.Dto;
 
@@ -56,6 +58,12 @@ namespace Elemont.Dao
                 "WHERE accountId = N'{0}'",
                account.AccountId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public Account[] GetAllAccounts()
+        {
+            string query = "SELECT * FROM Account";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            return table.AsEnumerable().Select(item => new Account(item)).ToArray();
         }
     }
 }

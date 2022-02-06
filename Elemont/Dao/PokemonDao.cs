@@ -58,12 +58,5 @@ namespace Elemont.Dao
               "N'{0}'", pokemonId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
-        public bool updateexp(Pokemon poke, int exp)
-        {
-            string query = String.Format("UPDATE dbo.Pokemon " +
-                "SET dbo.Pokemon.exp = N'{0}' " +
-                "WHERE PokemonId = N'{1}'", exp, poke.PokemonId);
-            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
-        }
     }
 }

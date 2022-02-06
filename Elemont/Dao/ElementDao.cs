@@ -35,5 +35,11 @@ namespace Elemont.Dao
 
             return new Element(rowElement, weaks, strongs);
         }
+        public Element[] GetAllElements()
+        {
+            string query = "SELECT * FROM Element";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            return table.AsEnumerable().Select(item => new Element(item)).ToArray();
+        }
     }
 }

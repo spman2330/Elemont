@@ -50,5 +50,12 @@ namespace Elemont.Dto
             Weak = weaks;
             Strong = strongs;
         }
+        public Element(DataRow rowElement)
+        {
+            Name = rowElement["name"].ToString();
+            Icon = rowElement["icon"].ToString();
+            ElementId = Convert.ToInt32(rowElement["elementId"].ToString());
+            Environment = rowElement["environment"].ToString();
+        }
     }
 }

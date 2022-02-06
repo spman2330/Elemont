@@ -205,8 +205,8 @@ namespace Elemont.Gui.Game
             pictureBox9.Left = background.Left + background.Width - pictureBox9.Width;
             pictureBox8.Left = pictureBox6.Left;
             pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;
-            vi = game.Trainers.Ball2Num;
-            sp = game.Trainers.Ball3Num;           
+            vi = game.Trainers.Speed;
+            sp = game.Trainers.Vision;           
             foreach (Cell c in game.Maps.Cells)
             {
                 PictureBox pb = new PictureBox();

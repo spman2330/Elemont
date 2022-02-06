@@ -41,24 +41,24 @@ namespace Elemont.Dao
         public bool AddTrainer(Trainer trainer)
         {
             string query = String.Format("insert into Trainer (name, skinId, exp, gold, ball1Num, " +
-                "ball2Num, ball3Num ,accountId)" +
+                "speed, vision ,accountId)" +
                 "values(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}')",
-                trainer.Name, trainer.Skin.SkinId, trainer.Exp, trainer.Gold, trainer.Ball1Num, trainer.Ball2Num,
-                trainer.Ball3Num, trainer.AccountId);
+                trainer.Name, trainer.Skin.SkinId, trainer.Exp, trainer.Gold, trainer.Ball1Num, trainer.Speed,
+                trainer.Vision, trainer.AccountId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
-        }     
+        }
         public bool Updatetrainer(Trainer trainer)
         {
             string query = String.Format("UPDATE Trainer " +
                 "SET name = N'{0}', skinId = N'{1}'," +
                 " exp = N'{2}', gold = N'{3}' " +
-                ",ball1Num = N'{4}'"+
-                ",ball2Num = N'{5}'" +
-                 ",ball3Num = N'{6}'" +
+                ",ball1Num = N'{4}'" +
+                ",speed = N'{5}'" +
+                 ",vision = N'{6}'" +
                 "WHERE trainerId = N'{7}'",
-              trainer.Name,trainer.Skin.SkinId,trainer.Exp,trainer.Gold,trainer.Ball1Num,trainer.Ball2Num,trainer.Ball3Num,trainer.TrainerId);
+              trainer.Name, trainer.Skin.SkinId, trainer.Exp, trainer.Gold, trainer.Ball1Num, trainer.Speed, trainer.Vision, trainer.TrainerId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
-       
+
     }
 }

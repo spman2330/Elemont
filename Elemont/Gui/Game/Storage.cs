@@ -236,8 +236,8 @@ namespace Elemont.Gui.Game
             richTextBox2.Text =
                 train.Name + "\n"
                 + "Exp: " + train.Exp.ToString() + "\n"
-                + "Vision: " + train.Ball2Num.ToString()+"\n"
-                + "Speed: " + train.Ball3Num.ToString();
+                + "Vision: " + train.Speed.ToString()+"\n"
+                + "Speed: " + train.Vision.ToString();
             string s;
             if (train.Ball1Num > 1)
             {

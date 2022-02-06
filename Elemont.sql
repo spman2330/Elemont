@@ -84,8 +84,8 @@ CREATE TABLE [Trainer] (
 	[exp] [smallint] NOT NULL ,
 	[gold] [smallint] NOT NULL , 
 	[ball1Num] [smallint] NOT NULL ,
-	[ball2Num] [smallint] NOT NULL ,
-	[ball3Num] [smallint] NOT NULL ,
+	[speed] [smallint] NOT NULL ,
+	[vision] [smallint] NOT NULL ,
 	[trainerId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY ,
 	[accountId] INT NOT NULL 
 ) ON [PRIMARY] 
@@ -180,9 +180,9 @@ values ('tk1', 'tk1', 1, 'test', 1)
 SET IDENTITY_INSERT [dbo].[Account] OFF
 
 SET IDENTITY_INSERT [dbo].[Trainer] ON 
-insert into Trainer (name, skinId, exp, gold, ball1Num, ball2Num, ball3Num ,accountId, trainerId)
+insert into Trainer (name, skinId, exp, gold, ball1Num, speed, vision ,accountId, trainerId)
 values ('trainer1', 1, 0, 1000, 10, 10, 10, 1 , 1)
-insert into Trainer (name, skinId, exp, gold, ball1Num, ball2Num, ball3Num ,accountId, trainerId)
+insert into Trainer (name, skinId, exp, gold, ball1Num, speed, vision ,accountId, trainerId)
 values ('trainer2', 2, 0, 1000, 10, 10, 10, 1 , 2)
 SET IDENTITY_INSERT [dbo].[Trainer] OFF
 

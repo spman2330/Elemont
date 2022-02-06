@@ -24,5 +24,11 @@ namespace Elemont.Dao
               "N'{0}'", speciesId);
             return new Species(DataProvider.Instance.ExecuteQuery(query).Rows[0]);
         }
+        public Species[] GetAllSpecies()
+        {
+            string query = "SELECT * From Species";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            return table.AsEnumerable().Select(item => new Species(item)).ToArray();
+        }
     }
 }

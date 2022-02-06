@@ -38,17 +38,17 @@ namespace Elemont.Dto
             get { return ball1Num; }
             set { ball1Num = value; }
         }
-        private int ball2Num;
-        public int Ball2Num
+        private int speed;
+        public int Speed
         {
-            get { return ball2Num; }
-            set { ball2Num = value; }
+            get { return speed; }
+            set { speed = value; }
         }
-        private int ball3Num;
-        public int Ball3Num
+        private int vision;
+        public int Vision
         {
-            get { return ball3Num; }
-            set { ball3Num = value; }
+            get { return vision; }
+            set { vision = value; }
         }
         private int trainerId;
         public int TrainerId
@@ -74,8 +74,8 @@ namespace Elemont.Dto
             Exp = Convert.ToInt32(row["exp"].ToString());
             Gold = Convert.ToInt32(row["gold"].ToString());
             Ball1Num = Convert.ToInt32(row["ball1Num"].ToString());
-            Ball2Num = Convert.ToInt32(row["ball2Num"].ToString());
-            Ball3Num = Convert.ToInt32(row["ball3Num"].ToString());
+            Speed = Convert.ToInt32(row["speed"].ToString());
+            Vision = Convert.ToInt32(row["vision"].ToString());
             TrainerId = Convert.ToInt32(row["trainerId"].ToString());
             AccountId = Convert.ToInt32(row["accountId"].ToString());
             Pokemons = PokemonDao.Instance.GetPokemonsByTrainerId(TrainerId);
@@ -88,8 +88,8 @@ namespace Elemont.Dto
             Exp = 0;
             Gold = 100;
             Ball1Num = 10;
-            ball2Num = 5;
-            ball3Num = 5;
+            speed = 5;
+            vision = 5;
         }
     }
 }
