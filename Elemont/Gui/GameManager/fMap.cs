@@ -66,13 +66,9 @@ namespace Elemont.Gui.Game
             foreach (Control c1 in flowLayoutPanel1.Controls)
             {
                 pictureBox1.Controls.Add(c1);
-                c1.Location = new Point(x, y);
-                Cell cell = new Cell(c1.Width, c1.Height);
-                cell.LocationX = x;
-                cell.LocationY = y;
-                cell.Type = c1.Tag.ToString();
-                cell.MapId = (int)pictureBox1.Tag;
+                c1.Location = new Point(x, y);                               
                 ControlExtension.Draggable(c1, true);
+                c1.BringToFront();
             }
         }
 
@@ -351,7 +347,41 @@ namespace Elemont.Gui.Game
                     Map1.Controls.Remove(c1);
                 }
             }
-        } 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Control c1 in flowLayoutPanel1.Controls)
+            {
+                int id;
+                bool isold = int.TryParse(c1.Tag.ToString(), out id);
+                if (isold)
+                {
+                    Cell c = CellDao.Instance.GetCellById(id);
+                    c.Type = comboBox1.Text;
+                    if (!CellDao.Instance.ChangeCell(c))
+                    { }
+
+                }
+                else
+                { c1.Tag = comboBox1.Text; }
+                switch (comboBox1.Text)
+                {
+                    case "Water":
+                        c1.BackColor = Color.Blue;
+                        break;
+                    case "Wall":
+                        c1.BackColor = Color.Brown;
+                        break;
+                    case "Nest":
+                        c1.BackColor = Color.Green;
+                        break;
+                    default:
+                        c1.BackColor = Color.Black;
+                        break;
+                }
+            }
+        }
     }
 }
 

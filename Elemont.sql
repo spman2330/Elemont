@@ -197,11 +197,11 @@ SET IDENTITY_INSERT [dbo].[Element] OFF
 
 SET IDENTITY_INSERT [dbo].[Species] ON 
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
-values ('Pikachu', 'test', 10, 5, 150, 1, 1)
+values ('Pikachu', 'Resources\\sea.png', 10, 5, 150, 1, 1)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
-values ('Charmander', 'test', 10, 5, 100, 2, 2)
+values ('Charmander', 'Resources\\wa.jpg', 10, 5, 100, 2, 2)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
-values ('Mewtwo', 'test', 5, 5, 60, 3, 3)
+values ('Mewtwo', 'Resources\\001.png', 5, 5, 60, 3, 3)
 SET IDENTITY_INSERT [dbo].[Species] OFF
 
 SET IDENTITY_INSERT [dbo].[Pokemon] ON 
