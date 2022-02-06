@@ -46,34 +46,19 @@ namespace Elemont.Dao
                 trainer.Name, skin, 0, 100, 5, 5,
                 5, trainer.AccountId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
-        }
-        public bool Rename(Trainer trainer,string name)
+        }     
+        public bool Updatetrainer(Trainer trainer)
         {
-            string query = String.Format("UPDATE dbo.Trainer " +
-                "SET dbo.Trainer.Name = N'{0}' " +
-                "WHERE TrainerId = N'{1}'", name,trainer.TrainerId);
+            string query = String.Format("UPDATE Trainer " +
+                "SET name = N'{0}', skinId = N'{1}'," +
+                " exp = N'{2}', gold = N'{3}' " +
+                ",ball1Num = N'{4}'"+
+                ",ball2Num = N'{5}'" +
+                 ",ball3Num = N'{6}'" +
+                "WHERE trainerId = N'{7}'",
+              trainer.Name,trainer.Skin.SkinId,trainer.Exp,trainer.Gold,trainer.Ball1Num,trainer.Ball2Num,trainer.Ball3Num,trainer.TrainerId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
-        public bool buyball(Trainer trainer, int ball)
-        {
-            string query = String.Format("UPDATE dbo.Trainer " +
-                "SET dbo.Trainer.ball1Num = N'{0}' " +
-                "WHERE TrainerId = N'{1}'", ball, trainer.TrainerId);
-            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
-        }
-        public bool updateexp(Trainer trainer, int exp)
-        {
-            string query = String.Format("UPDATE dbo.Trainer " +
-                "SET dbo.Trainer.Exp = N'{0}' " +
-                "WHERE TrainerId = N'{1}'", exp, trainer.TrainerId);
-            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
-        }
-        public bool updategold(Trainer trainer, int gold)
-        {
-            string query = String.Format("UPDATE dbo.Trainer " +
-                "SET dbo.Trainer.gold = N'{0}' " +
-                "WHERE TrainerId = N'{1}'", gold, trainer.TrainerId);
-            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
-        }
+       
     }
 }

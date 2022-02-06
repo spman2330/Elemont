@@ -368,10 +368,9 @@ namespace Elemont.Gui.Game
                 { }    
                 this.train.Gold += 10;
                 this.train.Exp += poke2.Exp+5;     
-                if(!TrainerDao.Instance.updateexp(train,train.Exp))
+                if(!TrainerDao.Instance.Updatetrainer(train))
                 { }
-                if(!TrainerDao.Instance.updategold(train,train.Gold))
-                { }                   
+                
                 DialogResult dr = MessageBox.Show("You win, wanna catch this Elemont?", "", MessageBoxButtons.YesNo);
                 switch (dr)
                 {
@@ -384,7 +383,7 @@ namespace Elemont.Gui.Game
                             this.train.Ball1Num -= 1;
 
                             if (!PokemonDao.Instance.MovePokemon(poke2.PokemonId, this.train.TrainerId)) { };
-                            if (!TrainerDao.Instance.buyball(this.train, train.Ball1Num))
+                            if (!TrainerDao.Instance.Updatetrainer(this.train))
                             {
 
                             }

@@ -189,7 +189,7 @@ namespace Elemont.Gui.Game
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 29);
             this.button7.TabIndex = 6;
-            this.button7.Text = "Mua";
+            this.button7.Text = "Buy";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 

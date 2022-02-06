@@ -30,6 +30,7 @@ namespace Elemont.Gui.Game
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSelect));
             this.Trainer1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Map1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
@@ -169,6 +170,7 @@ namespace Elemont.Gui.Game
             this.Controls.Add(this.Map1);
             this.Controls.Add(this.Trainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Choosemap";

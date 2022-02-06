@@ -22,21 +22,20 @@ namespace Elemont.Gui.Game
             InitializeComponent();
             instance = this;
             this.account = acc;
-            this.map = map;
         }
         Map[] map = MapDao.Instance.GetMaps();
         Account account;
         private void fSelect_Load(object sender, EventArgs e)
         {
             Loadtr();
-            foreach (Map m in this.map)
+            foreach (Map m in map)
             {
                 GroupBox gb = new GroupBox();
                 gb.Size = new Size(700, 500);
                 PictureBox pb = new PictureBox();
                 pb.Size = new Size(650, 450);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.BackColor = Color.Red;
+                pb.BackColor = Color.White;
                 pb.Tag = m.MapId;
                 pb.Image = Image.FromFile("..\\..\\..\\" + m.Background);
                 pb.Click += new System.EventHandler(this.pictureBox1_Click);

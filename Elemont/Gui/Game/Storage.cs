@@ -211,7 +211,7 @@ namespace Elemont.Gui.Game
                 {
                     case DialogResult.Yes:
                         this.train.Name = textBox1.Text;
-                        if (!TrainerDao.Instance.Rename(this.train, textBox1.Text))
+                        if (!TrainerDao.Instance.Updatetrainer(this.train))
                         { };
                         break;
                     case DialogResult.No:
@@ -244,12 +244,8 @@ namespace Elemont.Gui.Game
                 train.Gold -= 5 * (int)numericUpDown2.Value;
                 train.Ball1Num += (int)numericUpDown2.Value;
                 gettrainerinfo();
-                if(!TrainerDao.Instance.buyball(this.train,train.Ball1Num))
-                {
-
-                }
-                if (!TrainerDao.Instance.updategold(this.train, train.Gold))
-                {
+                if (!TrainerDao.Instance.Updatetrainer(this.train))
+                {     
 
                 }
 

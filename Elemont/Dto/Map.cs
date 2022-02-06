@@ -30,5 +30,7 @@ namespace Elemont.Dto
             MapId = Convert.ToInt32(row["mapId"].ToString());
             Cells = CellDao.Instance.GetCellsByMapId(MapId);
         }
+        public Map()
+        { }
     }
 }

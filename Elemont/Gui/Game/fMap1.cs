@@ -37,7 +37,7 @@ namespace Elemont.Gui.Game
                                 { return false; }
 
                             }
-                            return false;
+                            return true;
                         case "Wall":
                             return true;
                         case "Nest":
@@ -209,8 +209,21 @@ namespace Elemont.Gui.Game
                 pb.Size = new Size(c.Width, c.Height);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Tag = c.Type;
-                //pb.Image = c.Background; đổi sang ảnh
-                pb.BackColor = Color.Green;
+                switch (c.Type)
+                {
+                    case "Water":
+                        pb.BackColor = Color.Blue;
+                        break;
+                    case "Wall":
+                        pb.BackColor = Color.Brown;
+                        break;
+                    case "Nest":
+                        pb.BackColor = Color.Green;
+                        break;
+                    default:
+                        pb.BackColor = Color.Black;
+                        break;
+                }
                 this.Controls.Add(pb);
                 pb.Tag = c.Type;
                 pb.Location = new Point(c.LocationX, c.LocationY);
@@ -287,6 +300,13 @@ namespace Elemont.Gui.Game
                                     if (game.Trainers.Pokemons == null || game.Trainers.Pokemons.Length == 0)
                                     {
                                         if (!PokemonDao.Instance.MovePokemon(id, game.Trainers.TrainerId)) { };
+                                        List<Pokemon> termsList = new List<Pokemon>();
+                                        foreach (Pokemon pokemon in this.game.Trainers.Pokemons)
+                                        {                                            
+                                            termsList.Add(pokemon);                                           
+                                        }
+                                        termsList.Add(pk2);
+                                        this.game.Trainers.Pokemons = termsList.ToArray();
                                         this.Controls.Remove(c1);
                                     }
                                     else

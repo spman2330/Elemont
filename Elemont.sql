@@ -215,7 +215,7 @@ SET IDENTITY_INSERT [dbo].[Pokemon] OFF
 
 SET IDENTITY_INSERT [dbo].[Map] ON 
 insert into Map (name, background,	height, width, mapId)
-values ('jungle','Resources\\CoolMap.png',1000,1500,1)
+values ('jungle','Resources\\CoolMap.png',2000,2101,1)
 SET IDENTITY_INSERT [dbo].[Map] OFF
 
 SET IDENTITY_INSERT [dbo].[SkillConnection] ON
@@ -275,7 +275,7 @@ SET IDENTITY_INSERT [dbo].[Cell] OFF
 
 SET IDENTITY_INSERT [dbo].[Skin] ON
 insert into Skin (avatar, up, down, [right], [left], name, skinId)
-values ('Resources\\male.png', 'up', 'down', 'right', 'left', 'male', 1)
+values ('Resources\\maleu.png', 'Resources\\maleu.png', 'Resources\\maled.png', 'Resources\\maler.png', 'Resources\\malel.png', 'male', 1)
 insert into Skin (avatar, up, down, [right], [left], name, skinId)
-values ('Resources\\male.png', 'up', 'down', 'right', 'left', 'female', 2)
+values ('Resources\\femaleu.png', 'Resources\\femaleu.png', 'Resources\\femaled.png', 'Resources\\femaler.png', 'Resources\\femalel.png', 'male', 2)
 SET IDENTITY_INSERT [dbo].[Skin] OFF
