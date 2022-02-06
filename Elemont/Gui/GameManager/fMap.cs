@@ -23,11 +23,8 @@ namespace Elemont.Gui.Game
             pictureBox1.AllowDrop = true;
             numericUpDown3.Value = pictureBox1.Width;
             numericUpDown4.Value = pictureBox1.Height;
-
             loadmap();
             this.WindowState = FormWindowState.Maximized;
-
-
             this.Bounds = Screen.PrimaryScreen.Bounds;
         }
         private void loadmap()
@@ -132,8 +129,7 @@ namespace Elemont.Gui.Game
                 pb.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
                 pb.Size = new Size((int)numericUpDown5.Value, (int)numericUpDown6.Value);
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                //pb.BackColor = Color.Transparent;
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;                
                 pb.Tag = comboBox1.SelectedItem.ToString();
             }
             else
@@ -253,16 +249,32 @@ namespace Elemont.Gui.Game
                 {
                     Cell cell = new Cell(c1.Width, c1.Height);
                     cell.LocationX = c1.Left;
-                    cell.LocationY = c1.Top;
-                    cell.Type = c1.Tag.ToString();
+                    cell.LocationY = c1.Top;                    
                     cell.MapId = (int)pictureBox1.Tag;
+                    cell.Type = c1.Tag.ToString();
                     termsList.Add(cell);
-                    CellDao.Instance.AddCell(cell);
+                    int id;
+                    bool isold = int.TryParse(c1.Tag.ToString(), out id);
+                    if (isold)
+                    {
+                        Cell c = CellDao.Instance.GetCellById(id);
+                        c.LocationX = cell.LocationX;
+                        c.LocationY = cell.LocationY;
+                        c.MapId = cell.MapId;
+                        c.Width = cell.Width;
+                        c.Height = cell.Height;
+                        if (!CellDao.Instance.ChangeCell(c))
+                        { }
+
+                    }
+                    else
+                        if (!CellDao.Instance.AddCell(cell))
+                       { }
                 }
                 map.Cells = termsList.ToArray();
                 if (!MapDao.Instance.ChangeMap(map))
                 { }
-                MessageBox.Show("Map Created and Saved", "", MessageBoxButtons.OK);
+                MessageBox.Show("Map Created and Saved ", "", MessageBoxButtons.OK);
             }
         }
 
@@ -278,7 +290,7 @@ namespace Elemont.Gui.Game
                     pictureBox1.Tag = map.MapId;
                     pictureBox1.Image = Image.FromFile("..\\..\\..\\" + map.Background);
                     numericUpDown3.Value = pictureBox1.Width = map.Width;
-                     numericUpDown4.Value = pictureBox1.Height = map.Height;
+                    numericUpDown4.Value = pictureBox1.Height = map.Height;
                      
                    
                     groupBox2.Enabled = true;
@@ -287,7 +299,7 @@ namespace Elemont.Gui.Game
                         PictureBox pb = new PictureBox();
                         pb.Size = new Size(c.Width, c.Height);
                         pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pb.Tag = c.Type;
+                        pb.Tag = c.CellId;
                         switch (c.Type)
                         {
                             case "Water":
@@ -313,12 +325,11 @@ namespace Elemont.Gui.Game
                 }
             }
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)
             {
-             //   CellDao.Instance.DeleteCell(CellDao.Instance.GetCellById((int)c1.Tag));
+                CellDao.Instance.DeleteCell(CellDao.Instance.GetCellById((int)c1.Tag));
                 flowLayoutPanel1.Controls.Remove(c1);
             }
         }
@@ -327,6 +338,7 @@ namespace Elemont.Gui.Game
         {
             bSave.Enabled = true;
             textBox1.Text = "Resources"+"\\"+"\\"+  comboBox3.Text + ".png";
+            pictureBox1.Image = Image.FromFile("..\\..\\..\\" + textBox1.Text);
         }
 
         private void button7_Click(object sender, EventArgs e)

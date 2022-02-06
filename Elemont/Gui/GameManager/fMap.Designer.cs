@@ -154,7 +154,7 @@ namespace Elemont.Gui.Game
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(138, 29);
             this.button5.TabIndex = 10;
-            this.button5.Text = "Choose";
+            this.button5.Text = "Select";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -462,7 +462,7 @@ namespace Elemont.Gui.Game
             // 
             this.Map1.Location = new System.Drawing.Point(436, 140);
             this.Map1.Name = "Map1";
-            this.Map1.Size = new System.Drawing.Size(1205, 133);
+            this.Map1.Size = new System.Drawing.Size(1318, 133);
             this.Map1.TabIndex = 6;
             // 
             // fMap

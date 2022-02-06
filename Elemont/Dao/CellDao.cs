@@ -43,9 +43,9 @@ namespace Elemont.Dao
             string query = String.Format("UPDATE Cell " +
                 "SET height = N'{0}', width = N'{1}', locationX = N'{2}'," +
                 " locationY = N'{3}'" +
-                "type = N'{4}'"+
-                "background = N'{5}'"+
-                " mapID = N'{6}'"+
+                ",type = N'{4}'"+
+                ",background = N'{5}'"+
+                ", mapID = N'{6}'"+
 
                 "WHERE cellId = N'{7}'",
             cell.Height,cell.Width,cell.LocationX,cell.LocationY,cell.Type,cell.Background,cell.MapId,cell.CellId);

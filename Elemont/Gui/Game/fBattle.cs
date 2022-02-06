@@ -298,7 +298,9 @@ namespace Elemont.Gui.Game
             label4.Text = hp2.ToString();
             progressBar1.Maximum = hp2;
             progressBar1.Value = hp2;
-        }   
+            pictureBox2.Image = Image.FromFile("..\\..\\..\\" + poke2.Species.Image);
+
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to exit battle?", "", MessageBoxButtons.YesNo);
@@ -328,6 +330,7 @@ namespace Elemont.Gui.Game
             label2.Text = poke1.HP.ToString();
             label5.Text = "0";
             progressBar1.Value = progressBar1.Maximum;
+            pictureBox3.Image = Image.FromFile("..\\..\\..\\" + poke1.Species.Image);
 
         }        
         private void button5_Click(object sender, EventArgs e)
@@ -389,8 +392,11 @@ namespace Elemont.Gui.Game
                             }
                             fMap1.instance.win = true;
                             this.Close();
-                        }    
-                        
+                        }
+                        else
+                        {
+                            MessageBox.Show("You do not have a pokeball", "", MessageBoxButtons.OK);
+                        }                       
                         break;
                     default:
                         break;

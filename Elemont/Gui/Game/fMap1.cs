@@ -63,6 +63,12 @@ namespace Elemont.Gui.Game
         int sp;
         int vi;
         bool move;
+        Image right;
+        Image left;
+        Image up;
+        Image down;
+
+
         public void Map1_KeyDown(object sender, KeyEventArgs e)
         {
             if (!move)
@@ -72,7 +78,7 @@ namespace Elemont.Gui.Game
                 int x1 = x, y1 = y, x2 = x, y2 = y;
                 if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
                 {
-                    trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Right);
+                    trainer.Image = right;
                     move = true;
                     x2 += sp;
                     if (!(trainer.Right >= this.Width * 3 / 4 && !touch()))
@@ -83,7 +89,7 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
                 {
-                    trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Left);
+                    trainer.Image = left;
                     move = true;
                     x2 -= sp;
                     if (!(trainer.Left <= this.Width * 1 / 4 && !touch()))
@@ -94,7 +100,7 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W)
                 {
-                    trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Up);
+                    trainer.Image = up;
                     move = true;
                     y2 -= sp;
                     if (!(trainer.Top <= this.Height * 1 / 4 && !touch()))
@@ -105,7 +111,7 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S)
                 {
-                    trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Down);
+                    trainer.Image = down;
                     move = true;
                     y2 += sp;
                     if (!(this.Height * 3 / 4 <= trainer.Bottom && !touch()))
@@ -173,9 +179,7 @@ namespace Elemont.Gui.Game
             Storage storage = new Storage(this.game.Trainers);
             storage.unselect();
             storage.ShowDialog();
-
             timer2.Start();
-
         }
         private void bag_MouseEnter(object sender, EventArgs e)
         {
@@ -234,6 +238,7 @@ namespace Elemont.Gui.Game
                     pkm.Size = new Size(35, 25);
                     pkm.SizeMode = PictureBoxSizeMode.StretchImage;
                     pkm.Tag = pk.PokemonId;
+                    pkm.Image = Image.FromFile("..\\..\\..\\" + pk.Species.Image);
                     Random r = new Random();
                     this.Controls.Add(pkm);
                     pkm.Location = new Point(r.Next(c.LocationX, c.LocationX + c.Width-35), r.Next(c.LocationY, c.LocationY + c.Height-25));
@@ -273,8 +278,10 @@ namespace Elemont.Gui.Game
             visible();
             trainer.BringToFront();
             trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Down);
-
-
+            right = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Right);
+            left= Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Left);
+            up= Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Up);
+            down= Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Down);
         }
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -296,6 +303,7 @@ namespace Elemont.Gui.Game
                                 break;
                             case DialogResult.Yes:
                                 {
+                                    game.Trainers = TrainerDao.Instance.GetTrainerById(game.Trainers.TrainerId);
                                     Pokemon pk2 = PokemonDao.Instance.GetPokemonById(id);
                                     if (game.Trainers.Pokemons == null || game.Trainers.Pokemons.Length == 0)
                                     {
