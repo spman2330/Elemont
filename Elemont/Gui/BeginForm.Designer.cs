@@ -83,6 +83,7 @@ namespace Elemont.Gui
             this.button5.TabIndex = 5;
             this.button5.Text = "Admin";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             this.button5.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             this.button5.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
@@ -131,6 +132,7 @@ namespace Elemont.Gui
             this.button1.TabIndex = 6;
             this.button1.Text = "Setting";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BeginForm
             // 

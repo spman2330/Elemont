@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
+using System.IO;
 using System.Windows.Forms;
-using System.Linq;
+using System.Reflection;
 using System.Media;
 using Elemont.Dto;
 using Elemont.Dao;
@@ -16,9 +16,10 @@ namespace Elemont.Gui.Game
     public partial class fMap1 : Form
     {
         public static fMap1 instance;
-        public fMap1()
+        public fMap1(Gameplay game)
         {
             InitializeComponent();
+            this.game = game;
             instance = this;
         }
         public bool touch()
@@ -27,7 +28,22 @@ namespace Elemont.Gui.Game
             {
                 if ((trainer.Bounds.IntersectsWith(c1.Bounds) || shadow.Bounds.IntersectsWith(c1.Bounds)) && !trainer.Equals(c1) && !vision.Equals(c1) && !background.Equals(c1) && !shadow.Equals(c1))
                 {
-                    return true;
+                    switch (c1.Tag.ToString())
+                    {
+                        case "Water":
+                            foreach(Pokemon pkm in this.game.Trainers.Pokemons)
+                            {
+                                if(pkm.Species.Element.Name == "water")
+                                { return false; }
+                                
+                            }
+                            return false;                          
+                        case "Wall":
+                            return true;                        
+                        case "Nest":
+                            return false;
+                    }
+                    
                 }
             }
             return false;
@@ -43,13 +59,12 @@ namespace Elemont.Gui.Game
             }
         }
         public Gameplay game;
-        bool meet;
+        public bool win;
         int sp;
         int vi;
+        bool move;
         public void Map1_KeyDown(object sender, KeyEventArgs e)
-        {
-            SoundPlayer audio = new SoundPlayer(Properties.Resources.step);
-            audio.Play();
+        {            
             if (!move)
             {
                 int x = trainer.Location.X;
@@ -117,15 +132,11 @@ namespace Elemont.Gui.Game
                 visible();
                 shadow.Location = trainer.Location;
             }
-        }
-
-
-        bool move;
+        }      
         private void timer1_Tick(object sender, EventArgs e)
         {
             move = false;
         }
-
         private void Map1_SizeChanged(object sender, EventArgs e)
         {
             int x = trainer.Top - this.ClientSize.Height / 2;
@@ -140,46 +151,42 @@ namespace Elemont.Gui.Game
             }
 
         }
-
-
-
         private void back_Click(object sender, EventArgs e)
         {
+            timer2.Stop();
             this.Close();
         }
-
         private void back_MouseEnter(object sender, EventArgs e)
         {
             back.BackColor = Color.Blue;
         }
-
-
-
         private void back_MouseLeave(object sender, EventArgs e)
         {
             back.BackColor = Color.White;
         }
-
-
-
         private void bag_Click(object sender, EventArgs e)
         {
+            timer2.Stop();
             Storage storage = new Storage(this.game.Trainers);
-            storage.Show();
-        }
+            storage.unselect();
+            storage.ShowDialog();
+           
+            timer2.Start();
 
+        }
         private void bag_MouseEnter(object sender, EventArgs e)
         {
             bag.BackColor = Color.Blue;
         }
-
         private void bag_MouseLeave(object sender, EventArgs e)
         {
             bag.BackColor = Color.White;
         }
-
         private void Map1_Load(object sender, EventArgs e)
         {
+            
+            background.Size = new Size(game.Maps.Width, game.Maps.Height);
+            background.Location = new Point(0, 0);
             pictureBox6.Width = background.Width;
             pictureBox8.Width = background.Width;
             pictureBox7.Height = background.Height;
@@ -189,8 +196,7 @@ namespace Elemont.Gui.Game
             pictureBox9.Top = pictureBox6.Top;
             pictureBox9.Left = background.Left + background.Width - pictureBox9.Width;
             pictureBox8.Left = pictureBox6.Left;
-            pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;
-            this.ClientSize = new Size(1000, 800);
+            pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;           
             vi = game.Trainers.Ball2Num;
             sp = game.Trainers.Ball3Num;
             //trainer.Image = game.Trainers.Skin.Avt; đổi sang ảnh
@@ -204,20 +210,21 @@ namespace Elemont.Gui.Game
                 //pb.Image = c.Background; đổi sang ảnh
                 pb.BackColor = Color.Green;
                 this.Controls.Add(pb);
+                pb.Tag = c.Type;
                 pb.Location = new Point(c.LocationX, c.LocationY);
+                pb.BringToFront();
                 foreach (Pokemon pk in c.Pokemons)
                 {
                     PictureBox pkm = new PictureBox();
-                    pkm.Size = new Size(20, 15);
+                    pkm.Size = new Size(35, 25);
                     pkm.SizeMode = PictureBoxSizeMode.StretchImage;
                     pkm.Tag = pk.PokemonId;
                     Random r = new Random();
                     this.Controls.Add(pkm);
                     pkm.Location = new Point(r.Next(c.LocationX, c.LocationX + c.Width), r.Next(c.LocationY, c.LocationY + c.Height));
+                    pkm.BringToFront();
                 }
-            }
-
-
+            }            
             vision.Size = new Size(2 * vi + trainer.Width, 2 * vi + trainer.Height);
             vision.Top = trainer.Top - vi;
             vision.Left = trainer.Left - vi;
@@ -225,24 +232,38 @@ namespace Elemont.Gui.Game
             shadow.Size = trainer.Size;
             foreach (Control c1 in this.Controls)
             {
-                if (!trainer.Equals(c1) && !(c1.ToString() == "frame") && !c1.Equals(back) && !c1.Equals(bag))
+                if (!trainer.Equals(c1) && !back.Equals(c1) && !bag.Equals(c1))
                 {
                     c1.Visible = false;
                 }
+            }          
+            pictureBox6.Visible = pictureBox7.Visible = pictureBox8.Visible = pictureBox9.Visible = true;
+            this.ClientSize = new Size(900, 700);
+            foreach (Control c1 in this.Controls)
+            {
+                if(c1.Tag !=null)
+                if (c1.Tag.ToString() == "Water")
+                    c1.BringToFront();
             }
 
+            foreach (Control c1 in this.Controls)
+            {
+                if(c1.Tag !=null)
+                if (c1.Tag.ToString() == "Wall")
+                    c1.BringToFront();
+            }
+            bag.BringToFront();
+            back.BringToFront();
+            timer2.Start();
             visible();
+            trainer.BringToFront();
 
-            // this.Bounds = Screen.PrimaryScreen.Bounds;
+            string s = "\\Resources\\male.png";
+            trainer.Image = Image.FromFile(Directory.GetCurrentDirectory() +s );
 
 
-        }
-
-        private void trainer_Click(object sender, EventArgs e)
-        {
 
         }
-
         private void timer2_Tick(object sender, EventArgs e)
         {
             foreach (Control c1 in this.Controls)
@@ -251,7 +272,7 @@ namespace Elemont.Gui.Game
 
                 if (vision.Bounds.IntersectsWith(c1.Bounds))
                 {
-                    bool ispoke = int.TryParse((string)c1.Tag, out id);
+                    bool ispoke = int.TryParse(c1.Tag.ToString(), out id);
                     if (ispoke)
                     {
                         timer2.Stop();
@@ -264,13 +285,24 @@ namespace Elemont.Gui.Game
                             case DialogResult.Yes:
                                 {
                                     Pokemon pk2 = PokemonDao.Instance.GetPokemonById(id);
-                                    //Pokemon pk2 = new Pokemon();
-                                    fBattle fbattle = new fBattle(pk2);
-                                    fBattle.instance.train = this.game.Trainers;
-                                    this.Hide();
-                                    fbattle.ShowDialog();
-                                    this.Show();
-                                    timer2.Start();
+                                    if (game.Trainers.Pokemons == null || game.Trainers.Pokemons.Length == 0)
+                                    { if (!PokemonDao.Instance.MovePokemon(id, game.Trainers.TrainerId)) { };
+                                        this.Controls.Remove(c1);
+                                    }
+                                    else
+                                    {
+                                        fBattle fbattle = new fBattle(pk2);
+                                        fBattle.instance.train = this.game.Trainers;
+                                        this.Hide();
+                                        fbattle.ShowDialog();
+                                        this.Show();
+                                        if (win)
+                                        {
+                                            this.Controls.Remove(c1);
+                                        }
+                                        win = false;
+                                        timer2.Start();
+                                    }
                                 }
                                 break;
                             default:
@@ -280,16 +312,6 @@ namespace Elemont.Gui.Game
                     }
                 }
             }
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void background_Click(object sender, EventArgs e)
-        {
 
         }
     }

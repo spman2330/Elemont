@@ -16,14 +16,14 @@ namespace Elemont.Gui.Game
     {
         public static fSelect instance;
 
-        public fSelect(Account acc, Map[] map)
+        public fSelect(Account acc)
         {
             InitializeComponent();
             instance = this;
             this.account = acc;
             this.map = map;
         }
-        Map[] map;
+        Map[] map= MapDao.Instance.GetMaps();
         Account account;
         private void fSelect_Load(object sender, EventArgs e)
         {
@@ -116,12 +116,15 @@ namespace Elemont.Gui.Game
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Trainer test = new Trainer(this.account.AccountId, "Híubeo", "sừng");
-            if (!TrainerDao.Instance.AddTrainer(test))
+            if (textBox1.Text != null && comboBox1.SelectedItem != null)
             {
+                Trainer test = new Trainer(this.account.AccountId, textBox1.Text, comboBox1.SelectedItem.ToString());
+                if (!TrainerDao.Instance.AddTrainer(test, comboBox1.SelectedItem.ToString()))
+                {
 
+                }
+                Loadtr();
             }
-            Loadtr();
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -136,28 +139,33 @@ namespace Elemont.Gui.Game
                     Trainer1.Controls.Remove(c1);
                 }
             }
+            button3.Visible = true;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
             int k = 0;
-            foreach (Trainer tr in this.account.Trainers)
+            foreach (Control c1 in Trainer1.Controls)
             { k++; }
             if (k == 3)
             {
                 button3.Visible = false;
             }
-            if (k == 0)
+            else if (k == 0)
             {
                 button4.Visible = false;
             }
+            else
+            {
+                button3.Visible = true;
+                button4.Visible = true;
+            }    
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             int x = 0;
             int y = 0;
             Gameplay game = new Gameplay();
-            foreach (Control c1 in Trainer1.Controls)
+            foreach (Control c1 in Map1.Controls)
             {
                 if (c1.BackColor == Color.Blue)
                 {
@@ -175,7 +183,7 @@ namespace Elemont.Gui.Game
             }
             if (x * y == 1)
             {
-                fMap1 map1 = new fMap1();
+                fMap1 map1 = new fMap1(game);
                 fMap1.instance.game = game;
                 this.Hide();
                 map1.ShowDialog();
