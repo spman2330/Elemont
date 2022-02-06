@@ -14,8 +14,8 @@ namespace Elemont.Dto
             get { return name; }
             set { name = value; }
         }
-        private string skin;
-        public string Skin
+        private Skin skin;
+        public Skin Skin
         {
             get { return skin; }
             set { skin = value; }
@@ -70,7 +70,7 @@ namespace Elemont.Dto
         public Trainer(DataRow row)
         {
             Name = row["name"].ToString();
-            Skin = row["skin"].ToString();
+            Skin = SkinDao.Instance.GetSkinById(Convert.ToInt32(row["skinId"].ToString()));
             Exp = Convert.ToInt32(row["exp"].ToString());
             Gold = Convert.ToInt32(row["gold"].ToString());
             Ball1Num = Convert.ToInt32(row["ball1Num"].ToString());
@@ -80,11 +80,11 @@ namespace Elemont.Dto
             AccountId = Convert.ToInt32(row["accountId"].ToString());
             Pokemons = PokemonDao.Instance.GetPokemonsByTrainerId(TrainerId);
         }
-        public Trainer(int accountId, string name, string skin)
+        public Trainer(int accountId, string name, int skinId)
         {
             AccountId = accountId;
             Name = name;
-            Skin = skin;
+            Skin = SkinDao.Instance.GetSkinById(skinId);
             Exp = 0;
             Gold = 0;
             Ball1Num = 0;

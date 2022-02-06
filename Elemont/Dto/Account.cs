@@ -50,5 +50,13 @@ namespace Elemont.Dto
             AccountId = Convert.ToInt32(row["accountId"].ToString());
             Trainers = TrainerDao.Instance.GetTrainersByAccountId(AccountId);
         }
+
+        public Account(string userName, string password, int type, string name)
+        {
+            UserName = userName;
+            Password = password;
+            Type = type;
+            Name = name;
+        }
     }
 }
