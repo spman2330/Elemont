@@ -141,7 +141,7 @@ namespace Elemont.Gui.Game
         }
         private void Storage_Load(object sender, EventArgs e)
         {
-            this.train = fMap1.instance.game.Trainers;
+            //this.train = fMap1.instance.game.Trainers;
             foreach (Pokemon pkm in this.train.Pokemons)
             {
                 GroupBox gb = new GroupBox();

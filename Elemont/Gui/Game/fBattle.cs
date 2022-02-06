@@ -389,7 +389,7 @@ namespace Elemont.Gui.Game
 
                             }
                             fMap1.instance.win = true;
-
+                            this.Close();
                         }    
                         
                         break;

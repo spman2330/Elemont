@@ -285,17 +285,24 @@ namespace Elemont.Gui.Game
                             case DialogResult.Yes:
                                 {
                                     Pokemon pk2 = PokemonDao.Instance.GetPokemonById(id);
-                                    fBattle fbattle = new fBattle(pk2);
-                                    fBattle.instance.train = this.game.Trainers;
-                                    this.Hide();
-                                    fbattle.ShowDialog();
-                                    this.Show();
-                                    if (win)
-                                    {
+                                    if (game.Trainers.Pokemons == null || game.Trainers.Pokemons.Length == 0)
+                                    { if (!PokemonDao.Instance.MovePokemon(id, game.Trainers.TrainerId)) { };
                                         this.Controls.Remove(c1);
                                     }
-                                    win = false;                                    
-                                    timer2.Start();
+                                    else
+                                    {
+                                        fBattle fbattle = new fBattle(pk2);
+                                        fBattle.instance.train = this.game.Trainers;
+                                        this.Hide();
+                                        fbattle.ShowDialog();
+                                        this.Show();
+                                        if (win)
+                                        {
+                                            this.Controls.Remove(c1);
+                                        }
+                                        win = false;
+                                        timer2.Start();
+                                    }
                                 }
                                 break;
                             default:

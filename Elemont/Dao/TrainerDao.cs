@@ -38,13 +38,13 @@ namespace Elemont.Dao
               "N'{0}'", trainerId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
-        public bool AddTrainer(Trainer trainer)
+        public bool AddTrainer(Trainer trainer, string skin)
         {
             string query = String.Format("insert into Trainer (name, skin, exp, gold, ball1Num, " +
                 "ball2Num, ball3Num ,accountId)" +
                 "values(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}', N'{7}')",
-                trainer.Name, trainer.Skin, trainer.Exp, trainer.Gold, trainer.Ball1Num, trainer.Ball2Num,
-                trainer.Ball3Num, trainer.AccountId);
+                trainer.Name, skin, 0, 100, 5, 5,
+                5, trainer.AccountId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
         public bool Rename(Trainer trainer,string name)

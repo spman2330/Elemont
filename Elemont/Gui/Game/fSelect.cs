@@ -119,7 +119,7 @@ namespace Elemont.Gui.Game
             if (textBox1.Text != null && comboBox1.SelectedItem != null)
             {
                 Trainer test = new Trainer(this.account.AccountId, textBox1.Text, comboBox1.SelectedItem.ToString());
-                if (!TrainerDao.Instance.AddTrainer(test))
+                if (!TrainerDao.Instance.AddTrainer(test, comboBox1.SelectedItem.ToString()))
                 {
 
                 }
@@ -165,7 +165,7 @@ namespace Elemont.Gui.Game
             int x = 0;
             int y = 0;
             Gameplay game = new Gameplay();
-            foreach (Control c1 in Trainer1.Controls)
+            foreach (Control c1 in Map1.Controls)
             {
                 if (c1.BackColor == Color.Blue)
                 {
