@@ -54,6 +54,7 @@ namespace Elemont.Gui
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+            (new fLogin()).Show();
         }
 
         private void button5_Click(object sender, EventArgs e)

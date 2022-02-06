@@ -81,7 +81,7 @@ namespace Elemont.Gui
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(192, 65);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Exit";
+            this.button4.Text = "Log out";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             this.button4.MouseEnter += new System.EventHandler(this.button1_MouseEnter);

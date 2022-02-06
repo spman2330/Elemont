@@ -56,5 +56,11 @@ namespace Elemont.Gui.GameManager
             OpenChildForm(new FSpeciesEdit());
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Close();
+            (new BeginForm()).Show();
+        }
     }
 }

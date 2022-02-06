@@ -48,5 +48,11 @@ namespace Elemont.Gui.GameManager
         {
             OpenChildForm(new fPlayerManage());
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Close();
+            (new BeginForm()).Show();
+        }
     }
 }

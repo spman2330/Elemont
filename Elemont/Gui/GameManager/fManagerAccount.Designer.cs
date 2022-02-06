@@ -37,6 +37,7 @@ namespace Elemont.Gui.GameManager
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel_Body = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +45,7 @@ namespace Elemont.Gui.GameManager
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button4);
@@ -70,7 +72,7 @@ namespace Elemont.Gui.GameManager
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(1124, 0);
+            this.button3.Location = new System.Drawing.Point(1006, 0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(168, 181);
             this.button3.TabIndex = 3;
@@ -84,7 +86,7 @@ namespace Elemont.Gui.GameManager
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(916, 0);
+            this.button4.Location = new System.Drawing.Point(832, 0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(168, 181);
             this.button4.TabIndex = 2;
@@ -98,7 +100,7 @@ namespace Elemont.Gui.GameManager
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(708, 0);
+            this.button2.Location = new System.Drawing.Point(658, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(168, 181);
             this.button2.TabIndex = 1;
@@ -112,7 +114,7 @@ namespace Elemont.Gui.GameManager
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(500, 0);
+            this.button1.Location = new System.Drawing.Point(484, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(168, 181);
             this.button1.TabIndex = 0;
@@ -128,6 +130,21 @@ namespace Elemont.Gui.GameManager
             this.panel_Body.Name = "panel_Body";
             this.panel_Body.Size = new System.Drawing.Size(1312, 628);
             this.panel_Body.TabIndex = 2;
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button5.Location = new System.Drawing.Point(1200, 0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(112, 181);
+            this.button5.TabIndex = 8;
+            this.button5.Text = "Back";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // fManagerAccount
             // 
@@ -153,5 +170,6 @@ namespace Elemont.Gui.GameManager
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel_Body;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button5;
     }
 }
