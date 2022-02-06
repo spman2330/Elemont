@@ -194,7 +194,7 @@ SET IDENTITY_INSERT [dbo].[Element] OFF
 
 SET IDENTITY_INSERT [dbo].[Species] ON 
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
-values ('Pikachu', 'test', 10, 5, 50, 1, 1)
+values ('Pikachu', 'test', 10, 5, 150, 1, 1)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
 values ('Charmander', 'test', 10, 5, 100, 2, 2)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
@@ -267,5 +267,5 @@ SET IDENTITY_INSERT [dbo].[Skill] OFF
 
 SET IDENTITY_INSERT [dbo].[Cell] ON
 insert into Cell (height, width, locationX, locationY, type, background, mapID,cellId)
-values (50, 50, 200,200, 'nest', 'test',1,1)
+values (500, 500, 200,200, 'Nest', 'test',1,1)
 SET IDENTITY_INSERT [dbo].[Cell] OFF

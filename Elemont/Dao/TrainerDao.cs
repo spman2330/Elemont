@@ -47,5 +47,33 @@ namespace Elemont.Dao
                 trainer.Ball3Num, trainer.AccountId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
+        public bool Rename(Trainer trainer,string name)
+        {
+            string query = String.Format("UPDATE dbo.Trainer " +
+                "SET dbo.Trainer.Name = N'{0}' " +
+                "WHERE TrainerId = N'{1}'", name,trainer.TrainerId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public bool buyball(Trainer trainer, int ball)
+        {
+            string query = String.Format("UPDATE dbo.Trainer " +
+                "SET dbo.Trainer.ball1Num = N'{0}' " +
+                "WHERE TrainerId = N'{1}'", ball, trainer.TrainerId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public bool updateexp(Trainer trainer, int exp)
+        {
+            string query = String.Format("UPDATE dbo.Trainer " +
+                "SET dbo.Trainer.Exp = N'{0}' " +
+                "WHERE TrainerId = N'{1}'", exp, trainer.TrainerId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public bool updategold(Trainer trainer, int gold)
+        {
+            string query = String.Format("UPDATE dbo.Trainer " +
+                "SET dbo.Trainer.gold = N'{0}' " +
+                "WHERE TrainerId = N'{1}'", gold, trainer.TrainerId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
     }
 }

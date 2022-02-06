@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Elemont.Dto;
+using Elemont.Dao;
+
 namespace Elemont.Gui.Game
 {
     public partial class fBattle : Form
@@ -17,8 +19,7 @@ namespace Elemont.Gui.Game
             InitializeComponent(); 
             this.poke2 = pk2;
             poke2.Name = "Wild " + poke2.Species.Name;
-            instance = this;
-            
+            instance = this;           
         }
         public Trainer train;
         public Pokemon poke1;
@@ -30,12 +31,32 @@ namespace Elemont.Gui.Game
         int mana2;
         string pk2atk;
         DataTable battlelog = new DataTable();
+        int strong(Element ele1, Element ele2) 
+        {
+            foreach(int i in ele1.Strong)
+            {
+                if (ele2.ElementId == i)
+                { return 2; }    
+            }    
+            return 1;
+        }
+        int weak(Element ele1, Element ele2) 
+        {
+            foreach (int i in ele1.Weak)
+            {
+                if (ele2.ElementId == i)
+                { return 2; }
+            }
+            return 1;
+        }        
         void Useskill(Skill skill)
         {
+            int w = weak(poke1.Species.Element, poke2.Species.Element);
+            int s = strong(poke1.Species.Element, poke2.Species.Element);
             switch (skill.Type)
             {
                 case "attack":
-                    hp2 -= skill.Num + poke1.Attack+poke2.Defense / (poke2.Defense + 2);
+                    hp2 -= (skill.Num + poke1.Attack+poke2.Defense / (poke2.Defense + 2))*s/w;
                     break;
                 case "heal":
                     hp1 += skill.Num;
@@ -50,12 +71,12 @@ namespace Elemont.Gui.Game
         }
         void Useskill2( Skill skill)
         {
+            int w = weak(poke2.Species.Element, poke1.Species.Element);
+            int s = strong(poke2.Species.Element, poke1.Species.Element);
             switch (skill.Type)
             {
                 case "attack":
-                    hp1 -= skill.Num + poke2.Attack * poke1.Defense / (poke1.Defense + 2);
-                   
-
+                    hp1 -= (skill.Num + poke2.Attack * poke1.Defense / (poke1.Defense + 2)) * s / w;                  
                     break;
                 case "heal":
                     hp2 += skill.Num;
@@ -68,14 +89,13 @@ namespace Elemont.Gui.Game
             if (hp1 < 0) hp1 = 0;
             mana2 -= skill.ManaCost;
         }
-
         void Poke2atk()
         {
             if (mana2 < poke2.Skill1.ManaCost && mana2 < poke2.Skill2.ManaCost) // poke2 đánh thường
             {
                 mana2 += 3;
                 hp1 -= poke2.Attack * poke1.Defense / (poke1.Defense + 2);
-                pk2atk = "; " + poke2.Name + " Attack";
+                pk2atk = "; " + poke2.Name + " Attacks";
             }
             else if (mana2 >= poke2.Skill1.ManaCost && mana2 >= poke2.Skill2.ManaCost)
             {
@@ -96,7 +116,7 @@ namespace Elemont.Gui.Game
                 {
                     mana2 += 3;
                     hp1 -= poke2.Attack * poke1.Defense / (poke1.Defense + 2);
-                    pk2atk = "; " + poke2.Name + " Attack";
+                    pk2atk = "; " + poke2.Name + " Attacks";
                 }
             }
             else 
@@ -109,7 +129,7 @@ namespace Elemont.Gui.Game
                 {
                     mana2 += 3;
                     hp1 -= poke2.Attack * poke1.Defense / (poke1.Defense + 2);                    
-                    pk2atk = "; " + poke2.Name + " Attack";
+                    pk2atk = "; " + poke2.Name + " Attacks";
                 }
                 else { 
                  Useskill2(poke2.Skill1);
@@ -124,7 +144,7 @@ namespace Elemont.Gui.Game
                 {
                     mana2 += 3;
                     hp1 -= poke2.Attack * poke1.Defense / (poke1.Defense + 2);                   
-                    pk2atk = "; " + poke2.Name + " Attack";
+                    pk2atk = "; " + poke2.Name + " Attacks";
                 }
                 else
                 {
@@ -135,8 +155,16 @@ namespace Elemont.Gui.Game
             }
             if (hp1 < 0) hp1 = 0;
             
-        } // bot bằng random
-        
+        }   
+        void checkenvi()
+        {
+            string s = fMap1.instance.game.Maps.Name;            
+            if (poke1.Species.Element.Name == s)
+            { hp1 += 10; }
+            if (poke2.Species.Element.Name == s)
+            { hp2 += 10; }
+            
+        }
         private void Skill1_Click(object sender, EventArgs e)
         {
             if (mana1 >= poke1.Skill1.ManaCost)
@@ -144,7 +172,7 @@ namespace Elemont.Gui.Game
                 Useskill(poke1.Skill1);
                 if(hp2 > 0)
                 Poke2atk();
-                Loadstt();
+                Clearrow();
                 turn++;
                 newturn();
                 richTextBox1.Text = richTextBox1.Text + turn.ToString() + " " + label1.Text + " uses " + poke1.Skill1.Name + " " + pk2atk + "\n";
@@ -159,7 +187,7 @@ namespace Elemont.Gui.Game
                 Useskill(poke1.Skill2);
                 if(hp2>0)
                 Poke2atk();
-                Loadstt();
+                Clearrow();
                 turn++;
                 newturn();
                 richTextBox1.Text = richTextBox1.Text + turn.ToString() + " " + label1.Text + " uses " + poke1.Skill2.Name + " " + pk2atk + "\n";
@@ -167,7 +195,7 @@ namespace Elemont.Gui.Game
             }
             else { MessageBox.Show("Not enough Mana","",MessageBoxButtons.OK); }
         }
-        private void button1_Click(object sender, EventArgs e) //đánh thường
+        private void button1_Click(object sender, EventArgs e) 
         {
             mana1 += 3;            
             hp2 -= poke1.Attack * poke2.Defense / (poke2.Defense + 2);
@@ -176,12 +204,12 @@ namespace Elemont.Gui.Game
             {
                 Poke2atk();
             }
+            Clearrow();
             Loadstt();
             turn++;
             newturn();                           
-            richTextBox1.Text = richTextBox1.Text + turn.ToString() + " " + label1.Text + " " + ((Button)sender).Text +" "+pk2atk+ "\n";
+            richTextBox1.Text = richTextBox1.Text + turn.ToString() + " " + label1.Text +  " Attacks "+pk2atk+ "\n";
             checkend();
-
         }
         private void Clearrow()
         {
@@ -219,11 +247,12 @@ namespace Elemont.Gui.Game
             richTextBox1.Clear();
             panel1.Visible = false;
         }
-
         private void Loadstt()
         {
             label1.Text = poke1.Name;
+            label7.Text = poke1.Species.Element.Name;
             label3.Text = poke2.Name;
+            label6.Text = poke2.Species.Element.Name;
             button2.Text = poke1.Skill1.Name;
             button3.Text = poke1.Skill2.Name;
             progressBar1.Value = hp2;
@@ -245,7 +274,6 @@ namespace Elemont.Gui.Game
             battlelog.Rows.Add(r);
             this.dataGridView1.DataSource = battlelog;           
         }
-
         private void Battle_Load(object sender, EventArgs e)
         {
             battlelog.Columns.Add("Turn", typeof(int));
@@ -264,6 +292,12 @@ namespace Elemont.Gui.Game
             dataGridView1.Columns[5].Width = 40;
             dataGridView1.Columns[6].Width = 60;
             panel1.Visible = false;
+            label3.Text = poke2.Name;
+            label6.Text = poke2.Species.Element.Name;
+            hp2 = poke2.HP;
+            label4.Text = hp2.ToString();
+            progressBar1.Maximum = hp2;
+            progressBar1.Value = hp2;
         }   
         private void button4_Click(object sender, EventArgs e)
         {
@@ -281,24 +315,22 @@ namespace Elemont.Gui.Game
             }
         }
         private void bag_Click(object sender, EventArgs e)
-        {
-            Storage storage = new Storage(this.train);
+        {           
+            Storage storage = new Storage(this.train);            
             storage.Show();
-            storage.hideandseek();
+            storage.hideandseek();                       
         }
-        private void button7_Click(object sender, EventArgs e) //View
+        public void showpanel()
         {
-            if (this.dataGridView1.SelectedRows.Count == 1)
-            {                
-                progressBar2.Value = (int)dataGridView1.CurrentRow.Cells[2].Value;
-                progressBar1.Value = (int)dataGridView1.CurrentRow.Cells[5].Value;
-                label5.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();  
-                label2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                label4.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            panel3.Visible = true;
+            label1.Text = poke1.Name;
+            label7.Text = poke1.Species.Element.Name;
+            label2.Text = poke1.HP.ToString();
+            label5.Text = "0";
+            progressBar1.Value = progressBar1.Maximum;
 
-            }
-        }
-        private void button5_Click(object sender, EventArgs e) // Select
+        }        
+        private void button5_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.SelectedRows.Count == 1)
             {
@@ -307,7 +339,8 @@ namespace Elemont.Gui.Game
                 hp2 = (int)dataGridView1.CurrentRow.Cells[5].Value;
                 mana1 = (int)dataGridView1.CurrentRow.Cells[3].Value;
                 mana2 = (int)dataGridView1.CurrentRow.Cells[6].Value;
-                Clearrow();               
+                //Clearrow();               
+                Loadstt();
             }
         }
         private void checkend()
@@ -331,9 +364,14 @@ namespace Elemont.Gui.Game
             {
 
                 poke1.Exp += 5;
+                if(!PokemonDao.Instance.updateexp(poke1,poke1.Exp))
+                { }    
                 this.train.Gold += 10;
-                this.train.Exp += poke2.Exp;
-                //thay đổi dữ liệu trong database
+                this.train.Exp += poke2.Exp+5;     
+                if(!TrainerDao.Instance.updateexp(train,train.Exp))
+                { }
+                if(!TrainerDao.Instance.updategold(train,train.Gold))
+                { }                   
                 DialogResult dr = MessageBox.Show("You win, wanna catch this Elemont?", "", MessageBoxButtons.YesNo);
                 switch (dr)
                 {
@@ -344,10 +382,16 @@ namespace Elemont.Gui.Game
                         if(this.train.Ball1Num>1)
                         {
                             this.train.Ball1Num -= 1;
-                           // this.train.Pokemons.Add(poke2);
+
+                            if (!PokemonDao.Instance.MovePokemon(poke2.PokemonId, this.train.TrainerId)) { };
+                            if (!TrainerDao.Instance.buyball(this.train, train.Ball1Num))
+                            {
+
+                            }
+                            fMap1.instance.win = true;
 
                         }    
-                        //Check túi có >1 bóng thì bắt
+                        
                         break;
                     default:
                         break;
@@ -361,7 +405,6 @@ namespace Elemont.Gui.Game
         {
             panel1.Visible = !panel1.Visible;
         }
-
         private void button8_Click(object sender, EventArgs e)
         {
             if (poke1 != null)
@@ -373,16 +416,16 @@ namespace Elemont.Gui.Game
                 mana1 = mana2 = 0;
                 hp1 = progressBar2.Maximum = poke1.HP;
                 hp2 = progressBar1.Maximum = poke2.HP;
+                checkenvi();
                 Loadstt();
                 newturn();
+                
             }
         }
-
         private void button8_MouseEnter(object sender, EventArgs e)
         {
             button8.ForeColor = Color.Black;
         }
-
         private void button8_MouseLeave(object sender, EventArgs e)
         {
             button8.ForeColor = Color.White;

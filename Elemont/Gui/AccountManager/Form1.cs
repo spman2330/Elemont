@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Elemont.Gui
+namespace Elemont.Gui.AccountManager
 {
-    public partial class FormInfo : Form
+    public partial class Form1 : Form
     {
-        public FormInfo()
+        public Form1()
         {
             InitializeComponent();
         }

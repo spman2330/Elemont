@@ -15,12 +15,9 @@ namespace Elemont
         /// </summary>
         [STAThread]
         static void Main()
-        {
-            Map[] a = MapDao.Instance.GetMaps();
+        {           
             Account b = AccountDao.Instance.GetAccount("tk1", "tk1");
-            Pokemon c = PokemonDao.Instance.GetPokemonById(1);
-            c.Name = "gà ngu";
-            PokemonDao.Instance.ChangePokemon(c);
+            
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

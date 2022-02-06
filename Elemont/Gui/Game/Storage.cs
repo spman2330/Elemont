@@ -17,33 +17,69 @@ namespace Elemont.Gui.Game
         public Storage(Trainer trainer)
         {
             InitializeComponent();
-            this.train = trainer;
+            this.train = TrainerDao.Instance.GetTrainerById(trainer.TrainerId);
             instance = this;
         }
         Trainer train;
-
         private void button1_Click(object sender, EventArgs e)
         {
+            getinfo();
+        }
+        void getinfo()
+        {
+            richTextBox1.Clear();
             foreach (Control c1 in store.Controls)
             {
                 if (c1.BackColor == Color.Blue)
                 {
-                    richTextBox1.Text = c1.Tag.ToString();
+                    Pokemon pkm = PokemonDao.Instance.GetPokemonById((int)c1.Tag);
+                    richTextBox1.Text =
+                            pkm.Name + "\n"
+                            + "Level " + pkm.Level.ToString() + "\n"
+                            + "Species: " + pkm.Species.Name + "\n"
+                            + "Element: " + pkm.Species.Element.Name + "\n"
+                            + "Skill1: " + pkm.Skill1.Name + "\n"
+                            + "Skill2: " + pkm.Skill2.Name + "\n"
+                            + "HP: " + pkm.HP.ToString() + "\n"
+                            + "Attack: " + pkm.Attack.ToString() + "\n"
+                            + "Defense: " + pkm.Defense.ToString();
                     break;
                 }
-
             }
         }
-
-
         private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         private void button3_Click(object sender, EventArgs e)
         {
-        }
+            int t = 0;
+            foreach (Control c1 in store.Controls)
+            {
+                if (c1.BackColor == Color.Blue)
+                {
+                    t++;
+                }
 
+            }
+            if (pkname.Text!=null&&t==1)
+            {
+                foreach (Control c1 in store.Controls)
+                {
+                    if (c1.BackColor == Color.Blue)
+                    {
+                        c1.Text = pkname.Text;
+
+                        Pokemon pkm = PokemonDao.Instance.GetPokemonById((int)c1.Tag);
+                        pkm.Name = pkname.Text;
+                        if (!PokemonDao.Instance.ChangePokemon(pkm))
+                        { };
+                    }
+                }             
+            }   
+            else
+            { MessageBox.Show("Please select 1 pokemon and choose name", "", MessageBoxButtons.OK); }                 
+        }
         private void pictureBox_Click(object sender, EventArgs e)
         {
             PictureBox pb = sender as PictureBox;
@@ -57,24 +93,26 @@ namespace Elemont.Gui.Game
                 pb.Parent.BackColor = Color.White;
                 richTextBox1.Clear();
             }
-
         }
         private void pictureBox_DoubleClick(object sender, EventArgs e)
         {
             PictureBox pb = sender as PictureBox;
-
             {
+                richTextBox1.Clear();
                 pb.Parent.BackColor = Color.Blue;
-                richTextBox1.Text = pb.Tag.ToString();
+                Pokemon pkm = PokemonDao.Instance.GetPokemonById((int)pb.Tag);
+                richTextBox1.Text =
+                    pkm.Name + "\n"
+                    + "Level " + pkm.Level.ToString() + "\n"
+                    + "Species: " + pkm.Species.Name + "\n"
+                    + "Element: " + pkm.Species.Element.Name+"\n"
+                    + "Skill1: " + pkm.Skill1.Name + "\n" 
+                    + "Skill2: " + pkm.Skill2.Name + "\n"
+                    + "HP: " + pkm.HP.ToString() + "\n"
+                    + "Attack: " + pkm.Attack.ToString() + "\n" 
+                    + "Defense: " + pkm.Defense.ToString();
             }
-
-
         }
-
-        private void store_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             {
@@ -86,6 +124,8 @@ namespace Elemont.Gui.Game
                         if (c1.BackColor == Color.Blue)
                         {
                             store.Controls.Remove(c1);
+                            if (!PokemonDao.Instance.RemovePokemonbyId((int)c1.Tag))
+                            { };
                         }
                     }
                     sl = false;
@@ -93,20 +133,12 @@ namespace Elemont.Gui.Game
                     {
                         if (c1.BackColor == Color.Blue)
                         {
-                            sl = true;
-                            break;
+                            sl = true;                            
                         }
                     }
                 }
-
             }
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Storage_Load(object sender, EventArgs e)
         {
             this.train = fMap1.instance.game.Trainers;
@@ -128,21 +160,19 @@ namespace Elemont.Gui.Game
                 gb.BackColor = Color.White;
                 store.Controls.Add(gb);
             }
-            selectpkm.Visible = false;
-
+            gettrainerinfo();
         }
-        public string select;
-
+        public void unselect()
+        {
+            selectpkm.Visible = false;           
+        }
         public void hideandseek()
         {
-            namebttn.Visible = false;
-            skillbttn.Visible = false;
-            deletebttn.Visible = false;
             selectpkm.Visible = true;
+            namebttn.Visible = false;          
+            deletebttn.Visible = false;
+           
         }
-
-
-
         private void selectpkm_Click(object sender, EventArgs e)
         {
             int t = 0;
@@ -155,7 +185,7 @@ namespace Elemont.Gui.Game
             }
             if (t == 0 || t > 1)
             {
-                MessageBox.Show("Vui lòng chọn 1 Elemont", "", MessageBoxButtons.OK);
+                MessageBox.Show("Please select 1 pokemon", "", MessageBoxButtons.OK);
             }
             if (t == 1)
             {
@@ -164,6 +194,8 @@ namespace Elemont.Gui.Game
                     if (c1.BackColor == Color.Blue)
                     {
                         fBattle.instance.poke1 = PokemonDao.Instance.GetPokemonById((int)c1.Tag);
+                        fBattle.instance.showpanel();
+                        this.Close();
                     }
                 }
 
@@ -171,7 +203,66 @@ namespace Elemont.Gui.Game
         }
         private void button8_Click(object sender, EventArgs e)
         {
+            if(textBox1.Text!=null)
+            {
 
+                DialogResult r = MessageBox.Show("Do you want to change your name to "+textBox1.Text,"",MessageBoxButtons.YesNo);
+                switch (r)
+                {
+                    case DialogResult.Yes:
+                        this.train.Name = textBox1.Text;
+                        if (!TrainerDao.Instance.Rename(this.train, textBox1.Text))
+                        { };
+                        break;
+                    case DialogResult.No:
+                        break;
+                }    
+            }
+            gettrainerinfo();
+        }
+        void gettrainerinfo()
+        {
+            richTextBox2.Text =
+                train.Name + "\n"
+                + "Exp: " + train.Exp.ToString() + "\n"
+                + "Vision: " + train.Ball2Num.ToString()+"\n"
+                + "Speed: " + train.Ball3Num.ToString();
+            string s;
+            if (train.Ball1Num > 1)
+            {
+                 s = "Pokeballs: ";
+            }
+            else
+            {  s = "Pokeball: "; }
+            label1.Text = s + train.Ball1Num.ToString();
+            label2.Text = "Gold: " + train.Gold.ToString();
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if(train.Gold/5 >=numericUpDown2.Value )
+            {
+                train.Gold -= 5 * (int)numericUpDown2.Value;
+                train.Ball1Num += (int)numericUpDown2.Value;
+                gettrainerinfo();
+                if(!TrainerDao.Instance.buyball(this.train,train.Ball1Num))
+                {
+
+                }
+                if (!TrainerDao.Instance.updategold(this.train, train.Gold))
+                {
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("You do not have enough gold!", "", MessageBoxButtons.OK);
+            }
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            label3.Text = "Prices: " + 5*numericUpDown2.Value;
         }
     }
 }

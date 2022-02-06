@@ -52,5 +52,18 @@ namespace Elemont.Dao
                 "WHERE pokemonId = N'{1}'", pokemon.Name, pokemon.PokemonId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
+        public bool RemovePokemonbyId(int pokemonId)
+        {
+            string query = String.Format("DELETE FROM dbo.Pokemon WHERE dbo.Pokemon.pokemonId =" +
+              "N'{0}'", pokemonId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public bool updateexp(Pokemon poke, int exp)
+        {
+            string query = String.Format("UPDATE dbo.Pokemon " +
+                "SET dbo.Pokemon.exp = N'{0}' " +
+                "WHERE PokemonId = N'{1}'", exp, poke.PokemonId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
     }
 }

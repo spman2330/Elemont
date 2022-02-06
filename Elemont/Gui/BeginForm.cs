@@ -23,11 +23,15 @@ namespace Elemont.Gui
 
         private void BeginForm_Load(object sender, EventArgs e)
         {
+            if(_account.Type!=1)
+            {
+                button5.Enabled = false;
+            }    
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            fSelect fselect = new fSelect(AccountDao.Instance.GetAccount("tk1", "tk1"),MapDao.Instance.GetMaps());
+            fSelect fselect = new fSelect(_account);
             this.Hide();
             fselect.ShowDialog();
             this.Show();
@@ -47,16 +51,22 @@ namespace Elemont.Gui
             Button bt = sender as Button;
             bt.ForeColor = Color.Blue;
             bt.BackColor = Color.White;
+        }  
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            fMap fmap = new fMap();
+            this.Hide();
+            fmap.ShowDialog();
+            this.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-        }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

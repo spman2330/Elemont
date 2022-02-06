@@ -54,22 +54,37 @@ namespace Elemont.Gui.Game
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (pictureBox2.Image != null && numericUpDown5.Value*numericUpDown6.Value !=0)
+            if ( numericUpDown5.Value*numericUpDown6.Value !=0 && comboBox1.SelectedItem !=null)
             {     
                 foreach (Control c1 in flowLayoutPanel1.Controls)
-            {
-                flowLayoutPanel1.Controls.Remove(c1);
-            }                   
+                {
+                pictureBox1.Controls.Add(c1);
+                }                   
                 PictureBox pb = new PictureBox();
-                pb.BackColor = Color.Blue;
-                pb.Parent = flowLayoutPanel1;
+                switch (comboBox1.SelectedItem.ToString())
+                {
+                    case "Water":
+                    pb.BackColor = Color.Blue;
+                        break;
+                    case "Wall":
+                        pb.BackColor = Color.Brown;
+                        break;
+                    case "Nest":
+                        pb.BackColor = Color.Green;
+                        break;
+                    default:
+                        pb.BackColor = Color.Black;
+                        break;
+                }
+                
+                flowLayoutPanel1.Controls.Add(pb);
                 pb.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
-                pb.Size = new Size((int)numericUpDown5.Value, (int)numericUpDown6.Value);
-                pb.Image = pictureBox2.Image;
+                pb.Size = new Size((int)numericUpDown5.Value, (int)numericUpDown6.Value);                
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.BackColor = Color.Transparent;
-               
+                //pb.BackColor = Color.Transparent;
+                pb.Tag = comboBox1.SelectedItem.ToString();
+                ControlExtension.Draggable(pb, true);
             }
             else
             {
@@ -95,6 +110,8 @@ namespace Elemont.Gui.Game
             numericUpDown2.Value = pb.Location.Y;
             numericUpDown5.Value = pb.Width;
             numericUpDown6.Value = pb.Height;
+            pb.BringToFront();
+            label3.Text = pb.Tag.ToString();
 
         }
       
@@ -150,22 +167,6 @@ namespace Elemont.Gui.Game
             catch
             {
 
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OpenFileDialog open = new OpenFileDialog();             
-                open.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
-                if (open.ShowDialog() == DialogResult.OK)
-                {                   
-                    pictureBox2.Image = new Bitmap(open.FileName);
-                }
-            }
-            catch
-            {
             }
         }
 
