@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Elemont.Dao;
@@ -23,7 +24,7 @@ namespace Elemont.Gui.Game
             this.account = acc;
             this.map = map;
         }
-        Map[] map= MapDao.Instance.GetMaps();
+        Map[] map = MapDao.Instance.GetMaps();
         Account account;
         private void fSelect_Load(object sender, EventArgs e)
         {
@@ -37,7 +38,7 @@ namespace Elemont.Gui.Game
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.BackColor = Color.Red;
                 pb.Tag = m.MapId;
-                // pb.Image = m.Image;
+                pb.Image = Image.FromFile("..\\..\\..\\" + m.Background);
                 pb.Click += new System.EventHandler(this.pictureBox1_Click);
                 pb.Location = new Point(30, 30);
                 gb.Controls.Add(pb);
@@ -62,6 +63,7 @@ namespace Elemont.Gui.Game
                 pb.BackColor = Color.Red;
                 pb.Tag = tr.TrainerId;
                 // pb.Image = tr.Skin.Avt;
+                pb.Image = Image.FromFile("..\\..\\..\\" + tr.Skin.Avatar);
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
                 pb.Location = new Point(10, 20);
                 gb.Controls.Add(pb);
@@ -118,7 +120,7 @@ namespace Elemont.Gui.Game
         {
             if (textBox1.Text != null && comboBox1.SelectedItem != null)
             {
-                Trainer test = new Trainer(this.account.AccountId, textBox1.Text, comboBox1.SelectedItem.ToString());
+                Trainer test = new Trainer(this.account.AccountId, textBox1.Text, 1);
                 if (!TrainerDao.Instance.AddTrainer(test, comboBox1.SelectedItem.ToString()))
                 {
 
@@ -158,7 +160,7 @@ namespace Elemont.Gui.Game
             {
                 button3.Visible = true;
                 button4.Visible = true;
-            }    
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -194,6 +196,11 @@ namespace Elemont.Gui.Game
             {
                 MessageBox.Show("Please select 1 trainer and 1 map", "", MessageBoxButtons.OK);
             }
+
+        }
+
+        private void Trainer1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

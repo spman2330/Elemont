@@ -28,5 +28,34 @@ namespace Elemont.Dao
                "N'{0}' AND dbo.account.password = N'{1}'", userName, password);
             return new Account(DataProvider.Instance.ExecuteQuery(query).Rows[0]);
         }
+        public Account GetAccountById(int accountId)
+        {
+            string query = String.Format("SELECT * FROM dbo.account WHERE dbo.account.accountId = " +
+               "N'{0}'", accountId);
+            return new Account(DataProvider.Instance.ExecuteQuery(query).Rows[0]);
+        }
+        public bool AddAccount(Account account)
+        {
+            string query = String.Format("insert into Account (userName, password, type, name)" +
+                "values (N'{0}', N'{1}', N'{2}', N'{3}')",
+                account.UserName, account.Password, account.Type, account.Name);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public bool ChangeAccount(Account account)
+        {
+            string query = String.Format("UPDATE Account " +
+                "SET userName = N'{0}', password = N'{1}'," +
+                " type = N'{2}', name = N'{3}' " +
+                "WHERE accountId = N'{4}'",
+              account.UserName, account.Password, account.Type, account.Name, account.AccountId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public bool DeleteAccount(Account account)
+        {
+            string query = String.Format("DELETE FROM Account " +
+                "WHERE accountId = N'{0}'",
+               account.AccountId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
     }
 }

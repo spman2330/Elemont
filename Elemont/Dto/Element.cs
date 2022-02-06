@@ -37,11 +37,16 @@ namespace Elemont.Dto
             get { return strong; }
             set { strong = value; }
         }
+
+        private string environment;
+        public string Environment { get => environment; set => environment = value; }
+
         public Element(DataRow rowElement, int[] weaks, int[] strongs)
         {
             Name = rowElement["name"].ToString();
             Icon = rowElement["icon"].ToString();
             ElementId = Convert.ToInt32(rowElement["elementId"].ToString());
+            Environment = rowElement["environment"].ToString();
             Weak = weaks;
             Strong = strongs;
         }

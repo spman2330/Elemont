@@ -52,6 +52,7 @@ namespace Elemont.Gui.Game
             this.Trainer1.Name = "Trainer1";
             this.Trainer1.Size = new System.Drawing.Size(296, 439);
             this.Trainer1.TabIndex = 0;
+            this.Trainer1.Paint += new System.Windows.Forms.PaintEventHandler(this.Trainer1_Paint);
             // 
             // Map1
             // 

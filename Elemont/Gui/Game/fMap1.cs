@@ -31,19 +31,19 @@ namespace Elemont.Gui.Game
                     switch (c1.Tag.ToString())
                     {
                         case "Water":
-                            foreach(Pokemon pkm in this.game.Trainers.Pokemons)
+                            foreach (Pokemon pkm in this.game.Trainers.Pokemons)
                             {
-                                if(pkm.Species.Element.Name == "water")
+                                if (pkm.Species.Element.Name == "water")
                                 { return false; }
-                                
+
                             }
-                            return false;                          
+                            return false;
                         case "Wall":
-                            return true;                        
+                            return true;
                         case "Nest":
                             return false;
                     }
-                    
+
                 }
             }
             return false;
@@ -64,7 +64,7 @@ namespace Elemont.Gui.Game
         int vi;
         bool move;
         public void Map1_KeyDown(object sender, KeyEventArgs e)
-        {            
+        {
             if (!move)
             {
                 int x = trainer.Location.X;
@@ -132,7 +132,7 @@ namespace Elemont.Gui.Game
                 visible();
                 shadow.Location = trainer.Location;
             }
-        }      
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             move = false;
@@ -170,7 +170,7 @@ namespace Elemont.Gui.Game
             Storage storage = new Storage(this.game.Trainers);
             storage.unselect();
             storage.ShowDialog();
-           
+
             timer2.Start();
 
         }
@@ -184,7 +184,7 @@ namespace Elemont.Gui.Game
         }
         private void Map1_Load(object sender, EventArgs e)
         {
-            
+
             background.Size = new Size(game.Maps.Width, game.Maps.Height);
             background.Location = new Point(0, 0);
             pictureBox6.Width = background.Width;
@@ -196,7 +196,7 @@ namespace Elemont.Gui.Game
             pictureBox9.Top = pictureBox6.Top;
             pictureBox9.Left = background.Left + background.Width - pictureBox9.Width;
             pictureBox8.Left = pictureBox6.Left;
-            pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;           
+            pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;
             vi = game.Trainers.Ball2Num;
             sp = game.Trainers.Ball3Num;
             //trainer.Image = game.Trainers.Skin.Avt; đổi sang ảnh
@@ -224,7 +224,7 @@ namespace Elemont.Gui.Game
                     pkm.Location = new Point(r.Next(c.LocationX, c.LocationX + c.Width), r.Next(c.LocationY, c.LocationY + c.Height));
                     pkm.BringToFront();
                 }
-            }            
+            }
             vision.Size = new Size(2 * vi + trainer.Width, 2 * vi + trainer.Height);
             vision.Top = trainer.Top - vi;
             vision.Left = trainer.Left - vi;
@@ -236,21 +236,21 @@ namespace Elemont.Gui.Game
                 {
                     c1.Visible = false;
                 }
-            }          
+            }
             pictureBox6.Visible = pictureBox7.Visible = pictureBox8.Visible = pictureBox9.Visible = true;
             this.ClientSize = new Size(900, 700);
             foreach (Control c1 in this.Controls)
             {
-                if(c1.Tag !=null)
-                if (c1.Tag.ToString() == "Water")
-                    c1.BringToFront();
+                if (c1.Tag != null)
+                    if (c1.Tag.ToString() == "Water")
+                        c1.BringToFront();
             }
 
             foreach (Control c1 in this.Controls)
             {
-                if(c1.Tag !=null)
-                if (c1.Tag.ToString() == "Wall")
-                    c1.BringToFront();
+                if (c1.Tag != null)
+                    if (c1.Tag.ToString() == "Wall")
+                        c1.BringToFront();
             }
             bag.BringToFront();
             back.BringToFront();
@@ -259,7 +259,7 @@ namespace Elemont.Gui.Game
             trainer.BringToFront();
 
             string s = "\\Resources\\male.png";
-            trainer.Image = Image.FromFile(Directory.GetCurrentDirectory() +s );
+            trainer.Image = Image.FromFile(Directory.GetCurrentDirectory() + s);
 
 
 
@@ -286,7 +286,8 @@ namespace Elemont.Gui.Game
                                 {
                                     Pokemon pk2 = PokemonDao.Instance.GetPokemonById(id);
                                     if (game.Trainers.Pokemons == null || game.Trainers.Pokemons.Length == 0)
-                                    { if (!PokemonDao.Instance.MovePokemon(id, game.Trainers.TrainerId)) { };
+                                    {
+                                        if (!PokemonDao.Instance.MovePokemon(id, game.Trainers.TrainerId)) { };
                                         this.Controls.Remove(c1);
                                     }
                                     else
