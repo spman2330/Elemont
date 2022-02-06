@@ -72,6 +72,7 @@ namespace Elemont.Gui.Game
                 int x1 = x, y1 = y, x2 = x, y2 = y;
                 if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
                 {
+                    trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Right);
                     move = true;
                     x2 += sp;
                     if (!(trainer.Right >= this.Width * 3 / 4 && !touch()))
@@ -82,6 +83,7 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
                 {
+                    trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Left);
                     move = true;
                     x2 -= sp;
                     if (!(trainer.Left <= this.Width * 1 / 4 && !touch()))
@@ -92,6 +94,7 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W)
                 {
+                    trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Up);
                     move = true;
                     y2 -= sp;
                     if (!(trainer.Top <= this.Height * 1 / 4 && !touch()))
@@ -102,8 +105,8 @@ namespace Elemont.Gui.Game
                 }
                 else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.S)
                 {
+                    trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Down);
                     move = true;
-
                     y2 += sp;
                     if (!(this.Height * 3 / 4 <= trainer.Bottom && !touch()))
                     {
@@ -187,6 +190,7 @@ namespace Elemont.Gui.Game
 
             background.Size = new Size(game.Maps.Width, game.Maps.Height);
             background.Location = new Point(0, 0);
+            background.Image = Image.FromFile("..\\..\\..\\" + game.Maps.Background);
             pictureBox6.Width = background.Width;
             pictureBox8.Width = background.Width;
             pictureBox7.Height = background.Height;
@@ -198,9 +202,7 @@ namespace Elemont.Gui.Game
             pictureBox8.Left = pictureBox6.Left;
             pictureBox8.Top = background.Top + background.Height - pictureBox8.Height;
             vi = game.Trainers.Ball2Num;
-            sp = game.Trainers.Ball3Num;
-            //trainer.Image = game.Trainers.Skin.Avt; đổi sang ảnh
-            //background.Image = game.Maps.Background; đổi sang ảnh
+            sp = game.Trainers.Ball3Num;           
             foreach (Cell c in game.Maps.Cells)
             {
                 PictureBox pb = new PictureBox();
@@ -221,7 +223,7 @@ namespace Elemont.Gui.Game
                     pkm.Tag = pk.PokemonId;
                     Random r = new Random();
                     this.Controls.Add(pkm);
-                    pkm.Location = new Point(r.Next(c.LocationX, c.LocationX + c.Width), r.Next(c.LocationY, c.LocationY + c.Height));
+                    pkm.Location = new Point(r.Next(c.LocationX, c.LocationX + c.Width-35), r.Next(c.LocationY, c.LocationY + c.Height-25));
                     pkm.BringToFront();
                 }
             }
@@ -257,10 +259,7 @@ namespace Elemont.Gui.Game
             timer2.Start();
             visible();
             trainer.BringToFront();
-
-            string s = "\\Resources\\male.png";
-            trainer.Image = Image.FromFile(Directory.GetCurrentDirectory() + s);
-
+            trainer.Image = Image.FromFile("..\\..\\..\\" + game.Trainers.Skin.Down);
 
 
         }

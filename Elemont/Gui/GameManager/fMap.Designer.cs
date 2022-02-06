@@ -169,6 +169,7 @@ namespace Elemont.Gui.Game
             // 
             this.textBox1.Location = new System.Drawing.Point(261, 68);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(175, 27);
             this.textBox1.TabIndex = 4;
             // 
@@ -410,7 +411,7 @@ namespace Elemont.Gui.Game
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1650, 862);
+            this.ClientSize = new System.Drawing.Size(1671, 883);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

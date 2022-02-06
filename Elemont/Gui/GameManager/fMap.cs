@@ -162,6 +162,7 @@ namespace Elemont.Gui.Game
                 {
                     pictureBox3.Image = new Bitmap(open.FileName);
                     pictureBox1.Image = new Bitmap(open.FileName);
+                    System.IO.Path.GetFileName(open.FileName);
                 }
             }
             catch

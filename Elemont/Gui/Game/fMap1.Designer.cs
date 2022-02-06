@@ -126,7 +126,7 @@ namespace Elemont.Gui.Game
             // trainer
             // 
             this.trainer.BackColor = System.Drawing.Color.White;
-            this.trainer.Location = new System.Drawing.Point(97, 627);
+            this.trainer.Location = new System.Drawing.Point(145, 19);
             this.trainer.Name = "trainer";
             this.trainer.Size = new System.Drawing.Size(53, 45);
             this.trainer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

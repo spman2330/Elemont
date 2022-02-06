@@ -46,7 +46,6 @@ namespace Elemont.Gui.Game
                 gb.Tag = m.MapId;
                 gb.BackColor = Color.White;
                 Map1.Controls.Add(gb);
-
             }
         }
         private void Loadtr()
@@ -110,12 +109,10 @@ namespace Elemont.Gui.Game
                 }
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != null && comboBox1.SelectedItem != null)
@@ -197,11 +194,6 @@ namespace Elemont.Gui.Game
                 MessageBox.Show("Please select 1 trainer and 1 map", "", MessageBoxButtons.OK);
             }
 
-        }
-
-        private void Trainer1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        }      
     }
 }
