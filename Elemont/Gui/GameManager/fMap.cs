@@ -66,7 +66,7 @@ namespace Elemont.Gui.Game
             foreach (Control c1 in flowLayoutPanel1.Controls)
             {
                 pictureBox1.Controls.Add(c1);
-                c1.Location = new Point(x, y);                               
+                c1.Location = new Point(x, y);
                 ControlExtension.Draggable(c1, true);
                 c1.BringToFront();
             }
@@ -125,7 +125,7 @@ namespace Elemont.Gui.Game
                 pb.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
                 pb.Size = new Size((int)numericUpDown5.Value, (int)numericUpDown6.Value);
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;                
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Tag = comboBox1.SelectedItem.ToString();
             }
             else
@@ -218,7 +218,8 @@ namespace Elemont.Gui.Game
         private void bSave_Click(object sender, EventArgs e)
         {
             if (comboBox3.SelectedItem != null && textBox1.Text != null)
-            { Map map = new Map();
+            {
+                Map map = new Map();
                 map.Width = (int)numericUpDown3.Value;
                 map.Height = (int)numericUpDown4.Value;
                 map.Name = this.comboBox3.Text;
@@ -245,7 +246,7 @@ namespace Elemont.Gui.Game
                 {
                     Cell cell = new Cell(c1.Width, c1.Height);
                     cell.LocationX = c1.Left;
-                    cell.LocationY = c1.Top;                    
+                    cell.LocationY = c1.Top;
                     cell.MapId = (int)pictureBox1.Tag;
                     cell.Type = c1.Tag.ToString();
                     termsList.Add(cell);
@@ -265,7 +266,7 @@ namespace Elemont.Gui.Game
                     }
                     else
                         if (!CellDao.Instance.AddCell(cell))
-                       { }
+                    { }
                 }
                 map.Cells = termsList.ToArray();
                 if (!MapDao.Instance.ChangeMap(map))
@@ -289,7 +290,6 @@ namespace Elemont.Gui.Game
                     numericUpDown4.Value = pictureBox1.Height = map.Height;
                     comboBox3.Text = map.Name;
                     textBox1.Text = map.Background;
-                   
                     groupBox2.Enabled = true;
                     foreach (Cell c in map.Cells)
                     {
@@ -340,7 +340,7 @@ namespace Elemont.Gui.Game
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             bSave.Enabled = true;
-            textBox1.Text = "Resources"+"\\"+"\\"+  comboBox3.Text + ".png";
+            textBox1.Text = "Resources" + "\\" + "\\" + comboBox3.Text + ".png";
             pictureBox1.Image = Image.FromFile("..\\..\\..\\" + textBox1.Text);
         }
 
@@ -388,6 +388,16 @@ namespace Elemont.Gui.Game
                         break;
                 }
             }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

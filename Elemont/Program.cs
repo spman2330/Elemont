@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Elemont.Dao;
 using Elemont.Dto;
 using Elemont.Gui;
+using Elemont.Gui.FormAdmin;
 using Elemont.Gui.Game;
 
 namespace Elemont
@@ -15,11 +16,11 @@ namespace Elemont
         /// </summary>
         [STAThread]
         static void Main()
-        {           
+        {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fLogin());
+            Application.Run(new FSpeciesEdit());
         }
     }
 }
