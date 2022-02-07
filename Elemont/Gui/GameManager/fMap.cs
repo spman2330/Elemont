@@ -287,7 +287,8 @@ namespace Elemont.Gui.Game
                     pictureBox1.Image = Image.FromFile("..\\..\\..\\" + map.Background);
                     numericUpDown3.Value = pictureBox1.Width = map.Width;
                     numericUpDown4.Value = pictureBox1.Height = map.Height;
-                     
+                    comboBox3.Text = map.Name;
+                    textBox1.Text = map.Background;
                    
                     groupBox2.Enabled = true;
                     foreach (Cell c in map.Cells)
@@ -325,7 +326,13 @@ namespace Elemont.Gui.Game
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)
             {
-                CellDao.Instance.DeleteCell(CellDao.Instance.GetCellById((int)c1.Tag));
+                int i;
+                bool isold = int.TryParse(c1.Tag.ToString(), out i);
+                if (isold)
+                {
+                    if (!CellDao.Instance.DeleteCell(CellDao.Instance.GetCellById(i)))
+                    { }
+                }
                 flowLayoutPanel1.Controls.Remove(c1);
             }
         }
