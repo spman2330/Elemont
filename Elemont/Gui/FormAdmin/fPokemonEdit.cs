@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Elemont.Gui.AccountManager
+namespace Elemont.Gui.GameManager
 {
-    public partial class fAccountUser : Form
+    public partial class fPokemonEdit : Form
     {
-        public fAccountUser()
+        public fPokemonEdit()
         {
             InitializeComponent();
         }

@@ -6,18 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Elemont.Gui.AccountManager
+namespace Elemont.Gui.GameManager
 {
-    public partial class AdminInfo : Form
+    public partial class fElementEdit : Form
     {
-        public AdminInfo()
+        public fElementEdit()
         {
             InitializeComponent();
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

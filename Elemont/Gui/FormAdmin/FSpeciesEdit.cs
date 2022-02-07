@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Elemont.Gui.AccountManager
+namespace Elemont.Gui.FormAdmin
 {
-    public partial class AdminManager : Form
+    public partial class FSpeciesEdit : Form
     {
-        public AdminManager()
+        public FSpeciesEdit()
         {
             InitializeComponent();
         }

@@ -1,7 +1,7 @@
 ﻿
 namespace Elemont.Gui.AccountManager
 {
-    partial class AdManagerUser
+    partial class fPlayerManage
     {
         /// <summary>
         /// Required designer variable.
@@ -30,32 +30,32 @@ namespace Elemont.Gui.AccountManager
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,12 +72,56 @@ namespace Elemont.Gui.AccountManager
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(259, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(294, 88);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(666, 456);
+            this.dataGridView1.Size = new System.Drawing.Size(984, 456);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Column1";
+            this.Column1.HeaderText = "Tài khoản";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Column2";
+            this.Column2.HeaderText = "ID";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "SĐT";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Họ tên";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Địa chỉ";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Giới tính";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 150;
             // 
             // groupBox2
             // 
@@ -85,7 +129,7 @@ namespace Elemont.Gui.AccountManager
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(310, 7);
+            this.groupBox2.Location = new System.Drawing.Point(800, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(478, 76);
             this.groupBox2.TabIndex = 4;
@@ -146,106 +190,10 @@ namespace Elemont.Gui.AccountManager
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(12, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(212, 537);
+            this.groupBox1.Size = new System.Drawing.Size(276, 537);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên đăng nhập";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 31);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 25);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Mật khẩu";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(3, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(203, 31);
-            this.textBox2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "ID";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(3, 192);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(203, 31);
-            this.textBox3.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 238);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 25);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Số điện thoại";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(3, 266);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(203, 31);
-            this.textBox4.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 390);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 25);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Địa chỉ";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(3, 418);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(203, 31);
-            this.textBox5.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 468);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 25);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Giới tính";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(3, 496);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(203, 31);
-            this.textBox6.TabIndex = 10;
             // 
             // label7
             // 
@@ -260,56 +208,114 @@ namespace Elemont.Gui.AccountManager
             // 
             this.textBox7.Location = new System.Drawing.Point(3, 344);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(203, 31);
+            this.textBox7.Size = new System.Drawing.Size(267, 31);
             this.textBox7.TabIndex = 12;
             // 
-            // Column1
+            // label6
             // 
-            this.Column1.DataPropertyName = "Column1";
-            this.Column1.HeaderText = "Tài khoản";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(9, 468);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 25);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Giới tính";
             // 
-            // Column2
+            // textBox6
             // 
-            this.Column2.DataPropertyName = "Column2";
-            this.Column2.HeaderText = "ID";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
+            this.textBox6.Location = new System.Drawing.Point(3, 496);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(267, 31);
+            this.textBox6.TabIndex = 10;
             // 
-            // Column3
+            // label5
             // 
-            this.Column3.HeaderText = "SĐT";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 390);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 25);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Địa chỉ";
             // 
-            // Column4
+            // textBox5
             // 
-            this.Column4.HeaderText = "Họ tên";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
+            this.textBox5.Location = new System.Drawing.Point(3, 418);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(267, 31);
+            this.textBox5.TabIndex = 8;
             // 
-            // Column5
+            // label4
             // 
-            this.Column5.HeaderText = "Địa chỉ";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 238);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 25);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Số điện thoại";
             // 
-            // Column6
+            // textBox4
             // 
-            this.Column6.HeaderText = "Giới tính";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
+            this.textBox4.Location = new System.Drawing.Point(3, 266);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(267, 31);
+            this.textBox4.TabIndex = 6;
             // 
-            // ManageUser
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 164);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "ID";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(3, 192);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(267, 31);
+            this.textBox3.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Mật khẩu";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(3, 125);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(267, 31);
+            this.textBox2.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Tên đăng nhập";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 55);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(267, 31);
+            this.textBox1.TabIndex = 0;
+            // 
+            // fPlayerManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 556);
+            this.ClientSize = new System.Drawing.Size(1290, 572);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ManageUser";
+            this.Name = "fPlayerManage";
             this.Text = "ManageUser";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -340,13 +346,13 @@ namespace Elemont.Gui.AccountManager
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
     }
 }

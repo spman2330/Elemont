@@ -1,7 +1,7 @@
 ﻿
 namespace Elemont.Gui.AccountManager
 {
-    partial class UserInfo
+    partial class fInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -51,28 +51,30 @@ namespace Elemont.Gui.AccountManager
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.Location = new System.Drawing.Point(348, 374);
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(876, 333);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 34);
+            this.button2.Size = new System.Drawing.Size(145, 50);
             this.button2.TabIndex = 9;
             this.button2.Text = "Cập nhật";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(148, 12);
+            this.groupBox1.Location = new System.Drawing.Point(66, 78);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(503, 98);
+            this.groupBox1.Size = new System.Drawing.Size(503, 110);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox2.BackColor = System.Drawing.Color.Silver;
             this.textBox2.Location = new System.Drawing.Point(200, 63);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(260, 31);
@@ -80,7 +82,7 @@ namespace Elemont.Gui.AccountManager
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox1.BackColor = System.Drawing.Color.Silver;
             this.textBox1.Location = new System.Drawing.Point(200, 21);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(260, 31);
@@ -116,15 +118,15 @@ namespace Elemont.Gui.AccountManager
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(148, 126);
+            this.groupBox2.Location = new System.Drawing.Point(697, 78);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(503, 219);
+            this.groupBox2.Size = new System.Drawing.Size(503, 236);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
             // textBox6
             // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox6.BackColor = System.Drawing.Color.White;
             this.textBox6.Location = new System.Drawing.Point(200, 173);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(260, 31);
@@ -142,7 +144,7 @@ namespace Elemont.Gui.AccountManager
             // 
             // textBox5
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox5.BackColor = System.Drawing.Color.White;
             this.textBox5.Location = new System.Drawing.Point(200, 126);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(260, 31);
@@ -160,7 +162,7 @@ namespace Elemont.Gui.AccountManager
             // 
             // textBox4
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox4.BackColor = System.Drawing.Color.White;
             this.textBox4.Location = new System.Drawing.Point(199, 79);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(260, 31);
@@ -178,7 +180,7 @@ namespace Elemont.Gui.AccountManager
             // 
             // textBox3
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox3.BackColor = System.Drawing.Color.White;
             this.textBox3.Location = new System.Drawing.Point(199, 32);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(260, 31);
@@ -194,15 +196,15 @@ namespace Elemont.Gui.AccountManager
             this.label2.TabIndex = 14;
             this.label2.Text = "Số điện thoại";
             // 
-            // UserInfo
+            // fInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1290, 572);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
-            this.Name = "UserInfo";
+            this.Name = "fInfo";
             this.Text = "UserInfo";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

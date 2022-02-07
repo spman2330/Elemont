@@ -9,6 +9,7 @@ using Elemont.Dto;
 using Elemont.Dao;
 
 using Elemont.Gui.Game;
+using Elemont.Gui.GameManager;
 
 namespace Elemont.Gui
 {
@@ -66,6 +67,21 @@ namespace Elemont.Gui
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
+            (new fLogin()).Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fGameEdit fGE = new fGameEdit();
+            fGE.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Hide();
+            (new fManagerAccount()).Show();
 
         }
     }
