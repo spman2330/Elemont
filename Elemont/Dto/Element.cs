@@ -25,13 +25,37 @@ namespace Elemont.Dto
             get { return elementId; }
             set { elementId = value; }
         }
-
-        public Element(DataRow row)
+        private int[] weak;
+        public int[] Weak
         {
-            Name = row["name"].ToString();
-            Icon = row["icon"].ToString();
-            ElementId = Convert.ToInt32(row["elementId"].ToString());
+            get { return weak; }
+            set { weak = value; }
+        }
+        private int[] strong;
+        public int[] Strong
+        {
+            get { return strong; }
+            set { strong = value; }
+        }
 
+        private string environment;
+        public string Environment { get => environment; set => environment = value; }
+
+        public Element(DataRow rowElement, int[] weaks, int[] strongs)
+        {
+            Name = rowElement["name"].ToString();
+            Icon = rowElement["icon"].ToString();
+            ElementId = Convert.ToInt32(rowElement["elementId"].ToString());
+            Environment = rowElement["environment"].ToString();
+            Weak = weaks;
+            Strong = strongs;
+        }
+        public Element(DataRow rowElement)
+        {
+            Name = rowElement["name"].ToString();
+            Icon = rowElement["icon"].ToString();
+            ElementId = Convert.ToInt32(rowElement["elementId"].ToString());
+            Environment = rowElement["environment"].ToString();
         }
     }
 }

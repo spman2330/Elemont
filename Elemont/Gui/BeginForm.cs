@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Elemont.Dto;
+using Elemont.Dao;
+
 using Elemont.Gui.Game;
 using Elemont.Gui.GameManager;
 
@@ -12,22 +15,30 @@ namespace Elemont.Gui
 {
     public partial class BeginForm : Form
     {
-        public BeginForm()
+        Account _account;
+        public BeginForm(Account account)
         {
             InitializeComponent();
+            _account = account;
         }
 
         private void BeginForm_Load(object sender, EventArgs e)
         {
-            //ControlExtension.Draggable(button1, true);
+            if(_account.Type!=1)
+            {
+                button5.Enabled = false;
+            }    
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            fSelect fselect = new fSelect(_account);
+            this.Hide();
+            fselect.ShowDialog();
+            this.Show();
         }
 
-        
+
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
@@ -41,17 +52,20 @@ namespace Elemont.Gui
             Button bt = sender as Button;
             bt.ForeColor = Color.Blue;
             bt.BackColor = Color.White;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        }  
+        private void button4_Click(object sender, EventArgs e)
         {
-            fMap1 map1 = new fMap1();
+            this.Close();
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            fMap fmap = new fMap();
             this.Hide();
-            map1.ShowDialog();
+            fmap.ShowDialog();
             this.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
             (new fLogin()).Show();
@@ -68,6 +82,7 @@ namespace Elemont.Gui
         {
             Hide();
             (new fManagerAccount()).Show();
+
         }
     }
 }

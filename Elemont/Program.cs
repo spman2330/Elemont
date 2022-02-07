@@ -16,10 +16,11 @@ namespace Elemont
         [STAThread]
         static void Main()
         {
+            Account b = AccountDao.Instance.GetAccount("tk1", "tk1");
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fMap());
+            Application.Run(new BeginForm(b));
         }
     }
 }

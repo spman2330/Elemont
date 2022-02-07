@@ -7,7 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Dao\" />
 		<Folder Include="Gui\GameManager\" />
 		<Folder Include="Gui\GameStatistic\" />
 		<Folder Include="Static\Image\" />

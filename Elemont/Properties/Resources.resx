@@ -118,37 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cooltext403383919982633" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cooltext403383919982633.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="340" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\340.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="step" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\step.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="CoolMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CoolMap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="free-coin-icon-794-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-coin-icon-794-thumb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Poké_Ball_icon.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Poké_Ball_icon.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="balo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\balo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wallpapersden.com_pokemon-pikachu-art_1920x1080" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wallpapersden.com_pokemon-pikachu-art_1920x1080.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="battleback1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\battleback1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="340" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\340.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="113-1137213_sea-monster-clipart-sea-serpent-transparent-png-download" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\113-1137213_sea-monster-clipart-sea-serpent-transparent-png-download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cooltext403383919982633" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cooltext403383919982633.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="wa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="battleback1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\battleback1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CoolMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CoolMap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="3401" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3401.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="free-coin-icon-794-thumb1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-coin-icon-794-thumb1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Poké_Ball_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Poké_Ball_icon.svg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wallpapersden.com_pokemon-pikachu-art_1920x1080" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wallpapersden.com_pokemon-pikachu-art_1920x1080.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="113-1137213_sea-monster-clipart-sea-serpent-transparent-png-download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\113-1137213_sea-monster-clipart-sea-serpent-transparent-png-download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="image-7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image-7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
