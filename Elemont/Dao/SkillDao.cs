@@ -32,5 +32,26 @@ namespace Elemont.Dao
             DataTable table = DataProvider.Instance.ExecuteQuery(query);
             return table.AsEnumerable().Select(item => new Skill(item)).ToArray();
         }
+        public Skill[] GetAllSkill()
+        {
+            string query = "SELECT * From Skill";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            return table.AsEnumerable().Select(item => new Skill(item)).ToArray();
+        }
+        public bool AddSkill(Skill skill)
+        {
+            string query = String.Format(" INSERT INTO Skill(name, type, num, manaCost) " +
+                "values(N'{0}', N'{1}', N'{2}', N'{3}')",
+                skill.Name, skill.Type, skill.Num, skill.ManaCost);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
+        public bool ChangeSkill(Skill skill)
+        {
+            string query = String.Format(" UPDATE Skill " +
+               "SET name = N'{0}', type = N'{1}', num = N'{2}', manaCost = N'{3}'" +
+               "WHERE skillId = N'{4}'",
+               skill.Name, skill.Type, skill.Num, skill.ManaCost, skill.SkillId);
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
     }
 }

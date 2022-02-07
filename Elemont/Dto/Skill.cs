@@ -26,5 +26,14 @@ namespace Elemont.Dto
             ManaCost = Convert.ToInt32(row["manaCost"].ToString());
             SkillId = Convert.ToInt32(row["skillId"].ToString());
         }
+
+        public Skill(string name, string type, int num, int manaCost, int skillId = 0)
+        {
+            this.name = name;
+            this.type = type;
+            this.num = num;
+            this.manaCost = manaCost;
+            this.skillId = skillId;
+        }
     }
 }
