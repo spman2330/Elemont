@@ -41,6 +41,7 @@ namespace Elemont.Dto
         private Trainer[] trainers;
         public Trainer[] Trainers { get => trainers; set => trainers = value; }
 
+        public Account() { }
         public Account(DataRow row)
         {
             UserName = row["userName"].ToString();
