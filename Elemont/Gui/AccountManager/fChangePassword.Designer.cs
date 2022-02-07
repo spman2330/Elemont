@@ -30,6 +30,7 @@ namespace Elemont.Gui.AccountManager
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNote = new System.Windows.Forms.Label();
             this.txtConfirm = new System.Windows.Forms.TextBox();
             this.txtNew = new System.Windows.Forms.TextBox();
             this.txtCurrent = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@ namespace Elemont.Gui.AccountManager
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.lblNote = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,17 @@ namespace Elemont.Gui.AccountManager
             this.groupBox1.Size = new System.Drawing.Size(472, 210);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
+            // 
+            // lblNote
+            // 
+            this.lblNote.AutoSize = true;
+            this.lblNote.BackColor = System.Drawing.Color.Transparent;
+            this.lblNote.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblNote.Location = new System.Drawing.Point(2, 183);
+            this.lblNote.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(0, 25);
+            this.lblNote.TabIndex = 20;
             // 
             // txtConfirm
             // 
@@ -127,17 +138,7 @@ namespace Elemont.Gui.AccountManager
             this.button2.TabIndex = 20;
             this.button2.Text = "Change Password";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // lblNote
-            // 
-            this.lblNote.AutoSize = true;
-            this.lblNote.BackColor = System.Drawing.Color.Transparent;
-            this.lblNote.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblNote.Location = new System.Drawing.Point(2, 183);
-            this.lblNote.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(0, 25);
-            this.lblNote.TabIndex = 20;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // fChangePassword
             // 

@@ -26,9 +26,10 @@ namespace Elemont.Gui.AccountManager
             if (_account.Type == 1) lblType.Text = "Admin";
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             _account.Name = txtName.Text;
+            MessageBox.Show("Update Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

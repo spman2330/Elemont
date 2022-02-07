@@ -17,23 +17,23 @@ namespace Elemont.Gui.AccountManager
             InitializeComponent();
             _account = account;
         }
-        private void btnChange_Click(object sender, EventArgs e)
+
+        private void button2_Click(object sender, EventArgs e)
         {
             if (txtCurrent.Text != _account.Password)
             {
                 lblNote.Text = "Please check your current password";
-                return;
             }
             else
             {
-                if (txtNew != txtConfirm)
+                if (txtNew.Text != txtConfirm.Text)
                 {
                     lblNote.Text = "Please make sure your password match";
-                    return;
                 }
                 else
                 {
                     _account.Password = txtNew.Text;
+                    MessageBox.Show("Change Password Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

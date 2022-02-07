@@ -31,15 +31,15 @@ namespace Elemont.Gui.AccountManager
         {
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblType = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
-            this.lblType = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,7 @@ namespace Elemont.Gui.AccountManager
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // groupBox1
             // 
@@ -72,6 +73,50 @@ namespace Elemont.Gui.AccountManager
             this.groupBox1.Size = new System.Drawing.Size(502, 157);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.BackColor = System.Drawing.Color.LightGray;
+            this.lblType.Location = new System.Drawing.Point(199, 111);
+            this.lblType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(59, 25);
+            this.lblType.TabIndex = 12;
+            this.lblType.Text = "Player";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.BackColor = System.Drawing.Color.LightGray;
+            this.lblID.Location = new System.Drawing.Point(199, 66);
+            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(40, 25);
+            this.lblID.TabIndex = 11;
+            this.lblID.Text = "abc";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.LightGray;
+            this.lblUsername.Location = new System.Drawing.Point(199, 24);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(40, 25);
+            this.lblUsername.TabIndex = 10;
+            this.lblUsername.Text = "abc";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(42, 111);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(119, 25);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Type Account";
             // 
             // label3
             // 
@@ -128,50 +173,6 @@ namespace Elemont.Gui.AccountManager
             this.label4.Text = "Name";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(42, 111);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 25);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Type Account";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.Color.LightGray;
-            this.lblUsername.Location = new System.Drawing.Point(199, 24);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(40, 25);
-            this.lblUsername.TabIndex = 10;
-            this.lblUsername.Text = "abc";
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.BackColor = System.Drawing.Color.LightGray;
-            this.lblID.Location = new System.Drawing.Point(199, 66);
-            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(40, 25);
-            this.lblID.TabIndex = 11;
-            this.lblID.Text = "abc";
-            // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.BackColor = System.Drawing.Color.LightGray;
-            this.lblType.Location = new System.Drawing.Point(199, 111);
-            this.lblType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(59, 25);
-            this.lblType.TabIndex = 12;
-            this.lblType.Text = "Player";
-            // 
             // fInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -184,6 +185,7 @@ namespace Elemont.Gui.AccountManager
             this.Name = "fInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserInfo";
+            this.Load += new System.EventHandler(this.fInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
