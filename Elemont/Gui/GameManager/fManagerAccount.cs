@@ -52,7 +52,7 @@ namespace Elemont.Gui.GameManager
         private void button5_Click(object sender, EventArgs e)
         {
             Close();
-            (new BeginForm()).Show();
+            
         }
     }
 }

@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using Elemont.Dao;
+using Elemont.Dto;
+using Elemont.Gui;
 using System.Windows.Forms;
 
 namespace Elemont.Gui
@@ -20,7 +23,7 @@ namespace Elemont.Gui
             string matKhau = txtMatKhau.Text;
             if (tenDangNhap == "user" && matKhau == "123")
             {
-                BeginForm fBegin = new BeginForm();
+                BeginForm fBegin = new BeginForm(AccountDao.Instance.GetAccount("tk1", "tk1"));
                 fBegin.Show();
                 Visible = false;
             }

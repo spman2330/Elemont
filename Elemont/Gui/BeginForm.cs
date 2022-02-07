@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Elemont.Dto;
 using Elemont.Dao;
-
+using Elemont.Gui;
 using Elemont.Gui.Game;
 using Elemont.Gui.GameManager;
 
@@ -27,62 +27,52 @@ namespace Elemont.Gui
             if(_account.Type!=1)
             {
                 button5.Enabled = false;
+                button3.Enabled = false;
             }    
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //game
         {
             fSelect fselect = new fSelect(_account);
             this.Hide();
             fselect.ShowDialog();
             this.Show();
         }
-
-
-
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             Button bt = sender as Button;
             bt.ForeColor = Color.Black;
             bt.BackColor = Color.Transparent;
         }
-
         private void button1_MouseEnter(object sender, EventArgs e)
         {
             Button bt = sender as Button;
             bt.ForeColor = Color.Blue;
             bt.BackColor = Color.White;
         }  
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //exit
         {
             this.Close();
         }
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e) //admin
         {
             fMap fmap = new fMap();
             this.Hide();
             fmap.ShowDialog();
             this.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            (new fLogin()).Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
             fGameEdit fGE = new fGameEdit();
-            fGE.Show();
+            fGE.ShowDialog();
+            Show();
         }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
+        private void button1_Click(object sender, EventArgs e)
+        {           
             Hide();
-            (new fManagerAccount()).Show();
-
+            (new fManagerAccount()).ShowDialog();
+            Show();
         }
     }
 }
