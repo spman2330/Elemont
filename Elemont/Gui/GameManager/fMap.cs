@@ -43,7 +43,7 @@ namespace Elemont.Gui.Game
                 pb.Tag = m.MapId;
                 pb.Image = Image.FromFile("..\\..\\..\\" + m.Background);
                 pb.Click += new System.EventHandler(this.pictureBox1_Click);
-                pb.Location = new Point(30, 20);
+                pb.Location = new Point(20, 20);
                 gb.Controls.Add(pb);
                 gb.Text = m.Name;
                 gb.Tag = m.MapId;

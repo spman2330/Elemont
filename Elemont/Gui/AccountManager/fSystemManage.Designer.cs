@@ -62,9 +62,11 @@ namespace Elemont.Gui.AccountManager
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 66);
+            this.groupBox1.Location = new System.Drawing.Point(10, 53);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(512, 494);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(410, 395);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ";
@@ -72,66 +74,74 @@ namespace Elemont.Gui.AccountManager
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(269, 282);
+            this.comboBox1.Location = new System.Drawing.Point(215, 226);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(197, 33);
+            this.comboBox1.Size = new System.Drawing.Size(158, 28);
             this.comboBox1.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 285);
+            this.label4.Location = new System.Drawing.Point(5, 228);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 25);
+            this.label4.Size = new System.Drawing.Size(79, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Chức năng";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 211);
+            this.label3.Location = new System.Drawing.Point(5, 169);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 25);
+            this.label3.Size = new System.Drawing.Size(24, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "ID";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(269, 208);
+            this.textBox3.Location = new System.Drawing.Point(215, 166);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(197, 31);
+            this.textBox3.Size = new System.Drawing.Size(158, 27);
             this.textBox3.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 133);
+            this.label2.Location = new System.Drawing.Point(5, 106);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 25);
+            this.label2.Size = new System.Drawing.Size(97, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Số điện thoại";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(269, 130);
+            this.textBox2.Location = new System.Drawing.Point(215, 104);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 31);
+            this.textBox2.Size = new System.Drawing.Size(158, 27);
             this.textBox2.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 55);
+            this.label1.Location = new System.Drawing.Point(5, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 25);
+            this.label1.Size = new System.Drawing.Size(107, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên đăng nhập";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(269, 55);
+            this.textBox1.Location = new System.Drawing.Point(215, 44);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 31);
+            this.textBox1.Size = new System.Drawing.Size(163, 27);
             this.textBox1.TabIndex = 0;
             // 
             // groupBox2
@@ -140,45 +150,51 @@ namespace Elemont.Gui.AccountManager
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(782, 1);
+            this.groupBox2.Location = new System.Drawing.Point(626, 1);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(478, 76);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(382, 61);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tùy chọn";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(358, 36);
+            this.button4.Location = new System.Drawing.Point(286, 29);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 34);
+            this.button4.Size = new System.Drawing.Size(90, 27);
             this.button4.TabIndex = 3;
             this.button4.Text = "Tìm kiếm";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(242, 36);
+            this.button3.Location = new System.Drawing.Point(194, 29);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 34);
+            this.button3.Size = new System.Drawing.Size(90, 27);
             this.button3.TabIndex = 2;
             this.button3.Text = "Tìm kiếm";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(124, 36);
+            this.button2.Location = new System.Drawing.Point(99, 29);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 34);
+            this.button2.Size = new System.Drawing.Size(90, 27);
             this.button2.TabIndex = 1;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 36);
+            this.button1.Location = new System.Drawing.Point(5, 29);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 34);
+            this.button1.Size = new System.Drawing.Size(90, 27);
             this.button1.TabIndex = 0;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
@@ -191,11 +207,12 @@ namespace Elemont.Gui.AccountManager
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(544, 83);
+            this.dataGridView1.Location = new System.Drawing.Point(435, 66);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(716, 477);
+            this.dataGridView1.Size = new System.Drawing.Size(573, 382);
             this.dataGridView1.TabIndex = 2;
             // 
             // Column1
@@ -226,13 +243,15 @@ namespace Elemont.Gui.AccountManager
             // 
             // fSystemManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1290, 572);
+            this.ClientSize = new System.Drawing.Size(1032, 458);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "fSystemManage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AA";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

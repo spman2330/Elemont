@@ -21,11 +21,14 @@ namespace Elemont.Gui
         {
             string tenDangNhap = txtTenDangNhap.Text;
             string matKhau = txtMatKhau.Text;
-            if (tenDangNhap == "user" && matKhau == "123")
+            if (AccountDao.Instance.CheckAccount(tenDangNhap,matKhau))
             {
-                BeginForm fBegin = new BeginForm(AccountDao.Instance.GetAccount("tk1", "tk1"));
-                fBegin.Show();
-                Visible = false;
+                BeginForm fBegin = new BeginForm(AccountDao.Instance.GetAccount(matKhau, tenDangNhap));
+                Hide();
+                fBegin.ShowDialog();
+                Show();
+                txtMatKhau.Clear();
+                txtTenDangNhap.Clear();
             }
             else MessageBox.Show("Tài khoản hoặc mật khẩu chưa chính xác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
@@ -36,9 +39,11 @@ namespace Elemont.Gui
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            fSignup fDky = new fSignup();
-            fDky.Show();
             Hide();
+            fSignup fDky = new fSignup();
+            fDky.ShowDialog();
+            Show();
+            
         }
     }
 }

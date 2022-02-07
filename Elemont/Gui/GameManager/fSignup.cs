@@ -22,8 +22,7 @@ namespace Elemont.Gui
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Close();
-            (new fLogin()).Show();
+            Close();         
         }
     }
 }

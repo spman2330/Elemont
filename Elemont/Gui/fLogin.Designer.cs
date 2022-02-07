@@ -54,9 +54,11 @@ namespace Elemont.Gui
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txtMatKhau);
             this.groupBox1.Controls.Add(this.txtTenDangNhap);
-            this.groupBox1.Location = new System.Drawing.Point(476, 159);
+            this.groupBox1.Location = new System.Drawing.Point(381, 127);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(420, 257);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(336, 206);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -64,9 +66,10 @@ namespace Elemont.Gui
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.Location = new System.Drawing.Point(261, 215);
+            this.linkLabel1.Location = new System.Drawing.Point(209, 172);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(141, 30);
+            this.linkLabel1.Size = new System.Drawing.Size(125, 25);
             this.linkLabel1.TabIndex = 42;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Sign up now";
@@ -76,9 +79,10 @@ namespace Elemont.Gui
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(90, 215);
+            this.label3.Location = new System.Drawing.Point(72, 172);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 30);
+            this.label3.Size = new System.Drawing.Size(142, 25);
             this.label3.TabIndex = 41;
             this.label3.Text = "Not a member?";
             // 
@@ -88,9 +92,10 @@ namespace Elemont.Gui
             this.label2.BackColor = System.Drawing.Color.MintCream;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label2.Location = new System.Drawing.Point(6, 88);
+            this.label2.Location = new System.Drawing.Point(5, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 30);
+            this.label2.Size = new System.Drawing.Size(97, 25);
             this.label2.TabIndex = 40;
             this.label2.Text = "Password";
             // 
@@ -100,9 +105,10 @@ namespace Elemont.Gui
             this.label1.BackColor = System.Drawing.Color.MintCream;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(6, 35);
+            this.label1.Location = new System.Drawing.Point(5, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 30);
+            this.label1.Size = new System.Drawing.Size(101, 25);
             this.label1.TabIndex = 39;
             this.label1.Text = "Username";
             // 
@@ -111,10 +117,10 @@ namespace Elemont.Gui
             this.button2.BackColor = System.Drawing.Color.Goldenrod;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(148, 142);
+            this.button2.Location = new System.Drawing.Point(118, 114);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 34);
+            this.button2.Size = new System.Drawing.Size(103, 27);
             this.button2.TabIndex = 38;
             this.button2.Text = "Login";
             this.button2.UseVisualStyleBackColor = false;
@@ -123,20 +129,20 @@ namespace Elemont.Gui
             // txtMatKhau
             // 
             this.txtMatKhau.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.txtMatKhau.Location = new System.Drawing.Point(129, 89);
+            this.txtMatKhau.Location = new System.Drawing.Point(103, 71);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(2);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(272, 31);
+            this.txtMatKhau.Size = new System.Drawing.Size(218, 27);
             this.txtMatKhau.TabIndex = 36;
             this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // txtTenDangNhap
             // 
             this.txtTenDangNhap.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.txtTenDangNhap.Location = new System.Drawing.Point(129, 34);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(103, 27);
             this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(272, 31);
+            this.txtTenDangNhap.Size = new System.Drawing.Size(218, 27);
             this.txtTenDangNhap.TabIndex = 34;
             // 
             // contextMenuStrip1
@@ -149,25 +155,28 @@ namespace Elemont.Gui
             // 
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(880, 20);
+            this.button3.Location = new System.Drawing.Point(704, 16);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 41);
+            this.button3.Size = new System.Drawing.Size(35, 33);
             this.button3.TabIndex = 0;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // fLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(936, 428);
+            this.ClientSize = new System.Drawing.Size(749, 342);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fLogin";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

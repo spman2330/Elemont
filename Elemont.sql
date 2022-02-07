@@ -188,11 +188,11 @@ SET IDENTITY_INSERT [dbo].[Trainer] OFF
 
 SET IDENTITY_INSERT [dbo].[Element] ON 
 insert into Element (name, icon, environment,elementId)
-values ('fire', 'test', 'desert',1)
+values ('fire', 'test', 'Desert',1)
 insert into Element (name, icon, environment,elementId)
-values ('water', 'test', 'swamp',2)
+values ('water', 'test', 'Swamp',2)
 insert into Element (name, icon, environment,elementId)
-values ('grass', 'test', 'jungle', 3)
+values ('grass', 'test', 'Jungle', 3)
 SET IDENTITY_INSERT [dbo].[Element] OFF
 
 SET IDENTITY_INSERT [dbo].[Species] ON 
@@ -215,7 +215,7 @@ SET IDENTITY_INSERT [dbo].[Pokemon] OFF
 
 SET IDENTITY_INSERT [dbo].[Map] ON 
 insert into Map (name, background,	height, width, mapId)
-values ('jungle','Resources\\CoolMap.png',2000,2101,1)
+values ('Jungle','Resources\\CoolMap.png',2000,2101,1)
 SET IDENTITY_INSERT [dbo].[Map] OFF
 
 SET IDENTITY_INSERT [dbo].[SkillConnection] ON
