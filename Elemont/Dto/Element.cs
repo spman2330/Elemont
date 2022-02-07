@@ -57,5 +57,14 @@ namespace Elemont.Dto
             ElementId = Convert.ToInt32(rowElement["elementId"].ToString());
             Environment = rowElement["environment"].ToString();
         }
+        public Element(string name, string environment,
+            int[] weak, int[] strong, int elementId = 0)
+        {
+            Name = name;
+            Environment = environment;
+            Weak = weak;
+            Strong = strong;
+            ElementId = elementId;
+        }
     }
 }

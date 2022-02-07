@@ -103,7 +103,7 @@ CREATE TABLE [Pokemon] (
 GO
 CREATE TABLE [Element] (
 	[name] [nvarchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
-	[icon] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL , 
+	[icon] [nvarchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS, 
 	[environment] [nvarchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
 	[elementId] INT IDENTITY(1,1) NOT NULL PRIMARY KEY
 ) ON [PRIMARY] 
@@ -219,7 +219,7 @@ values ('Entei', 'Resources\\pokemon\\entei.png', 5, 4, 100, 4, 4)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
 values ('Charizard', 'Resources\\pokemon\\charizard.png', 5, 4, 100, 5, 5)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
-values ('Moltres', 'Resources\\pokemon\\moltres.png', 5, 4, 100, 6, 6)
+values ('Moltres', 'Resources\\pokemon\\moltres.png', 5, 4, 100, 4, 6)
 
 SET IDENTITY_INSERT [dbo].[Species] OFF			
 
@@ -307,9 +307,7 @@ values (3,4,3)
 insert into Strong (element1Id, element2Id, strongId)
 values (4,5,4)
 insert into Strong (element1Id, element2Id, strongId)
-values (5,6,5)
-insert into Strong (element1Id, element2Id, strongId)
-values (6,1,6)
+values (5,1,5)
 
 
 SET IDENTITY_INSERT [dbo].[Strong] OFF
@@ -325,8 +323,6 @@ insert into Weak (element1Id, element2Id, weakId)
 values (4, 4,4)
 insert into Weak (element1Id, element2Id, weakId)
 values( 5, 5,5)
-insert into Weak (element1Id, element2Id, weakId)
-values (6, 6,6)
 SET IDENTITY_INSERT [dbo].[Weak] OFF
 
 SET IDENTITY_INSERT [dbo].[Skill] ON

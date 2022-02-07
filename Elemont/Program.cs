@@ -6,6 +6,7 @@ using Elemont.Dto;
 using Elemont.Gui;
 using Elemont.Gui.FormAdmin;
 using Elemont.Gui.Game;
+using Elemont.Gui.GameManager;
 
 namespace Elemont
 {
