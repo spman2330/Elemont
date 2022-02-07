@@ -29,21 +29,26 @@ namespace Elemont.Gui.Game
         }
         private void loadmap()
         {
-            foreach (Control c1 in Map1.Controls)
+            bool child = true;
+            while (child)
             {
-                Map1.Controls.Remove(c1);
+                foreach (Control c1 in Map1.Controls)
+                {
+                    Map1.Controls.Remove(c1);
+                }
+                child = Map1.HasChildren;
             }
             foreach (Map m in MapDao.Instance.GetMaps())
             {
                 GroupBox gb = new GroupBox();
                 gb.Size = new Size(150, 120);
                 PictureBox pb = new PictureBox();
-                pb.Size = new Size(120, 100);
+                pb.Size = new Size(150, 105);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Tag = m.MapId;
                 pb.Image = Image.FromFile("..\\..\\..\\" + m.Background);
                 pb.Click += new System.EventHandler(this.pictureBox1_Click);
-                pb.Location = new Point(20, 20);
+                pb.Location = new Point(0, 20);
                 gb.Controls.Add(pb);
                 gb.Text = m.Name;
                 gb.Tag = m.MapId;
@@ -150,12 +155,15 @@ namespace Elemont.Gui.Game
         private void pictureBox_Click(object sender, EventArgs e)
         {
             PictureBox pb = sender as PictureBox;
-            numericUpDown1.Value = pb.Location.X;
-            numericUpDown2.Value = pb.Location.Y;
-            numericUpDown5.Value = pb.Width;
-            numericUpDown6.Value = pb.Height;
-            pb.BringToFront();
-            label3.Text = pb.Tag.ToString();
+            if (pb.Parent.Equals(pictureBox1)&& !flowLayoutPanel1.HasChildren)
+            {
+                numericUpDown1.Value = pb.Location.X;
+                numericUpDown2.Value = pb.Location.Y;
+                numericUpDown5.Value = pb.Width;
+                numericUpDown6.Value = pb.Height;
+                pb.BringToFront();
+                label3.Text = pb.Tag.ToString();
+            }
 
         }
 
@@ -281,8 +289,14 @@ namespace Elemont.Gui.Game
             {
                 if (c1.BackColor == Color.Blue)
                 {
-                    foreach (Control c2 in pictureBox1.Controls)
-                    { pictureBox1.Controls.Remove(c2); }
+                    bool child = true;
+                    while (child)
+                    {
+                        foreach (Control c2 in pictureBox1.Controls)
+                        { pictureBox1.Controls.Remove(c2); }
+                        child = pictureBox1.HasChildren;
+                    }
+
                     Map map = MapDao.Instance.GetMapById((int)c1.Tag);
                     pictureBox1.Tag = map.MapId;
                     pictureBox1.Image = Image.FromFile("..\\..\\..\\" + map.Background);
