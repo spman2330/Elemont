@@ -90,9 +90,9 @@ namespace Elemont.Gui.Game
             "Jungle",
             "Snow",
             "Swamp"});
-            this.comboBox3.Location = new System.Drawing.Point(261, 22);
+            this.comboBox3.Location = new System.Drawing.Point(218, 24);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(175, 28);
+            this.comboBox3.Size = new System.Drawing.Size(142, 28);
             this.comboBox3.Sorted = true;
             this.comboBox3.TabIndex = 5;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
@@ -132,16 +132,16 @@ namespace Elemont.Gui.Game
             this.groupBox1.Controls.Add(this.bSave);
             this.groupBox1.Controls.Add(this.numericUpDown4);
             this.groupBox1.Controls.Add(this.numericUpDown3);
-            this.groupBox1.Location = new System.Drawing.Point(436, 1);
+            this.groupBox1.Location = new System.Drawing.Point(1066, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(882, 133);
+            this.groupBox1.Size = new System.Drawing.Size(789, 144);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Map";
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(724, 98);
+            this.button7.Location = new System.Drawing.Point(637, 100);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(138, 29);
             this.button7.TabIndex = 11;
@@ -151,7 +151,7 @@ namespace Elemont.Gui.Game
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(554, 98);
+            this.button5.Location = new System.Drawing.Point(478, 100);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(138, 29);
             this.button5.TabIndex = 10;
@@ -162,7 +162,7 @@ namespace Elemont.Gui.Game
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(442, 27);
+            this.label6.Location = new System.Drawing.Point(366, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 20);
             this.label6.TabIndex = 9;
@@ -171,7 +171,7 @@ namespace Elemont.Gui.Game
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(198, 49);
+            this.label5.Location = new System.Drawing.Point(176, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 20);
             this.label5.TabIndex = 8;
@@ -180,7 +180,7 @@ namespace Elemont.Gui.Game
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(442, 70);
+            this.label4.Location = new System.Drawing.Point(366, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 20);
             this.label4.TabIndex = 7;
@@ -188,7 +188,7 @@ namespace Elemont.Gui.Game
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(709, 11);
+            this.pictureBox3.Location = new System.Drawing.Point(622, 11);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(153, 81);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -198,15 +198,15 @@ namespace Elemont.Gui.Game
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(261, 68);
+            this.textBox1.Location = new System.Drawing.Point(218, 70);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(175, 27);
+            this.textBox1.Size = new System.Drawing.Size(142, 27);
             this.textBox1.TabIndex = 4;
             // 
             // bimg
             // 
-            this.bimg.Location = new System.Drawing.Point(554, 23);
+            this.bimg.Location = new System.Drawing.Point(478, 25);
             this.bimg.Name = "bimg";
             this.bimg.Size = new System.Drawing.Size(138, 29);
             this.bimg.TabIndex = 3;
@@ -217,7 +217,7 @@ namespace Elemont.Gui.Game
             // 
             // bSave
             // 
-            this.bSave.Location = new System.Drawing.Point(554, 61);
+            this.bSave.Location = new System.Drawing.Point(478, 63);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(138, 29);
             this.bSave.TabIndex = 2;
@@ -227,27 +227,27 @@ namespace Elemont.Gui.Game
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(42, 68);
+            this.numericUpDown4.Location = new System.Drawing.Point(41, 68);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(150, 27);
+            this.numericUpDown4.Size = new System.Drawing.Size(120, 27);
             this.numericUpDown4.TabIndex = 1;
             this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(42, 25);
+            this.numericUpDown3.Location = new System.Drawing.Point(41, 25);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(150, 27);
+            this.numericUpDown3.Size = new System.Drawing.Size(120, 27);
             this.numericUpDown3.TabIndex = 0;
             this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
@@ -456,16 +456,16 @@ namespace Elemont.Gui.Game
             // 
             this.panel4.AutoScroll = true;
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(436, 281);
+            this.panel4.Location = new System.Drawing.Point(436, 162);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1450, 700);
+            this.panel4.Size = new System.Drawing.Size(1450, 819);
             this.panel4.TabIndex = 5;
             // 
             // Map1
             // 
-            this.Map1.Location = new System.Drawing.Point(436, 140);
+            this.Map1.Location = new System.Drawing.Point(436, 23);
             this.Map1.Name = "Map1";
-            this.Map1.Size = new System.Drawing.Size(1318, 133);
+            this.Map1.Size = new System.Drawing.Size(624, 133);
             this.Map1.TabIndex = 6;
             // 
             // fMap
