@@ -38,6 +38,7 @@ namespace Elemont.Gui
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -153,6 +154,18 @@ namespace Elemont.Gui
             this.button3.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             this.button3.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(23, 613);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 28);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "\"\"";
+            // 
             // BeginForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -160,6 +173,7 @@ namespace Elemont.Gui
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1038, 673);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -173,6 +187,7 @@ namespace Elemont.Gui
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -185,5 +200,6 @@ namespace Elemont.Gui
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -28,7 +28,9 @@ namespace Elemont.Gui
             {
                 button5.Enabled = false;
                 button3.Enabled = false;
-            }    
+                
+            }
+            label1.Text = "Welcome " + _account.Name;
         }
 
         private void button2_Click(object sender, EventArgs e) //game

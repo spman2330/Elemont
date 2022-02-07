@@ -231,7 +231,7 @@ namespace Elemont.Gui.Game
 
 
 
-        private void button3_Click(object sender, EventArgs e) //save
+        private void button3_Click(object sender, EventArgs e) 
         {
             if (comboBox3.SelectedItem != null)
             {
@@ -274,7 +274,7 @@ namespace Elemont.Gui.Game
             }
         }
 
-        private void button5_Click(object sender, EventArgs e) //choose
+        private void button5_Click(object sender, EventArgs e) 
         {
             foreach (Control c1 in Map1.Controls)
             {
