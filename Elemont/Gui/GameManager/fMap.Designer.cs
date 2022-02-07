@@ -463,6 +463,7 @@ namespace Elemont.Gui.Game
             // 
             // Map1
             // 
+            this.Map1.AutoScroll = true;
             this.Map1.Location = new System.Drawing.Point(436, 23);
             this.Map1.Name = "Map1";
             this.Map1.Size = new System.Drawing.Size(624, 133);
