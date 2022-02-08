@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Elemont.Dao;
@@ -16,7 +17,20 @@ namespace Elemont.Gui.FormAdmin
         {
             InitializeComponent();
         }
-
+        void LoadData()
+        {
+            dataGridView1.DataSource = PokemonDao.Instance.GetPokemonsByCellId(int.Parse(textBox3.Text)).Select(
+               item => new
+               {
+                   Name = item.Name,
+                   Species = item.Species.Name,
+                   Skill1 = item.Skill1.Name,
+                   Skill2 = item.Skill2.Name,
+                   Exp = item.Exp,
+                   PokemondId = item.PokemonId,
+               }
+               ).ToArray();
+        }
         private void Pokeedit_Load(object sender, EventArgs e)
         {
             foreach (Map m in MapDao.Instance.GetMaps())
@@ -36,7 +50,14 @@ namespace Elemont.Gui.FormAdmin
                 gb.BackColor = Color.White;
                 Map1.Controls.Add(gb);
             }
-
+            comboBox1.DataSource = SpeciesDao.Instance.GetAllSpecies();
+            comboBox1.DisplayMember = "Name";
+            comboBox1.ValueMember = "SpeciesId";
+            comboBox1.SelectedIndex = -1;
+            comboBox2.DataSource = comboBox3.DataSource = SkillDao.Instance.GetAllSkill();
+            comboBox2.DisplayMember = comboBox3.DisplayMember = "Name";
+            comboBox2.SelectedIndex = comboBox3.SelectedIndex = -1;
+            comboBox2.ValueMember = comboBox3.ValueMember = "SkillId";
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -117,15 +138,20 @@ namespace Elemont.Gui.FormAdmin
             {
                 dataGridView1.DataSource = PokemonDao.Instance.GetPokemonsByCellId(Convert.ToInt32(textBox3.Text));
             }
+            LoadData();
         }
 
+        
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Pokemon poke = PokemonDao.Instance.GetPokemonById(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value));
-            textBox1.Text = poke.Name;
-            textBox2.Text = poke.Exp.ToString();
-
-
+            try
+            {
+                Pokemon poke = PokemonDao.Instance.GetPokemonById(int.Parse(textBox3.Text));
+                textBox1.Text = poke.Name;
+                textBox2.Text = poke.Exp.ToString();
+                textBox4.Text = poke.PokemonId.ToString();
+                comboBox1.Text = poke.Species.Name;
+            } catch { }
         }
         private void Loadnull()
         {
