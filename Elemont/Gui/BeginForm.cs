@@ -15,7 +15,7 @@ namespace Elemont.Gui
 {
     public partial class BeginForm : Form
     {
-        Account _account;
+        Account _account = new Account();
         public BeginForm(Account account)
         {
             InitializeComponent();
@@ -26,10 +26,11 @@ namespace Elemont.Gui
         {
             if(_account.Type!=1)
             {
-                button5.Enabled = false;
-                button3.Enabled = false;
-                
-            }
+
+                button5.Visible = false;
+                button3.Visible = false;
+            }    
+
             label1.Text = "Welcome " + _account.Name;
         }
 
@@ -73,7 +74,8 @@ namespace Elemont.Gui
         private void button1_Click(object sender, EventArgs e)
         {           
             Hide();
-            (new fManagerAccount()).ShowDialog();
+            fManagerAccount fMA = new fManagerAccount(_account);
+            fMA.ShowDialog();
             Show();
         }
     }

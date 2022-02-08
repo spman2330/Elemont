@@ -6,15 +6,27 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Elemont.Gui.AccountManager;
+using Elemont.Dao;
+using Elemont.Dto;
 
 namespace Elemont.Gui.GameManager
 {
     public partial class fManagerAccount : Form
     {
-        public fManagerAccount()
+        Account _account = new Account();
+        public fManagerAccount(Account account)
         {
             InitializeComponent();
+            _account = account;
         }
+        private void fManagerAccount_Load(object sender, EventArgs e)
+        {
+            if (_account.Type != 1)
+            {
+                btnPlayer.Visible = false;
+            }
+        }
+
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
         {
@@ -31,17 +43,12 @@ namespace Elemont.Gui.GameManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fInfo());
+            OpenChildForm(new fInfo(_account));
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fChangePassword());
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new fSystemManage());
+            OpenChildForm(new fChangePassword(_account));
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -52,7 +59,6 @@ namespace Elemont.Gui.GameManager
         private void button5_Click(object sender, EventArgs e)
         {
             Close();
-            
         }
     }
 }

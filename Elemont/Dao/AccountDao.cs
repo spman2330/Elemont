@@ -24,6 +24,16 @@ namespace Elemont.Dao
                 "N'{0}' AND dbo.account.password = N'{1}'", userName, password);
             return DataProvider.Instance.ExecuteQuery(query).Rows.Count > 0;
         }
+        public bool CheckAccount(string userName)
+        {
+            string query = string.Format("SELECT * FROM dbo.account Where dbo.account.username = " + "N'{0}'", userName);
+            return DataProvider.Instance.ExecuteQuery(query).Rows.Count > 0;
+        }
+        public bool CheckAccount(int ID)
+        {
+            string query = string.Format("SELECT * FROM dbo.account Where dbo.account.AccountID = " + "N'{0}'", ID);
+            return DataProvider.Instance.ExecuteQuery(query).Rows.Count > 0;
+        }
         public Account GetAccount(string userName, string password)
         {
             string query = String.Format("SELECT * FROM dbo.account WHERE dbo.account.username = " +
@@ -34,6 +44,12 @@ namespace Elemont.Dao
         {
             string query = String.Format("SELECT * FROM dbo.account WHERE dbo.account.accountId = " +
                "N'{0}'", accountId);
+            return new Account(DataProvider.Instance.ExecuteQuery(query).Rows[0]);
+        }
+        public Account GetAccountByUsername(string Username)
+        {
+            string query = String.Format("SELECT * FROM dbo.account WHERE dbo.account.UserName = " +
+               "N'{0}'", Username);
             return new Account(DataProvider.Instance.ExecuteQuery(query).Rows[0]);
         }
         public bool AddAccount(Account account)

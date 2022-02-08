@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using Elemont.Dao;
 using Elemont.Dto;
-using Elemont.Gui;
 using System.Windows.Forms;
 
 namespace Elemont.Gui
@@ -19,20 +13,20 @@ namespace Elemont.Gui
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            string tenDangNhap = txtTenDangNhap.Text;
-            string matKhau = txtMatKhau.Text;
-            if (AccountDao.Instance.CheckAccount(tenDangNhap,matKhau))
+            string UN = txtUsername.Text;
+            string PW = txtPassword.Text;
+            if (AccountDao.Instance.CheckAccount(UN,PW))
             {
-                BeginForm fBegin = new BeginForm(AccountDao.Instance.GetAccount( tenDangNhap, matKhau));
+                Account account = AccountDao.Instance.GetAccount(UN, PW);
+                BeginForm fBegin = new BeginForm(account);
                 Hide();
                 fBegin.ShowDialog();
                 Show();
-                txtMatKhau.Clear();
-                txtTenDangNhap.Clear();
+                txtPassword.Clear();
+                txtUsername.Clear();
             }
-            else MessageBox.Show("Tài khoản hoặc mật khẩu chưa chính xác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else MessageBox.Show("Please check your username and password", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             Close();
@@ -43,7 +37,11 @@ namespace Elemont.Gui
             fSignup fDky = new fSignup();
             fDky.ShowDialog();
             Show();
-            
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) btnLogin.PerformClick();
         }
     }
 }

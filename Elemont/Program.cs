@@ -1,9 +1,7 @@
 using System;
-using System.Data.SqlClient;
 using System.Windows.Forms;
-using Elemont.Dao;
-using Elemont.Dto;
 using Elemont.Gui;
+using Elemont.Gui.AccountManager;
 using Elemont.Gui.FormAdmin;
 using Elemont.Gui.Game;
 using Elemont.Gui.GameManager;
