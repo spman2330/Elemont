@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Elemont.Dto;
+using Elemont.Dao;
 
 namespace Elemont.Gui.AccountManager
 {
@@ -33,6 +34,8 @@ namespace Elemont.Gui.AccountManager
                 else
                 {
                     _account.Password = txtNew.Text;
+                    if (!AccountDao.Instance.ChangeAccount(_account)){ }
+
                     MessageBox.Show("Change Password Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
