@@ -39,11 +39,11 @@ namespace Elemont.Gui.FormAdmin
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.nameTxt = new System.Windows.Forms.TextBox();
-            this.typeTxt = new System.Windows.Forms.TextBox();
             this.numTxt = new System.Windows.Forms.TextBox();
             this.manaTxt = new System.Windows.Forms.TextBox();
             this.idTxt = new System.Windows.Forms.TextBox();
             this.skillGridView = new System.Windows.Forms.DataGridView();
+            this.typeBox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skillGridView)).BeginInit();
@@ -65,7 +65,7 @@ namespace Elemont.Gui.FormAdmin
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(694, 6);
+            this.pictureBox7.Location = new System.Drawing.Point(694, 11);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(36, 36);
@@ -149,13 +149,6 @@ namespace Elemont.Gui.FormAdmin
             this.nameTxt.Size = new System.Drawing.Size(125, 27);
             this.nameTxt.TabIndex = 29;
             // 
-            // typeTxt
-            // 
-            this.typeTxt.Location = new System.Drawing.Point(180, 139);
-            this.typeTxt.Name = "typeTxt";
-            this.typeTxt.Size = new System.Drawing.Size(125, 27);
-            this.typeTxt.TabIndex = 30;
-            // 
             // numTxt
             // 
             this.numTxt.Location = new System.Drawing.Point(180, 192);
@@ -193,16 +186,24 @@ namespace Elemont.Gui.FormAdmin
             this.skillGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.skillGridView_CellContentClick);
             this.skillGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.skillGridView_CellMouseClick);
             // 
+            // typeBox
+            // 
+            this.typeBox.FormattingEnabled = true;
+            this.typeBox.Location = new System.Drawing.Point(180, 131);
+            this.typeBox.Name = "typeBox";
+            this.typeBox.Size = new System.Drawing.Size(125, 28);
+            this.typeBox.TabIndex = 35;
+            // 
             // fSkillEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.typeBox);
             this.Controls.Add(this.skillGridView);
             this.Controls.Add(this.idTxt);
             this.Controls.Add(this.manaTxt);
             this.Controls.Add(this.numTxt);
-            this.Controls.Add(this.typeTxt);
             this.Controls.Add(this.nameTxt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -231,10 +232,10 @@ namespace Elemont.Gui.FormAdmin
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox nameTxt;
-        private System.Windows.Forms.TextBox typeTxt;
         private System.Windows.Forms.TextBox numTxt;
         private System.Windows.Forms.TextBox manaTxt;
         private System.Windows.Forms.TextBox idTxt;
         private System.Windows.Forms.DataGridView skillGridView;
+        private System.Windows.Forms.ComboBox typeBox;
     }
 }
