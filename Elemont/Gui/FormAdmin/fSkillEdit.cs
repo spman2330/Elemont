@@ -31,14 +31,17 @@ namespace Elemont.Gui.FormAdmin
                     ManaCost = item.ManaCost
                 }
                 ).ToArray();
+
+            String[] myArray = { "attack", "heal" };
+            typeBox.DataSource = myArray;
         }
         public void loadNull()
         {
             nameTxt.Text = "";
-            typeTxt.Text = "";
             numTxt.Text = "";
             idTxt.Text = "";
             manaTxt.Text = "";
+            typeBox.SelectedIndex = -1;
         }
 
         private void skillGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -66,7 +69,7 @@ namespace Elemont.Gui.FormAdmin
                 Skill skill = SkillDao.Instance.GetskillById(Convert.ToInt32
                     (skillGridView.Rows[e.RowIndex].Cells[0].Value));
                 nameTxt.Text = skill.Name;
-                typeTxt.Text = skill.Type;
+                typeBox.SelectedItem = skill.Type;
                 numTxt.Text = skill.Num.ToString();
                 manaTxt.Text = skill.ManaCost.ToString();
                 idTxt.Text = skill.SkillId.ToString();
@@ -81,7 +84,7 @@ namespace Elemont.Gui.FormAdmin
         {
             if (idTxt.Text != "")
             {
-                Skill skill = new Skill(nameTxt.Text, typeTxt.Text
+                Skill skill = new Skill(nameTxt.Text, typeBox.SelectedItem.ToString()
                     , Convert.ToInt32(numTxt.Text), Convert.ToInt32(manaTxt.Text),
                     Convert.ToInt32(idTxt.Text));
                 if (!SkillDao.Instance.ChangeSkill(skill))
@@ -91,7 +94,7 @@ namespace Elemont.Gui.FormAdmin
             }
             else
             {
-                Skill skill = new Skill(nameTxt.Text, typeTxt.Text
+                Skill skill = new Skill(nameTxt.Text, typeBox.SelectedItem.ToString()
                    , Convert.ToInt32(numTxt.Text), Convert.ToInt32(manaTxt.Text));
                 if (!SkillDao.Instance.AddSkill(skill))
                 {

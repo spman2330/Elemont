@@ -209,7 +209,7 @@ SET IDENTITY_INSERT [dbo].[Element] OFF
 
 SET IDENTITY_INSERT [dbo].[Species] ON 
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
-values ('Pikachu', 'Resources\\pokemon\\pikachu.jpg', 10, 5, 150, 1, 1)
+values ('Pikachu', 'Resources\\pokemon\\pikachu.png', 10, 5, 150, 1, 1)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)
 values ('Charmander', 'Resources\\pokemon\\charmander.png', 10, 5, 100, 2, 2)
 insert into Species (name, image, baseAttack, baseDefense, baseHp, elementId, speciesId)

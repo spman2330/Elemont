@@ -28,7 +28,9 @@ namespace Elemont.Gui.FormAdmin
             defenseTxt.Text = "";
             hptxt.Text = "";
             speciesIdTxt.Text = "";
-            comboBox1.SelectedIndex = -1;
+            imgBox.SelectedIndex = -1;
+            imageBox.Image.Dispose();
+            imageBox.Image = null;
         }
         public void loadData()
         {
@@ -47,12 +49,25 @@ namespace Elemont.Gui.FormAdmin
             elementBox.DataSource = ElementDao.Instance.GetAllElements();
             elementBox.DisplayMember = "Name";
             elementBox.ValueMember = "ElementId";
-
+            String[] myArray = { "Resources\\pokemon\\charizard.png",
+                    "Resources\\pokemon\\charmander.png" ,
+                    "Resources\\pokemon\\entei.png" ,
+                    "Resources\\pokemon\\kyogre.png",
+                    "Resources\\pokemon\\magmar.png",
+                    "Resources\\pokemon\\meganium.png",
+                    "Resources\\pokemon\\mewtwo.png",
+                    "Resources\\pokemon\\moltres.png",
+                    "Resources\\pokemon\\pikachu.png",
+                    "Resources\\pokemon\\sunkern.png",
+                    "Resources\\pokemon\\vaporeon.png"};
+            imgBox.DataSource = myArray;
         }
         public void loadSpecies()
         {
             nameTxt.Text = species.Name;
             elementBox.SelectedValue = species.Element.ElementId;
+            imgBox.Text = species.Image;
+            imageBox.Image = Image.FromFile("..\\..\\..\\" + species.Image);
             attackTxt.Text = species.BaseAttack.ToString();
             defenseTxt.Text = species.BaseDefense.ToString();
             hptxt.Text = species.BaseHp.ToString();
@@ -92,7 +107,8 @@ namespace Elemont.Gui.FormAdmin
 
             if (speciesIdTxt.Text != "")
             {
-                species = new Species(nameTxt.Text, "", Convert.ToInt32(attackTxt.Text),
+                species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
+                    Convert.ToInt32(attackTxt.Text),
                 Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
                 (Element)elementBox.SelectedItem, Convert.ToInt32(speciesIdTxt.Text));
                 if (SpeciesDao.Instance.ChangeSpecies(species))
@@ -102,7 +118,8 @@ namespace Elemont.Gui.FormAdmin
             }
             else
             {
-                species = new Species(nameTxt.Text, "", Convert.ToInt32(attackTxt.Text),
+                species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
+                    Convert.ToInt32(attackTxt.Text),
                 Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
                 (Element)elementBox.SelectedItem);
                 if (SpeciesDao.Instance.AddSpecies(species))
@@ -147,7 +164,10 @@ namespace Elemont.Gui.FormAdmin
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (imgBox.Text != "")
+            {
+                imageBox.Image = Image.FromFile("..\\..\\..\\" + imgBox.Text);
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
