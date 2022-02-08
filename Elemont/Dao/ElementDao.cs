@@ -109,5 +109,11 @@ namespace Elemont.Dao
             }
             return ok;
         }
+        public Pokemon[] GetAllPoke()
+        {
+            string query = "SELECT * FROM Account";
+            DataTable table = DataProvider.Instance.ExecuteQuery(query);
+            return table.AsEnumerable().Select(item => new Pokemon(item)).ToArray();
+        }
     }
 }

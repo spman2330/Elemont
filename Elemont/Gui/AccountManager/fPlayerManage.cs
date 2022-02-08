@@ -93,15 +93,20 @@ namespace Elemont.Gui.AccountManager
 
         private void dGVInfo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            txtUsername.Text = dGVInfo.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtPassword.Text = dGVInfo.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtName.Text = dGVInfo.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtID.Text = dGVInfo.Rows[e.RowIndex].Cells[4].Value.ToString();
-            if (dGVInfo.Rows[e.RowIndex].Cells[2].Value.ToString() == "1")
+            try
             {
-                cbBType.SelectedIndex = 1;
+                txtUsername.Text = dGVInfo.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtPassword.Text = dGVInfo.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtName.Text = dGVInfo.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtID.Text = dGVInfo.Rows[e.RowIndex].Cells[4].Value.ToString();
+                if (dGVInfo.Rows[e.RowIndex].Cells[2].Value.ToString() == "1")
+                {
+                    cbBType.SelectedIndex = 1;
+                }
+                else cbBType.SelectedIndex = 0;
             }
-            else cbBType.SelectedIndex = 0;
+            catch { }
+
         }
     }
 }
