@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Elemont.Dto;
+using Elemont.Dao;
 
 namespace Elemont.Gui.AccountManager
 {
@@ -29,6 +30,7 @@ namespace Elemont.Gui.AccountManager
         private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             _account.Name = txtName.Text;
+            if (!AccountDao.Instance.ChangeAccount(_account)) { }
             MessageBox.Show("Update Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
