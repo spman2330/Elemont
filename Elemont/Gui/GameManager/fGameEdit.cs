@@ -50,7 +50,7 @@ namespace Elemont.Gui.GameManager
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Pokeedit poke = new Pokeedit();
+            FPokeedit poke = new FPokeedit();
             this.Hide();
             poke.ShowDialog();
             this.Show();

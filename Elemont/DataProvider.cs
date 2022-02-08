@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public class DataProvider
 {
     //properties
-    private string connectionSTR = @"Server=.;Initial Catalog=ELEMONT;Integrated Security=True;";
+    private string connectionSTR = @"Server=LAPTOP-KCVKU1ML\SPMAN;Initial Catalog=ELEMONT;Integrated Security=True;";
     private static DataProvider instance;
     public static DataProvider Instance
     {

@@ -1,7 +1,7 @@
 ﻿
 namespace Elemont.Gui.FormAdmin
 {
-    partial class Pokeedit
+    partial class FPokeedit
     {
         /// <summary>
         /// Required designer variable.
