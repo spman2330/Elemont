@@ -48,8 +48,10 @@ namespace Elemont.Dao
         public bool ChangePokemon(Pokemon pokemon)
         {
             string query = String.Format("UPDATE dbo.Pokemon " +
-                "SET dbo.Pokemon.name = N'{0}' " +
-                "WHERE pokemonId = N'{1}'", pokemon.Name, pokemon.PokemonId);
+                "SET dbo.Pokemon.name = N'{0}', dbo.Pokemon.exp = N'{1}', dbo.Pokemon.speciesId =N'{2}', skill1Id = N'{3}', " +
+                "skill2Id = N'{4}', cellId = N'{5}' " +               
+                "WHERE pokemonId = N'{6}'", pokemon.Name,pokemon.Exp,pokemon.Species.SpeciesId,pokemon.Skill1.SkillId,
+                pokemon.Skill2.SkillId,pokemon.CellId,pokemon.PokemonId) ;
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
         public bool RemovePokemonbyId(int pokemonId)
@@ -60,9 +62,9 @@ namespace Elemont.Dao
         }
         public bool AddPokemon(Pokemon poke)
         {
-            string query = String.Format("insert into Pokemon (name, speciesId, exp, cellId, trainerId, skill1Id, skill2Id)" +
-                "values(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}')"
-                ,poke.Name,poke.Species.SpeciesId,poke.CellId,null,poke.Skill1.SkillId,poke.Skill2.SkillId
+            string query = String.Format("insert into Pokemon (name, speciesId, exp, cellId, skill1Id, skill2Id)" +
+                "values(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}')"
+                ,poke.Name,poke.Species.SpeciesId,poke.Exp,poke.CellId,poke.Skill1.SkillId,poke.Skill2.SkillId
                 );            
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }

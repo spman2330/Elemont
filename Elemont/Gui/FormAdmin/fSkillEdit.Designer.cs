@@ -188,6 +188,7 @@ namespace Elemont.Gui.FormAdmin
             // 
             // typeBox
             // 
+            this.typeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeBox.FormattingEnabled = true;
             this.typeBox.Location = new System.Drawing.Point(180, 131);
             this.typeBox.Name = "typeBox";

@@ -113,7 +113,7 @@ namespace Elemont.Gui.Game
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != null && comboBox1.SelectedItem != null)
+            if (textBox1.Text != "" && comboBox1.SelectedItem != null)
             {
                 int i;
                 switch (comboBox1.Text)

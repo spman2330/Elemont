@@ -216,7 +216,7 @@ namespace Elemont.Gui.Game
         }
         private void bSave_Click(object sender, EventArgs e)
         {
-            if (comboBox3.SelectedItem != null && textBox1.Text != null)
+            if (comboBox3.SelectedItem != null && textBox1.Text != "")
             {
                 Map map = new Map();
                 map.Width = (int)numericUpDown3.Value;

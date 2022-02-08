@@ -104,5 +104,10 @@ namespace Elemont.Gui.FormAdmin
             loadData();
             loadNull();
         }
+
+        private void numTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

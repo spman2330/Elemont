@@ -19,17 +19,20 @@ namespace Elemont.Gui.FormAdmin
         }
         void LoadData()
         {
-            dataGridView1.DataSource = PokemonDao.Instance.GetPokemonsByCellId(int.Parse(textBox3.Text)).Select(
-               item => new
-               {
-                   Name = item.Name,
-                   Species = item.Species.Name,
-                   Skill1 = item.Skill1.Name,
-                   Skill2 = item.Skill2.Name,
-                   Exp = item.Exp,
-                   PokemondId = item.PokemonId,
-               }
-               ).ToArray();
+            if (textBox3.Text != "")
+            {
+                dataGridView1.DataSource = PokemonDao.Instance.GetPokemonsByCellId(int.Parse(textBox3.Text)).Select(
+                 item => new
+                 {
+                     Name = item.Name,
+                     Species = item.Species.Name,
+                     Skill1 = item.Skill1.Name,
+                     Skill2 = item.Skill2.Name,
+                     Exp = item.Exp,
+                     PokemondId = item.PokemonId,
+                 }
+                 ).ToArray();
+            }
         }
         private void Pokeedit_Load(object sender, EventArgs e)
         {
@@ -134,11 +137,12 @@ namespace Elemont.Gui.FormAdmin
                     }
                 }
             }
+            Loadnull();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (textBox3.Text != null)
+            if (textBox3.Text != "")
             {
                 dataGridView1.DataSource = PokemonDao.Instance.GetPokemonsByCellId(Convert.ToInt32(textBox3.Text));
             }
@@ -179,7 +183,7 @@ namespace Elemont.Gui.FormAdmin
             }
             else
             {
-                if (textBox4.Text != null)
+                if (textBox4.Text != "")
                 {
                     Pokemon poke = PokemonDao.Instance.GetPokemonById(Convert.ToInt32(textBox4.Text));
                     poke.Name = textBox1.Text;
@@ -191,16 +195,20 @@ namespace Elemont.Gui.FormAdmin
                 }
                 else
                 {
+                    if (textBox3.Text != "")
+                    {
+                        Pokemon poke = new Pokemon();
+                        poke.Name = textBox1.Text;
+                        poke.Exp = Convert.ToInt32(textBox2.Text);
+                        poke.CellId = Convert.ToInt32(textBox3.Text);
+                        poke.Species = SpeciesDao.Instance.GetSpeciesById(Convert.ToInt32(comboBox1.SelectedValue));
+                        poke.Skill1 = SkillDao.Instance.GetskillById(Convert.ToInt32(comboBox2.SelectedValue));
+                        poke.Skill2 = SkillDao.Instance.GetskillById(Convert.ToInt32(comboBox3.SelectedValue));
 
-                    Pokemon poke = new Pokemon();
-                    poke.Name = textBox1.Text;
-                    poke.Exp = Convert.ToInt32(textBox2.Text);
-                    poke.CellId = Convert.ToInt32(textBox3.Text);
-
-                    PokemonDao.Instance.AddPokemon(poke);
-                    Loadnull();
+                        PokemonDao.Instance.AddPokemon(poke);
+                        Loadnull();
+                    }
                 }
-
                 LoadData();
             }
 
@@ -221,6 +229,12 @@ namespace Elemont.Gui.FormAdmin
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == (char)8))
+                e.Handled = true;
         }
     }
 

@@ -217,6 +217,7 @@ namespace Elemont.Gui.FormAdmin
             // 
             // imgBox
             // 
+            this.imgBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.imgBox.FormattingEnabled = true;
             this.imgBox.Location = new System.Drawing.Point(537, 145);
             this.imgBox.Margin = new System.Windows.Forms.Padding(2);
@@ -251,6 +252,7 @@ namespace Elemont.Gui.FormAdmin
             // 
             // elementBox
             // 
+            this.elementBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.elementBox.FormattingEnabled = true;
             this.elementBox.Location = new System.Drawing.Point(118, 140);
             this.elementBox.Name = "elementBox";

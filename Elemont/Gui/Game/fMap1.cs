@@ -310,6 +310,7 @@ namespace Elemont.Gui.Game
                                         termsList.Add(pk2);
                                         this.game.Trainers.Pokemons = termsList.ToArray();
                                         this.Controls.Remove(c1);
+                                        timer2.Start();
                                     }
                                     else
                                     {

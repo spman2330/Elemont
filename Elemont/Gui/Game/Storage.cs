@@ -135,8 +135,10 @@ namespace Elemont.Gui.Game
                             store.Controls.Remove(c1);
                             if (!PokemonDao.Instance.RemovePokemonbyId((int)c1.Tag))
                             { };
+                            fMap1.instance.game.Trainers = TrainerDao.Instance.GetTrainerById(fMap1.instance.game.Trainers.TrainerId);
                         }
                     }
+
                     sl = false;
                     foreach (Control c1 in store.Controls)
                     {
@@ -214,7 +216,7 @@ namespace Elemont.Gui.Game
         }
         private void button8_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text!=null)
+            if(textBox1.Text!="")
             {
 
                 DialogResult r = MessageBox.Show("Do you want to change your name to "+textBox1.Text,"",MessageBoxButtons.YesNo);

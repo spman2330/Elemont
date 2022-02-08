@@ -392,6 +392,8 @@ namespace Elemont.Gui.Game
                             {
 
                             }
+                            fMap1.instance.game.Trainers = TrainerDao.Instance.GetTrainerById(fMap1.instance.game.Trainers.TrainerId);
+
                             fMap1.instance.win = true;
                             this.Close();
                         }
