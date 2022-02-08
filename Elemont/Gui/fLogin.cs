@@ -23,7 +23,7 @@ namespace Elemont.Gui
             string matKhau = txtMatKhau.Text;
             if (AccountDao.Instance.CheckAccount(tenDangNhap,matKhau))
             {
-                BeginForm fBegin = new BeginForm(AccountDao.Instance.GetAccount(matKhau, tenDangNhap));
+                BeginForm fBegin = new BeginForm(AccountDao.Instance.GetAccount( tenDangNhap, matKhau));
                 Hide();
                 fBegin.ShowDialog();
                 Show();

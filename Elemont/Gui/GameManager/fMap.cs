@@ -17,7 +17,6 @@ namespace Elemont.Gui.Game
             InitializeComponent();
 
         }
-
         private void fMap_Load(object sender, EventArgs e)
         {
             pictureBox1.AllowDrop = true;
@@ -76,7 +75,6 @@ namespace Elemont.Gui.Game
                 c1.BringToFront();
             }
         }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -138,7 +136,6 @@ namespace Elemont.Gui.Game
                 MessageBox.Show("Please check all properties", "", MessageBoxButtons.OK);
             }
         }
-
         private void pictureBox_DoubleClick(object sender, EventArgs e)
         {
             if (!flowLayoutPanel1.HasChildren)
@@ -166,7 +163,6 @@ namespace Elemont.Gui.Game
             }
 
         }
-
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
             numericUpDown1.Maximum = numericUpDown3.Value;
@@ -186,8 +182,6 @@ namespace Elemont.Gui.Game
             clone.BackColor = pb.BackColor;
             return clone;
         }
-
-
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)
@@ -195,7 +189,6 @@ namespace Elemont.Gui.Game
                 c1.Width = (int)numericUpDown5.Value;
             }
         }
-
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)
@@ -203,7 +196,6 @@ namespace Elemont.Gui.Game
                 c1.Height = (int)numericUpDown6.Value;
             }
         }
-
         private void bimg_Click(object sender, EventArgs e)
         {
             try
@@ -222,7 +214,6 @@ namespace Elemont.Gui.Game
 
             }
         }
-
         private void bSave_Click(object sender, EventArgs e)
         {
             if (comboBox3.SelectedItem != null && textBox1.Text != null)
@@ -237,9 +228,6 @@ namespace Elemont.Gui.Game
                 loadmap();
             }
         }
-
-
-
         private void button3_Click(object sender, EventArgs e) 
         {
             if (comboBox3.SelectedItem != null)
@@ -282,7 +270,6 @@ namespace Elemont.Gui.Game
                 MessageBox.Show("Map Created and Saved ", "", MessageBoxButtons.OK);
             }
         }
-
         private void button5_Click(object sender, EventArgs e) 
         {
             foreach (Control c1 in Map1.Controls)
@@ -350,14 +337,12 @@ namespace Elemont.Gui.Game
                 flowLayoutPanel1.Controls.Remove(c1);
             }
         }
-
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             bSave.Enabled = true;
             textBox1.Text = "Resources" + "\\" + "\\" + comboBox3.Text + ".png";
             pictureBox1.Image = Image.FromFile("..\\..\\..\\" + textBox1.Text);
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
             foreach (Control c1 in Map1.Controls)
@@ -369,7 +354,6 @@ namespace Elemont.Gui.Game
                 }
             }
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)
@@ -402,16 +386,6 @@ namespace Elemont.Gui.Game
                         break;
                 }
             }
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
