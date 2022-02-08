@@ -77,6 +77,7 @@ namespace Elemont.Gui
             fManagerAccount fMA = new fManagerAccount(_account);
             fMA.ShowDialog();
             Show();
+            BeginForm_Load(sender, e);
         }
     }
 }
