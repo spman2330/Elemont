@@ -150,7 +150,7 @@ namespace Elemont.Gui.FormAdmin
                 textBox1.Text = poke.Name;
                 textBox2.Text = poke.Exp.ToString();
                 textBox4.Text = poke.PokemonId.ToString();
-                comboBox1.Text = poke.Species.Name;
+                comboBox1.SelectedItem = poke.Species.Name;
             } catch { }
         }
         private void Loadnull()
