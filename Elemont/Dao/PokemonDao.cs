@@ -58,5 +58,13 @@ namespace Elemont.Dao
               "N'{0}'", pokemonId);
             return DataProvider.Instance.ExecuteNonQuery(query) > 0;
         }
+        public bool AddPokemon(Pokemon poke)
+        {
+            string query = String.Format("insert into Pokemon (name, speciesId, exp, cellId, trainerId, skill1Id, skill2Id)" +
+                "values(N'{0}', N'{1}', N'{2}', N'{3}', N'{4}', N'{5}', N'{6}')"
+                ,poke.Name,poke.Species.SpeciesId,poke.CellId,null,poke.Skill1.SkillId,poke.Skill2.SkillId
+                );            
+            return DataProvider.Instance.ExecuteNonQuery(query) > 0;
+        }
     }
 }

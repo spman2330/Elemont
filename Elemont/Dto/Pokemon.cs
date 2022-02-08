@@ -41,5 +41,8 @@ namespace Elemont.Dto
             Skill1 = SkillDao.Instance.GetskillById(Convert.ToInt32(row["skill1Id"].ToString()));
             Skill2 = SkillDao.Instance.GetskillById(Convert.ToInt32(row["skill2Id"].ToString()));
         }
+        public Pokemon ()
+        { }
     }
+
 }
