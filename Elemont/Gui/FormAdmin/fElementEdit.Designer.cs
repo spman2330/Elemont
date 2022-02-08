@@ -37,7 +37,6 @@ namespace Elemont.Gui.GameManager
             this.button6 = new System.Windows.Forms.Button();
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.envirTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@ namespace Elemont.Gui.GameManager
             this.ElementGridView = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.IdTxt = new System.Windows.Forms.TextBox();
+            this.envirBox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -137,14 +137,6 @@ namespace Elemont.Gui.GameManager
             this.label1.TabIndex = 10;
             this.label1.Text = "Name";
             // 
-            // envirTxt
-            // 
-            this.envirTxt.Location = new System.Drawing.Point(554, 105);
-            this.envirTxt.Margin = new System.Windows.Forms.Padding(2);
-            this.envirTxt.Name = "envirTxt";
-            this.envirTxt.Size = new System.Drawing.Size(183, 27);
-            this.envirTxt.TabIndex = 16;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -231,11 +223,20 @@ namespace Elemont.Gui.GameManager
             this.IdTxt.Size = new System.Drawing.Size(183, 27);
             this.IdTxt.TabIndex = 24;
             // 
+            // envirBox
+            // 
+            this.envirBox.FormattingEnabled = true;
+            this.envirBox.Location = new System.Drawing.Point(554, 105);
+            this.envirBox.Name = "envirBox";
+            this.envirBox.Size = new System.Drawing.Size(183, 28);
+            this.envirBox.TabIndex = 25;
+            // 
             // fElementEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 470);
+            this.Controls.Add(this.envirBox);
             this.Controls.Add(this.IdTxt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ElementGridView);
@@ -243,7 +244,6 @@ namespace Elemont.Gui.GameManager
             this.Controls.Add(this.WeakTxt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.envirTxt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nameTxt);
             this.Controls.Add(this.label1);
@@ -271,7 +271,6 @@ namespace Elemont.Gui.GameManager
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox envirTxt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -280,5 +279,6 @@ namespace Elemont.Gui.GameManager
         private System.Windows.Forms.DataGridView ElementGridView;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox IdTxt;
+        private System.Windows.Forms.ComboBox envirBox;
     }
 }

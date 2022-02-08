@@ -37,12 +37,16 @@ namespace Elemont.Gui.GameManager
             StrongTxt.Items.AddRange(ElementDao.Instance.GetAllElements());
             StrongTxt.DisplayMember = "Name";
             StrongTxt.ValueMember = "ElementId";
+            String[] myArray = { "Jungle", "Swamp", "Snow", "Desert" };
+            envirBox.DataSource = myArray;
+
+
         }
         public void loadNull()
         {
             IdTxt.Text = "";
             nameTxt.Text = "";
-            envirTxt.Text = "";
+            envirBox.SelectedIndex = -1;
             for (int i = 0; i < WeakTxt.Items.Count; i++)
             {
                 WeakTxt.SetItemChecked(i, false);
@@ -65,7 +69,7 @@ namespace Elemont.Gui.GameManager
                 Element element = ElementDao.Instance.GetElementById(Convert.ToInt32(ElementGridView.Rows[e.RowIndex].Cells[0].Value));
                 IdTxt.Text = element.ElementId.ToString();
                 nameTxt.Text = element.Name;
-                envirTxt.Text = element.Environment;
+                envirBox.SelectedItem = element.Environment;
                 for (int i = 0; i < WeakTxt.Items.Count; i++)
                 {
                     if (element.Weak.Contains((WeakTxt.Items[i] as Element).ElementId))
@@ -95,7 +99,8 @@ namespace Elemont.Gui.GameManager
                     item => item.ElementId).ToArray();
                 int[] strong = StrongTxt.CheckedItems.OfType<Element>().ToArray().Select(
                     item => item.ElementId).ToArray();
-                Element element = new Element(nameTxt.Text, envirTxt.Text, weak, strong);
+                Element element = new Element(nameTxt.Text, envirBox.SelectedItem.ToString()
+                    , weak, strong);
                 if (!ElementDao.Instance.AddElement(element))
                 {
 
@@ -107,7 +112,7 @@ namespace Elemont.Gui.GameManager
                    item => item.ElementId).ToArray();
                 int[] strong = StrongTxt.CheckedItems.OfType<Element>().ToArray().Select(
                     item => item.ElementId).ToArray();
-                Element element = new Element(nameTxt.Text, envirTxt.Text, weak, strong,
+                Element element = new Element(nameTxt.Text, envirBox.SelectedItem.ToString(), weak, strong,
                     Convert.ToInt32(IdTxt.Text));
                 if (!ElementDao.Instance.ChangeElement(element))
                 {

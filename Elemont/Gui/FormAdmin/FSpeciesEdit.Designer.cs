@@ -44,16 +44,18 @@ namespace Elemont.Gui.FormAdmin
             this.defenseTxt = new System.Windows.Forms.TextBox();
             this.hptxt = new System.Windows.Forms.TextBox();
             this.attackTxt = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.imgBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.speciesGridView = new System.Windows.Forms.DataGridView();
             this.elementBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.speciesIdTxt = new System.Windows.Forms.TextBox();
+            this.imageBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speciesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -213,15 +215,15 @@ namespace Elemont.Gui.FormAdmin
             this.attackTxt.TabIndex = 35;
             this.attackTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.attackTxt_KeyPress);
             // 
-            // comboBox1
+            // imgBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(537, 145);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 28);
-            this.comboBox1.TabIndex = 36;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.imgBox.FormattingEnabled = true;
+            this.imgBox.Location = new System.Drawing.Point(537, 145);
+            this.imgBox.Margin = new System.Windows.Forms.Padding(2);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(193, 28);
+            this.imgBox.TabIndex = 36;
+            this.imgBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -277,17 +279,27 @@ namespace Elemont.Gui.FormAdmin
             this.speciesIdTxt.TabIndex = 41;
             this.speciesIdTxt.UseWaitCursor = true;
             // 
+            // imageBox
+            // 
+            this.imageBox.Location = new System.Drawing.Point(537, 187);
+            this.imageBox.Name = "imageBox";
+            this.imageBox.Size = new System.Drawing.Size(193, 123);
+            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageBox.TabIndex = 42;
+            this.imageBox.TabStop = false;
+            // 
             // FSpeciesEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 470);
+            this.Controls.Add(this.imageBox);
             this.Controls.Add(this.speciesIdTxt);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.elementBox);
             this.Controls.Add(this.speciesGridView);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.imgBox);
             this.Controls.Add(this.attackTxt);
             this.Controls.Add(this.hptxt);
             this.Controls.Add(this.defenseTxt);
@@ -307,6 +319,7 @@ namespace Elemont.Gui.FormAdmin
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.speciesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,7 +339,7 @@ namespace Elemont.Gui.FormAdmin
         private System.Windows.Forms.TextBox defenseTxt;
         private System.Windows.Forms.TextBox hptxt;
         private System.Windows.Forms.TextBox attackTxt;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox imgBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView speciesGridView;
         private System.Windows.Forms.ComboBox elementBox;
@@ -334,5 +347,6 @@ namespace Elemont.Gui.FormAdmin
         private System.Windows.Forms.TextBox speciesIdTxt;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.PictureBox imageBox;
     }
 }
