@@ -88,8 +88,8 @@ namespace Elemont.Dto
             Exp = 0;
             Gold = 100;
             Ball1Num = 10;
-            speed = 5;
-            vision = 5;
+            Speed = 5;
+            Vision = 5;
         }
     }
 }

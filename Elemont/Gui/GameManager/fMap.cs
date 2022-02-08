@@ -17,7 +17,6 @@ namespace Elemont.Gui.Game
             InitializeComponent();
 
         }
-
         private void fMap_Load(object sender, EventArgs e)
         {
             pictureBox1.AllowDrop = true;
@@ -29,21 +28,26 @@ namespace Elemont.Gui.Game
         }
         private void loadmap()
         {
-            foreach (Control c1 in Map1.Controls)
+            bool child = true;
+            while (child)
             {
-                Map1.Controls.Remove(c1);
+                foreach (Control c1 in Map1.Controls)
+                {
+                    Map1.Controls.Remove(c1);
+                }
+                child = Map1.HasChildren;
             }
             foreach (Map m in MapDao.Instance.GetMaps())
             {
                 GroupBox gb = new GroupBox();
                 gb.Size = new Size(150, 120);
                 PictureBox pb = new PictureBox();
-                pb.Size = new Size(120, 100);
+                pb.Size = new Size(150, 105);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Tag = m.MapId;
                 pb.Image = Image.FromFile("..\\..\\..\\" + m.Background);
                 pb.Click += new System.EventHandler(this.pictureBox1_Click);
-                pb.Location = new Point(20, 20);
+                pb.Location = new Point(0, 20);
                 gb.Controls.Add(pb);
                 gb.Text = m.Name;
                 gb.Tag = m.MapId;
@@ -66,12 +70,11 @@ namespace Elemont.Gui.Game
             foreach (Control c1 in flowLayoutPanel1.Controls)
             {
                 pictureBox1.Controls.Add(c1);
-                c1.Location = new Point(x, y);                               
+                c1.Location = new Point(x, y);
                 ControlExtension.Draggable(c1, true);
                 c1.BringToFront();
             }
         }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -125,7 +128,7 @@ namespace Elemont.Gui.Game
                 pb.DoubleClick += new System.EventHandler(this.pictureBox_DoubleClick);
                 pb.Click += new System.EventHandler(this.pictureBox_Click);
                 pb.Size = new Size((int)numericUpDown5.Value, (int)numericUpDown6.Value);
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;                
+                pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.Tag = comboBox1.SelectedItem.ToString();
             }
             else
@@ -133,7 +136,6 @@ namespace Elemont.Gui.Game
                 MessageBox.Show("Please check all properties", "", MessageBoxButtons.OK);
             }
         }
-
         private void pictureBox_DoubleClick(object sender, EventArgs e)
         {
             if (!flowLayoutPanel1.HasChildren)
@@ -150,15 +152,17 @@ namespace Elemont.Gui.Game
         private void pictureBox_Click(object sender, EventArgs e)
         {
             PictureBox pb = sender as PictureBox;
-            numericUpDown1.Value = pb.Location.X;
-            numericUpDown2.Value = pb.Location.Y;
-            numericUpDown5.Value = pb.Width;
-            numericUpDown6.Value = pb.Height;
-            pb.BringToFront();
-            label3.Text = pb.Tag.ToString();
+            if (pb.Parent.Equals(pictureBox1)&& !flowLayoutPanel1.HasChildren)
+            {
+                numericUpDown1.Value = pb.Location.X;
+                numericUpDown2.Value = pb.Location.Y;
+                numericUpDown5.Value = pb.Width;
+                numericUpDown6.Value = pb.Height;
+                pb.BringToFront();
+                label3.Text = pb.Tag.ToString();
+            }
 
         }
-
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
             numericUpDown1.Maximum = numericUpDown3.Value;
@@ -178,8 +182,6 @@ namespace Elemont.Gui.Game
             clone.BackColor = pb.BackColor;
             return clone;
         }
-
-
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)
@@ -187,7 +189,6 @@ namespace Elemont.Gui.Game
                 c1.Width = (int)numericUpDown5.Value;
             }
         }
-
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)
@@ -195,7 +196,6 @@ namespace Elemont.Gui.Game
                 c1.Height = (int)numericUpDown6.Value;
             }
         }
-
         private void bimg_Click(object sender, EventArgs e)
         {
             try
@@ -214,11 +214,11 @@ namespace Elemont.Gui.Game
 
             }
         }
-
         private void bSave_Click(object sender, EventArgs e)
         {
             if (comboBox3.SelectedItem != null && textBox1.Text != null)
-            { Map map = new Map();
+            {
+                Map map = new Map();
                 map.Width = (int)numericUpDown3.Value;
                 map.Height = (int)numericUpDown4.Value;
                 map.Name = this.comboBox3.Text;
@@ -228,10 +228,7 @@ namespace Elemont.Gui.Game
                 loadmap();
             }
         }
-
-
-
-        private void button3_Click(object sender, EventArgs e) //save
+        private void button3_Click(object sender, EventArgs e) 
         {
             if (comboBox3.SelectedItem != null)
             {
@@ -245,7 +242,7 @@ namespace Elemont.Gui.Game
                 {
                     Cell cell = new Cell(c1.Width, c1.Height);
                     cell.LocationX = c1.Left;
-                    cell.LocationY = c1.Top;                    
+                    cell.LocationY = c1.Top;
                     cell.MapId = (int)pictureBox1.Tag;
                     cell.Type = c1.Tag.ToString();
                     termsList.Add(cell);
@@ -265,7 +262,7 @@ namespace Elemont.Gui.Game
                     }
                     else
                         if (!CellDao.Instance.AddCell(cell))
-                       { }
+                    { }
                 }
                 map.Cells = termsList.ToArray();
                 if (!MapDao.Instance.ChangeMap(map))
@@ -273,22 +270,27 @@ namespace Elemont.Gui.Game
                 MessageBox.Show("Map Created and Saved ", "", MessageBoxButtons.OK);
             }
         }
-
-        private void button5_Click(object sender, EventArgs e) //choose
+        private void button5_Click(object sender, EventArgs e) 
         {
             foreach (Control c1 in Map1.Controls)
             {
                 if (c1.BackColor == Color.Blue)
                 {
-                    foreach (Control c2 in pictureBox1.Controls)
-                    { pictureBox1.Controls.Remove(c2); }
+                    bool child = true;
+                    while (child)
+                    {
+                        foreach (Control c2 in pictureBox1.Controls)
+                        { pictureBox1.Controls.Remove(c2); }
+                        child = pictureBox1.HasChildren;
+                    }
+
                     Map map = MapDao.Instance.GetMapById((int)c1.Tag);
                     pictureBox1.Tag = map.MapId;
                     pictureBox1.Image = Image.FromFile("..\\..\\..\\" + map.Background);
                     numericUpDown3.Value = pictureBox1.Width = map.Width;
                     numericUpDown4.Value = pictureBox1.Height = map.Height;
-                     
-                   
+                    comboBox3.Text = map.Name;
+                    textBox1.Text = map.Background;
                     groupBox2.Enabled = true;
                     foreach (Cell c in map.Cells)
                     {
@@ -325,18 +327,22 @@ namespace Elemont.Gui.Game
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)
             {
-                CellDao.Instance.DeleteCell(CellDao.Instance.GetCellById((int)c1.Tag));
+                int i;
+                bool isold = int.TryParse(c1.Tag.ToString(), out i);
+                if (isold)
+                {
+                    if (!CellDao.Instance.DeleteCell(CellDao.Instance.GetCellById(i)))
+                    { }
+                }
                 flowLayoutPanel1.Controls.Remove(c1);
             }
         }
-
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             bSave.Enabled = true;
-            textBox1.Text = "Resources"+"\\"+"\\"+  comboBox3.Text + ".png";
+            textBox1.Text = "Resources" + "\\" + "\\" + comboBox3.Text + ".png";
             pictureBox1.Image = Image.FromFile("..\\..\\..\\" + textBox1.Text);
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
             foreach (Control c1 in Map1.Controls)
@@ -348,7 +354,6 @@ namespace Elemont.Gui.Game
                 }
             }
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (Control c1 in flowLayoutPanel1.Controls)

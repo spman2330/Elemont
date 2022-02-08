@@ -37,5 +37,17 @@ namespace Elemont.Dto
             SpeciesId = Convert.ToInt32(row["speciesId"].ToString());
             Skills = SkillDao.Instance.GetSkillInConnection(SpeciesId);
         }
+
+        public Species(string name, string image, int baseAttack, int baseDefense,
+            int baseHp, Element element, int speciesId = 0)
+        {
+            Name = name;
+            Image = image;
+            BaseAttack = baseAttack;
+            BaseDefense = baseDefense;
+            BaseHp = baseHp;
+            SpeciesId = speciesId;
+            Element = element;
+        }
     }
 }

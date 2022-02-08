@@ -26,9 +26,12 @@ namespace Elemont.Gui
         {
             if(_account.Type!=1)
             {
+
                 button5.Visible = false;
                 button3.Visible = false;
             }    
+
+            label1.Text = "Welcome " + _account.Name;
         }
 
         private void button2_Click(object sender, EventArgs e) //game

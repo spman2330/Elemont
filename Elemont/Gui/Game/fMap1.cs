@@ -33,7 +33,7 @@ namespace Elemont.Gui.Game
                         case "Water":
                             foreach (Pokemon pkm in this.game.Trainers.Pokemons)
                             {
-                                if (pkm.Species.Element.Name == "water")
+                                if (pkm.Species.Element.Name == "WATER")
                                 { return false; }
 
                             }
@@ -259,12 +259,6 @@ namespace Elemont.Gui.Game
             }
             pictureBox6.Visible = pictureBox7.Visible = pictureBox8.Visible = pictureBox9.Visible = true;
             this.ClientSize = new Size(900, 700);
-            foreach (Control c1 in this.Controls)
-            {
-                if (c1.Tag != null)
-                    if (c1.Tag.ToString() == "Water")
-                        c1.BringToFront();
-            }
 
             foreach (Control c1 in this.Controls)
             {
