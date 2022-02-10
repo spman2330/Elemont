@@ -82,7 +82,7 @@ namespace Elemont.Gui.FormAdmin
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (idTxt.Text != "")
+            if (typeBox.SelectedIndex != -1)
             {
                 if(nameTxt.Text !=""&&typeBox.SelectedItem!=null &&numTxt.Text!=""&&manaTxt.Text!="" )
                 {
@@ -94,7 +94,6 @@ namespace Elemont.Gui.FormAdmin
 
                     }
                 }
-              
             }
             else
             {

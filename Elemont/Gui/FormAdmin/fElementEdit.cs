@@ -93,7 +93,7 @@ namespace Elemont.Gui.GameManager
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (IdTxt.Text == "")
+            if (envirBox.SelectedIndex != -1)
             {
                 if (nameTxt.Text != "" && envirBox.SelectedItem != null)
                 {

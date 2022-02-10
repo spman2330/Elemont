@@ -104,8 +104,7 @@ namespace Elemont.Gui.FormAdmin
 
         private void button7_Click(object sender, EventArgs e)
         {
-
-            if (speciesIdTxt.Text != "")
+            try
             {
                 if (nameTxt.Text != "" && imgBox.SelectedItem != null && attackTxt.Text != "" && defenseTxt.Text != "" && hptxt.Text != "" && elementBox.SelectedItem != null)
                 {
@@ -115,11 +114,10 @@ namespace Elemont.Gui.FormAdmin
                   (Element)elementBox.SelectedItem, Convert.ToInt32(speciesIdTxt.Text));
                     if (SpeciesDao.Instance.ChangeSpecies(species))
                     {
-
                     }
                 }
             }
-            else
+            catch
             {
                 if (nameTxt.Text != "" && imgBox.SelectedItem != null && attackTxt.Text != "" && defenseTxt.Text != "" && hptxt.Text != "" && elementBox.SelectedItem != null)
                 {
@@ -132,7 +130,7 @@ namespace Elemont.Gui.FormAdmin
 
                     }
                 }
-             
+            
             }
             loadData();
             loadNull();
