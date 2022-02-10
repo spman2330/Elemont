@@ -106,35 +106,31 @@ namespace Elemont.Gui.FormAdmin
         {
             try
             {
-                if (elementBox.SelectedIndex != -1)
+                if (nameTxt.Text != "" && imgBox.SelectedItem != null && attackTxt.Text != "" && defenseTxt.Text != "" && hptxt.Text != "" && elementBox.SelectedItem != null)
                 {
-                    if (speciesIdTxt.Text != "")
+                    species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
+                      Convert.ToInt32(attackTxt.Text),
+                  Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
+                  (Element)elementBox.SelectedItem, Convert.ToInt32(speciesIdTxt.Text));
+                    if (SpeciesDao.Instance.ChangeSpecies(species))
                     {
-                        species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
-                            Convert.ToInt32(attackTxt.Text),
-                        Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
-                        (Element)elementBox.SelectedItem, Convert.ToInt32(speciesIdTxt.Text));
-                        if (SpeciesDao.Instance.ChangeSpecies(species))
-                        {
-
-                        }
-                    }
-                    else
-                    {
-                        species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
-                            Convert.ToInt32(attackTxt.Text),
-                        Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
-                        (Element)elementBox.SelectedItem);
-                        if (SpeciesDao.Instance.AddSpecies(species))
-                        {
-
-                        }
                     }
                 }
             }
             catch
             {
+                if (nameTxt.Text != "" && imgBox.SelectedItem != null && attackTxt.Text != "" && defenseTxt.Text != "" && hptxt.Text != "" && elementBox.SelectedItem != null)
+                {
+                    species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
+                        Convert.ToInt32(attackTxt.Text),
+                    Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
+                    (Element)elementBox.SelectedItem);
+                    if (SpeciesDao.Instance.AddSpecies(species))
+                    {
 
+                    }
+                }
+            
             }
             loadData();
             loadNull();

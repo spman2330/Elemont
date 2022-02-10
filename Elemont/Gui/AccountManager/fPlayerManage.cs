@@ -32,10 +32,12 @@ namespace Elemont.Gui.AccountManager
                 LoadData();
             }
             else
-            {
-                Account account = AccountDao.Instance.GetAccountByUsername(txtUsername.Text);
-                Account[] a = { account };
-                dGVInfo.DataSource = a;
+            {if (AccountDao.Instance.CheckAccount(txtUsername.Text.ToString()))
+                {
+                    Account account = AccountDao.Instance.GetAccountByUsername(txtUsername.Text);
+                    Account[] a = { account };
+                    dGVInfo.DataSource = a;
+                }
             }
         }
 
@@ -63,32 +65,40 @@ namespace Elemont.Gui.AccountManager
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            Account _account = AccountDao.Instance.GetAccountById(int.Parse(txtID.Text));
-            if (AccountDao.Instance.DeleteAccount(_account))
+            if (txtID.Text != "")
             {
-                MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } else lblID.Text = "Please check the ID";
-            LoadData();
-            Reset();
+                Account _account = AccountDao.Instance.GetAccountById(int.Parse(txtID.Text));
+                if (AccountDao.Instance.DeleteAccount(_account))
+                {
+                    MessageBox.Show("Delete successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else lblID.Text = "Please check the ID";
+                LoadData();
+                Reset();
+            }
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!AccountDao.Instance.CheckAccount(int.Parse(txtID.Text)))
+            try
             {
-                MessageBox.Show("This ID does not exist", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!AccountDao.Instance.CheckAccount(int.Parse(txtID.Text)))
+                {
+                    MessageBox.Show("This ID does not exist", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    Account account = AccountDao.Instance.GetAccountById(int.Parse(txtID.Text));
+                    account.UserName = txtUsername.Text;
+                    account.Password = txtPassword.Text;
+                    account.Name = txtName.Text;
+                    account.Type = cbBType.SelectedIndex;
+                    if (AccountDao.Instance.ChangeAccount(account))
+                    { MessageBox.Show("Update successful", "", MessageBoxButtons.OK); }
+                }
+                LoadData();
+                Reset();
             }
-            else
-            {
-                Account account = AccountDao.Instance.GetAccountById(int.Parse(txtID.Text));
-                account.UserName = txtUsername.Text;
-                account.Password = txtPassword.Text;
-                account.Name = txtName.Text;
-                account.Type = cbBType.SelectedIndex;
-                if (AccountDao.Instance.ChangeAccount(account))
-                { MessageBox.Show("Update successful", "", MessageBoxButtons.OK); }
-            }
-            LoadData();
-            Reset();
+            catch { }
         }
 
         private void dGVInfo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

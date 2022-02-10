@@ -84,8 +84,7 @@ namespace Elemont.Gui.FormAdmin
         {
             if (typeBox.SelectedIndex != -1)
             {
-
-                if (idTxt.Text != "")
+                if(nameTxt.Text !=""&&typeBox.SelectedItem!=null &&numTxt.Text!=""&&manaTxt.Text!="" )
                 {
                     Skill skill = new Skill(nameTxt.Text, typeBox.SelectedItem.ToString()
                         , Convert.ToInt32(numTxt.Text), Convert.ToInt32(manaTxt.Text),
@@ -95,7 +94,10 @@ namespace Elemont.Gui.FormAdmin
 
                     }
                 }
-                else
+            }
+            else
+            {
+                if (nameTxt.Text != "" && typeBox.SelectedItem != null && numTxt.Text != "" && manaTxt.Text != "")
                 {
                     Skill skill = new Skill(nameTxt.Text, typeBox.SelectedItem.ToString()
                        , Convert.ToInt32(numTxt.Text), Convert.ToInt32(manaTxt.Text));
@@ -104,6 +106,7 @@ namespace Elemont.Gui.FormAdmin
 
                     }
                 }
+                
             }
             loadData();
             loadNull();

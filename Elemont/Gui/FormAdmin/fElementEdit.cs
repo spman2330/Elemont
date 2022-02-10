@@ -95,7 +95,7 @@ namespace Elemont.Gui.GameManager
         {
             if (envirBox.SelectedIndex != -1)
             {
-                if (IdTxt.Text == "")
+                if (nameTxt.Text != "" && envirBox.SelectedItem != null)
                 {
                     int[] weak = WeakTxt.CheckedItems.OfType<Element>().ToArray().Select(
                         item => item.ElementId).ToArray();
@@ -108,7 +108,11 @@ namespace Elemont.Gui.GameManager
 
                     }
                 }
-                else
+                
+            }
+            else
+            {
+                if (nameTxt.Text != "" && envirBox.SelectedItem != null)
                 {
                     int[] weak = WeakTxt.CheckedItems.OfType<Element>().ToArray().Select(
                        item => item.ElementId).ToArray();
@@ -121,6 +125,7 @@ namespace Elemont.Gui.GameManager
 
                     }
                 }
+               
             }
             loadData();
             loadNull();
