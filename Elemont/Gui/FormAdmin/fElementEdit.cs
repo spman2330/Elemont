@@ -95,29 +95,37 @@ namespace Elemont.Gui.GameManager
         {
             if (IdTxt.Text == "")
             {
-                int[] weak = WeakTxt.CheckedItems.OfType<Element>().ToArray().Select(
-                    item => item.ElementId).ToArray();
-                int[] strong = StrongTxt.CheckedItems.OfType<Element>().ToArray().Select(
-                    item => item.ElementId).ToArray();
-                Element element = new Element(nameTxt.Text, envirBox.SelectedItem.ToString()
-                    , weak, strong);
-                if (!ElementDao.Instance.AddElement(element))
+                if (nameTxt.Text != "" && envirBox.SelectedItem != null)
                 {
+                    int[] weak = WeakTxt.CheckedItems.OfType<Element>().ToArray().Select(
+                        item => item.ElementId).ToArray();
+                    int[] strong = StrongTxt.CheckedItems.OfType<Element>().ToArray().Select(
+                        item => item.ElementId).ToArray();
+                    Element element = new Element(nameTxt.Text, envirBox.SelectedItem.ToString()
+                        , weak, strong);
+                    if (!ElementDao.Instance.AddElement(element))
+                    {
 
+                    }
                 }
+                
             }
             else
             {
-                int[] weak = WeakTxt.CheckedItems.OfType<Element>().ToArray().Select(
-                   item => item.ElementId).ToArray();
-                int[] strong = StrongTxt.CheckedItems.OfType<Element>().ToArray().Select(
-                    item => item.ElementId).ToArray();
-                Element element = new Element(nameTxt.Text, envirBox.SelectedItem.ToString(), weak, strong,
-                    Convert.ToInt32(IdTxt.Text));
-                if (!ElementDao.Instance.ChangeElement(element))
+                if (nameTxt.Text != "" && envirBox.SelectedItem != null)
                 {
+                    int[] weak = WeakTxt.CheckedItems.OfType<Element>().ToArray().Select(
+                       item => item.ElementId).ToArray();
+                    int[] strong = StrongTxt.CheckedItems.OfType<Element>().ToArray().Select(
+                        item => item.ElementId).ToArray();
+                    Element element = new Element(nameTxt.Text, envirBox.SelectedItem.ToString(), weak, strong,
+                        Convert.ToInt32(IdTxt.Text));
+                    if (!ElementDao.Instance.ChangeElement(element))
+                    {
 
+                    }
                 }
+               
             }
             loadData();
             loadNull();
