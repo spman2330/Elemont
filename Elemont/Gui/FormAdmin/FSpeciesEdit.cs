@@ -104,28 +104,37 @@ namespace Elemont.Gui.FormAdmin
 
         private void button7_Click(object sender, EventArgs e)
         {
-
-            if (speciesIdTxt.Text != "")
+            try
             {
-                species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
-                    Convert.ToInt32(attackTxt.Text),
-                Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
-                (Element)elementBox.SelectedItem, Convert.ToInt32(speciesIdTxt.Text));
-                if (SpeciesDao.Instance.ChangeSpecies(species))
+                if (elementBox.SelectedIndex != -1)
                 {
+                    if (speciesIdTxt.Text != "")
+                    {
+                        species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
+                            Convert.ToInt32(attackTxt.Text),
+                        Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
+                        (Element)elementBox.SelectedItem, Convert.ToInt32(speciesIdTxt.Text));
+                        if (SpeciesDao.Instance.ChangeSpecies(species))
+                        {
 
+                        }
+                    }
+                    else
+                    {
+                        species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
+                            Convert.ToInt32(attackTxt.Text),
+                        Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
+                        (Element)elementBox.SelectedItem);
+                        if (SpeciesDao.Instance.AddSpecies(species))
+                        {
+
+                        }
+                    }
                 }
             }
-            else
+            catch
             {
-                species = new Species(nameTxt.Text, imgBox.SelectedItem.ToString(),
-                    Convert.ToInt32(attackTxt.Text),
-                Convert.ToInt32(defenseTxt.Text), Convert.ToInt32(hptxt.Text),
-                (Element)elementBox.SelectedItem);
-                if (SpeciesDao.Instance.AddSpecies(species))
-                {
 
-                }
             }
             loadData();
             loadNull();

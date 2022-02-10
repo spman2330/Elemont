@@ -82,23 +82,27 @@ namespace Elemont.Gui.FormAdmin
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (idTxt.Text != "")
+            if (typeBox.SelectedIndex != -1)
             {
-                Skill skill = new Skill(nameTxt.Text, typeBox.SelectedItem.ToString()
-                    , Convert.ToInt32(numTxt.Text), Convert.ToInt32(manaTxt.Text),
-                    Convert.ToInt32(idTxt.Text));
-                if (!SkillDao.Instance.ChangeSkill(skill))
-                {
 
+                if (idTxt.Text != "")
+                {
+                    Skill skill = new Skill(nameTxt.Text, typeBox.SelectedItem.ToString()
+                        , Convert.ToInt32(numTxt.Text), Convert.ToInt32(manaTxt.Text),
+                        Convert.ToInt32(idTxt.Text));
+                    if (!SkillDao.Instance.ChangeSkill(skill))
+                    {
+
+                    }
                 }
-            }
-            else
-            {
-                Skill skill = new Skill(nameTxt.Text, typeBox.SelectedItem.ToString()
-                   , Convert.ToInt32(numTxt.Text), Convert.ToInt32(manaTxt.Text));
-                if (!SkillDao.Instance.AddSkill(skill))
+                else
                 {
+                    Skill skill = new Skill(nameTxt.Text, typeBox.SelectedItem.ToString()
+                       , Convert.ToInt32(numTxt.Text), Convert.ToInt32(manaTxt.Text));
+                    if (!SkillDao.Instance.AddSkill(skill))
+                    {
 
+                    }
                 }
             }
             loadData();
